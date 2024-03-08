@@ -18,16 +18,28 @@ link_directories(./gtest/lib)
 # Only add cpp files, no h files!
 # Only add files with functionality here, no test files!
 set(RELEASE_SOURCE_FILES
-        tests.cpp
         PrintingSystem.cpp
-        PrintingSystem.h)
+        Device.cpp
+        Job.cpp
+        tinystr.cpp
+        tinyxml.cpp
+        tinyxmlerror.cpp
+        tinyxmlparser.cpp
+        PrintingSystemMain.cpp
+)
 
 # Set source files for DEBUG target
 # Only add cpp files, no h files!
 set(DEBUG_SOURCE_FILES
         tests.cpp
         PrintingSystem.cpp
-        PrintingSystem.h)
+        Device.cpp
+        Job.cpp
+        tinystr.cpp
+        tinyxml.cpp
+        tinyxmlerror.cpp
+        tinyxmlparser.cpp
+)
 
 # Create RELEASE target
 add_executable(release_target ${RELEASE_SOURCE_FILES})

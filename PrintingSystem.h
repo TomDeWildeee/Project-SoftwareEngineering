@@ -19,6 +19,9 @@ private:
     std::vector<Device*> devices;
     std::vector<Job*> jobs;
     PrintingSystem* _initCheck;
+
+    bool isUniqueJobNumber(int jobNR);
+    void clearSystemBecauseInvalid();
 };
 
 

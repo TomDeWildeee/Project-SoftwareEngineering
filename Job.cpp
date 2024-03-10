@@ -13,3 +13,7 @@ Job::Job(int jobNr, int pageCt, const std::string &userN) {
 bool Job::properlyInitialized() {
     return _initCheck == this;
 }
+
+int Job::getJobNR() const {
+    return jobNumber;
+}

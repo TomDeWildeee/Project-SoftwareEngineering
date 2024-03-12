@@ -1,11 +1,7 @@
 #include "DesignByContract.h"
 #include "PrintingSystem.h"
-<<<<<<< HEAD
-#include "tinyxml.h"
 #include <fstream>
 #include <iostream>
-=======
->>>>>>> 48f61dece6a1754b633bc4fb1addf0b8fbe48ee6
 
 bool PrintingSystem::properlyInitialized() {
     return _initCheck == this;

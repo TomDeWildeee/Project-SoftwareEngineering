@@ -1,6 +1,8 @@
 #include "DesignByContract.h"
 #include "PrintingSystem.h"
 #include "tinyxml.h"
+#include <fstream>
+#include <iostream>
 
 bool PrintingSystem::properlyInitialized() {
     return _initCheck == this;
@@ -217,4 +219,22 @@ ImportEnum PrintingSystem::importPrintingSystem(const char* filename, std::ostre
 
     doc.Clear();
     return ImportSuccess;
+}
+
+void PrintingSystem::saveOutput() {
+    std::ofstream outputFile ("output.txt");
+
+    for (auto& device : devices) {
+        outputFile << device->getName() << " (CO2: " << device->getEmissions() << "g/page):" << std::endl;
+    }
+    for (auto& job : jobs) {
+        if (job == jobs.front()) {
+            outputFile << "\t* Current: \n\t\t[#" << job->getJobNR() << "|" << job->getUserName() << "]" << std::endl;
+            outputFile << "\t* Queue:" << std::endl;
+        } else {
+            outputFile << "\t\t[#" << job->getJobNR() << "|" << job->getUserName() << "]" << std::endl;
+        }
+    }
+
+    outputFile.close();
 }

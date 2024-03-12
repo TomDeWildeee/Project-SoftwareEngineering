@@ -17,3 +17,7 @@ bool Job::properlyInitialized() {
 int Job::getJobNR() const {
     return jobNumber;
 }
+
+const std::string &Job::getUserName() const {
+    return userName;
+}

@@ -14,6 +14,8 @@ public:
     Job(int jobNr, int pageCt, const std::string &userN);
     int getJobNR() const;
     bool properlyInitialized();
+
+    const std::string &getUserName() const;
 };
 
 

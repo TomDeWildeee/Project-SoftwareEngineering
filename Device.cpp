@@ -13,3 +13,15 @@ Device::Device(const std::string &deviceName, int amountOfEmissions, int speedOf
 bool Device::properlyInitialized() {
     return _initCheck == this;
 }
+
+const std::string &Device::getName() const {
+    return name;
+}
+
+int Device::getEmissions() const {
+    return emissions;
+}
+
+int Device::getSpeed() const {
+    return speed;
+}

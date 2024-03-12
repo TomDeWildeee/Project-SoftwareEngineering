@@ -7,6 +7,13 @@ class Device {
 public:
     Device(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter);
     bool properlyInitialized();
+
+    const std::string &getName() const;
+
+    int getEmissions() const;
+
+    int getSpeed() const;
+
 private:
     Device* _initCheck;
 

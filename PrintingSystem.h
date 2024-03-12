@@ -15,6 +15,8 @@ public:
 
     ImportEnum importPrintingSystem(const char* filename, std::ostream &errStream);
 
+    void saveOutput();
+
 private:
     std::vector<Device*> devices;
     std::vector<Job*> jobs;

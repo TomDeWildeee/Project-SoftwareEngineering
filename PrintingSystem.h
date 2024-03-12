@@ -6,14 +6,15 @@
 #include "Device.h"
 #include "Job.h"
 
-enum ImportEnum {ImportSuccess, ImportError};
-
 class PrintingSystem {
 public:
     PrintingSystem();
     bool properlyInitialized();
+    bool isUniqueJobNumber(int jobNR);
+    void clearSystemBecauseInvalid();
 
-    ImportEnum importPrintingSystem(const char* filename, std::ostream &errStream);
+    void addDevice(Device* device);
+    void addJob(Job* job);
 
     void saveOutput();
 
@@ -22,8 +23,6 @@ private:
     std::vector<Job*> jobs;
     PrintingSystem* _initCheck;
 
-    bool isUniqueJobNumber(int jobNR);
-    void clearSystemBecauseInvalid();
 };
 
 

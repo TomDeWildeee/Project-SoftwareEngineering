@@ -19,6 +19,7 @@ link_directories(./gtest/lib)
 # Only add files with functionality here, no test files!
 set(RELEASE_SOURCE_FILES
         PrintingSystem.cpp
+        PrintingSystemImporter.cpp
         Device.cpp
         Job.cpp
         tinystr.cpp
@@ -32,6 +33,7 @@ set(RELEASE_SOURCE_FILES
 # Only add cpp files, no h files!
 set(DEBUG_SOURCE_FILES
         tests.cpp
+        PrintingSystemImporter.cpp
         PrintingSystem.cpp
         Device.cpp
         Job.cpp

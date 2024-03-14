@@ -1,0 +1,2 @@
+XML UNRECOGNIZED ELEMENT: Expected <DEVICE> ... </DEVICE> or <JOB> ... </JOB>.
+XML NOT CONSISTENT: XML file was not consistent and is invalid, system will be cleared

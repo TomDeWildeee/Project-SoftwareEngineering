@@ -27,6 +27,7 @@ set(RELEASE_SOURCE_FILES
         tinyxml/tinyxmlerror.cpp
         tinyxml/tinyxmlparser.cpp
         PrintingSystemMain.cpp
+        Utils.cpp
 )
 
 # Set source files for DEBUG target
@@ -41,6 +42,8 @@ set(DEBUG_SOURCE_FILES
         tinyxml/tinyxml.cpp
         tinyxml/tinyxmlerror.cpp
         tinyxml/tinyxmlparser.cpp
+        InputTest.cpp
+        Utils.cpp
 )
 
 # Create RELEASE target

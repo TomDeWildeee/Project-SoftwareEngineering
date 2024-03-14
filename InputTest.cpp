@@ -1,13 +1,7 @@
-//
-// Created by mauro on 13/03/2024.
-//
-
-#include "InputTest.h"
 #include "PrintingSystem.h"
 #include "PrintingSystemImporter.h"
 #include <iostream>
 #include <fstream>
-#include <sys/stat.h>
 #include <gtest/gtest.h>
 #include "Utils.h"
 

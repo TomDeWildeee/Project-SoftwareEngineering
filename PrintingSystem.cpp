@@ -2,12 +2,9 @@
 #include "PrintingSystem.h"
 #include <fstream>
 #include <iostream>
-<<<<<<< HEAD
 #include <thread>
 #include <algorithm>
-=======
 #include "PrintingSystemImporter.h"
->>>>>>> inputtest
 
 bool PrintingSystem::properlyInitialized() {
     return _initCheck == this;
@@ -66,7 +63,6 @@ void PrintingSystem::saveOutput() {
 
     outputFile.close();
 }
-<<<<<<< HEAD
 
 void PrintingSystem::processJob(int jobNR, std::ostream &outputStream) {
     REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to process a job");

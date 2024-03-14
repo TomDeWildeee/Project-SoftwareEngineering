@@ -1,6 +1,6 @@
 #include <iostream>
 #include "PrintingSystemImporter.h"
-#include "tinyxml.h"
+#include "tinyxml/tinyxml.h"
 #include "DesignByContract.h"
 
 std::string getTextFromNode(TiXmlNode* node) {

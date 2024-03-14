@@ -2,6 +2,8 @@
 #include "PrintingSystem.h"
 #include <fstream>
 #include <iostream>
+#include <thread>
+#include <algorithm>
 
 bool PrintingSystem::properlyInitialized() {
     return _initCheck == this;
@@ -59,4 +61,39 @@ void PrintingSystem::saveOutput() {
     }
 
     outputFile.close();
+}
+
+void PrintingSystem::processJob(int jobNR, std::ostream &outputStream) {
+    REQUIRE(!devices.empty(), "There has to be at least 1 printer available to process a job");
+    REQUIRE(!jobs.empty(), "There are no jobs that can be processed by a device");
+
+    Job* jobToProcess = nullptr;
+    for (const auto &job : jobs) {
+        if (job->getJobNR() == jobNR) {
+            jobToProcess = job;
+            break;
+        }
+    }
+
+    if (jobToProcess == nullptr) {
+       outputStream << "ERR: JOB with job number: " << jobNR << " can not be found" << std::endl;
+       return;
+    }
+
+    // We're taking the first printer at the moment
+    Device* device = devices[0];
+
+    // Searched up how to sleep in c++ to make the processing more realistic
+    for (int i = 0; i < jobToProcess->getPageCount(); ++i) {
+        outputStream << "Printing page " << i + 1 << std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(device->getSpeed() * 10));
+    }
+
+    outputStream << "Printer \"" << device->getName() << "\" finished job:" << std::endl;
+    outputStream << "\t Number: " << jobToProcess->getJobNR() << std::endl;
+    outputStream << "\t Submitted by \"" << jobToProcess->getUserName() << "\"" << std::endl;
+    outputStream <<  "\t " << jobToProcess->getPageCount() << " pages" << std::endl;
+
+    jobs.erase(std::remove(jobs.begin(), jobs.end(), jobToProcess), jobs.end());
+
 }

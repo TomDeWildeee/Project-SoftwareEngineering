@@ -21,3 +21,7 @@ int Job::getJobNR() const {
 const std::string &Job::getUserName() const {
     return userName;
 }
+
+int Job::getPageCount() const {
+    return pageCount;
+}

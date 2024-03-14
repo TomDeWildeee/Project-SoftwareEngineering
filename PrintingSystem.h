@@ -16,6 +16,8 @@ public:
     void addDevice(Device* device);
     void addJob(Job* job);
 
+    void processJob(int jobNR, std::ostream &outputStream);
+
     void saveOutput();
 
 private:

@@ -22,10 +22,10 @@ set(RELEASE_SOURCE_FILES
         PrintingSystemImporter.cpp
         Device.cpp
         Job.cpp
-        tinystr.cpp
-        tinyxml.cpp
-        tinyxmlerror.cpp
-        tinyxmlparser.cpp
+        tinyxml/tinystr.cpp
+        tinyxml/tinyxml.cpp
+        tinyxml/tinyxmlerror.cpp
+        tinyxml/tinyxmlparser.cpp
         PrintingSystemMain.cpp
 )
 
@@ -37,10 +37,10 @@ set(DEBUG_SOURCE_FILES
         PrintingSystem.cpp
         Device.cpp
         Job.cpp
-        tinystr.cpp
-        tinyxml.cpp
-        tinyxmlerror.cpp
-        tinyxmlparser.cpp
+        tinyxml/tinystr.cpp
+        tinyxml/tinyxml.cpp
+        tinyxml/tinyxmlerror.cpp
+        tinyxml/tinyxmlparser.cpp
 )
 
 # Create RELEASE target

@@ -2,6 +2,7 @@
 #include "PrintingSystem.h"
 #include <fstream>
 #include <iostream>
+#include "PrintingSystemImporter.h"
 
 bool PrintingSystem::properlyInitialized() {
     return _initCheck == this;
@@ -59,4 +60,8 @@ void PrintingSystem::saveOutput() {
     }
 
     outputFile.close();
+}
+void PrintingSystem::Importprintingsystem(const char* filename,std::ostream &errStream){
+    PrintingSystemImporter importer;
+    importer.importPrintingSystem(filename,errStream,*this);
 }

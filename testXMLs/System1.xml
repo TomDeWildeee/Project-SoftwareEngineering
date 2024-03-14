@@ -2,17 +2,17 @@
 <SYSTEM>
     <DEVICE>
         <name>Office_Printer5</name>
-        <emissions>3</emissions> <!-- Uittesten met foute spelling bvb -->
-        <speed>40</speed>
+        <emissions>9555</emissions> <!-- Uittesten met foute spelling bvb -->
+        <speed>1</speed>
     </DEVICE>
     <JOB>
-        <jobNumber>89751</jobNumber>
-        <pageCount>2</pageCount>
-        <userName>SergeDemeyer</userName>
+        <jobNumber>1</jobNumber>
+        <pageCount>1</pageCount>
+        <userName>a</userName>
     </JOB>
     <JOB>
-        <jobNumber>2189</jobNumber>
-        <pageCount>3</pageCount>
-        <userName>anonymous_user</userName>
+        <jobNumber>9999</jobNumber>
+        <pageCount>93333</pageCount>
+        <userName>David</userName>
     </JOB>
 </SYSTEM>

@@ -23,6 +23,7 @@ private:
     std::vector<Job*> jobs;
     PrintingSystem* _initCheck;
 
+    void Importprintingsystem(const char *filename, std::ostream &errStream);
 };
 
 

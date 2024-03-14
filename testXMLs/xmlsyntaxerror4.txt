@@ -1,0 +1,2 @@
+XML UNRECOGNIZED ATTRIBUTE: Expected <name> ... </name>
+XML NOT CONSISTENT: XML file was not consistent and is invalid, system will be cleared

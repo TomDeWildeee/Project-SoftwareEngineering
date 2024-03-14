@@ -15,6 +15,8 @@ public:
     int getJobNR() const;
     bool properlyInitialized();
 
+    int getPageCount() const;
+
     const std::string &getUserName() const;
 };
 

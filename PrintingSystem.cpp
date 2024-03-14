@@ -46,16 +46,14 @@ void PrintingSystem::addJob(Job *job) {
 void PrintingSystem::saveOutput() {
     std::ofstream outputFile ("output.txt");
 
+    outputFile << "Printers: " << std::endl;
     for (auto& device : devices) {
-        outputFile << device->getName() << " (CO2: " << device->getEmissions() << "g/page):" << std::endl;
+        outputFile << "\t" << device->getName() << " (CO2: " << device->getEmissions() << " g/page, Speed: "<< device->getSpeed() << " pages/min)" << std::endl;
     }
+
+    outputFile << "Jobs: " << std::endl;
     for (auto& job : jobs) {
-        if (job == jobs.front()) {
-            outputFile << "\t* Current: \n\t\t[#" << job->getJobNR() << "|" << job->getUserName() << "]" << std::endl;
-            outputFile << "\t* Queue:" << std::endl;
-        } else {
-            outputFile << "\t\t[#" << job->getJobNR() << "|" << job->getUserName() << "]" << std::endl;
-        }
+        outputFile << "\t[#" << job->getJobNR() << " | " << job->getUserName() << " | " << job->getPageCount() << " pages]" << std::endl;
     }
 
     outputFile.close();

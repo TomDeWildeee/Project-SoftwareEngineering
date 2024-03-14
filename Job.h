@@ -12,11 +12,11 @@ private:
     std::string userName;
 public:
     Job(int jobNr, int pageCt, const std::string &userN);
-    int getJobNR() const;
     bool properlyInitialized();
 
     int getPageCount() const;
 
+    int getJobNR() const;
     const std::string &getUserName() const;
 };
 

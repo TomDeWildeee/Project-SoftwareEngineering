@@ -1,8 +1,7 @@
 #include <iostream>
 #include "PrintingSystemImporter.h"
-#include "tinyxml.h"
+#include "tinyxml/tinyxml.h"
 #include "DesignByContract.h"
-
 std::string getTextFromNode(TiXmlNode* node) {
     TiXmlNode* childNode = node->FirstChild();
     if (childNode == nullptr) return "";
@@ -61,7 +60,8 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, st
                 errStream << "XML UNRECOGNIZED ATTRIBUTE: Expected <emissions> ... </emissions>" << std::endl;
                 invalid = true;
                 continue;
-            } else {
+            }
+            else {
                 std::string deviceEmissionsString = getTextFromNode(deviceEmissionsNode);
                 if (deviceEmissionsString.empty()) {
                     errStream << "XML NO INPUT: Expected an integer in the <emissions> attribute but couldn't retrieve it" << std::endl;
@@ -70,7 +70,6 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, st
                 }
                 deviceEmissions = std::stoi(deviceEmissionsString);
             }
-
             if (deviceSpeedNode == nullptr) {
                 errStream << "XML UNRECOGNIZED ATTRIBUTE: Expected <speed> ... </speed>" << std::endl;
                 invalid = true;
@@ -82,9 +81,12 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, st
                     invalid = true;
                     continue;
                 }
-                deviceSpeed = std::stoi(deviceSpeedString);
+                deviceSpeed = std::stoi(deviceSpeedString);/*
+                else{
+                    errStream << "XML NO INPUT: Expected an integer in the <speed> attribute but got other type" << std::endl;
+                    invalid = true;
+                }*/
             }
-
             if (deviceName.empty()) {
                 errStream << "XML NO INPUT: Expected a string in the <name> attribute but couldn't retrieve it" << std::endl;
                 invalid = true;
@@ -179,9 +181,9 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, st
 
         } else {
             errStream << "XML UNRECOGNIZED ELEMENT: Expected <DEVICE> ... </DEVICE> or <JOB> ... </JOB>." << std::endl;
+            invalid = true;
         }
     }
-
     if (invalid) {
         errStream << "XML NOT CONSISTENT: XML file was not consistent and is invalid, system will be cleared" << std::endl;
         printingSystem.clearSystemBecauseInvalid();

@@ -64,6 +64,7 @@ void PrintingSystem::saveOutput() {
 }
 
 void PrintingSystem::processJob(int jobNR, std::ostream &outputStream) {
+    REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to process a job");
     REQUIRE(!devices.empty(), "There has to be at least 1 printer available to process a job");
     REQUIRE(!jobs.empty(), "There are no jobs that can be processed by a device");
 
@@ -96,4 +97,14 @@ void PrintingSystem::processJob(int jobNR, std::ostream &outputStream) {
 
     jobs.erase(std::remove(jobs.begin(), jobs.end(), jobToProcess), jobs.end());
 
+}
+
+void PrintingSystem::processAllJobsAutomatically(std::ostream &outputStream) {
+    REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to automatically process jobs");
+    REQUIRE(!devices.empty(), "There has to be at least 1 printer available to process jobs automatically");
+    REQUIRE(!jobs.empty(), "There are no jobs that can be processed by a device");
+
+    while (!jobs.empty()) {
+        processJob(jobs[0]->getJobNR(), outputStream);
+    }
 }

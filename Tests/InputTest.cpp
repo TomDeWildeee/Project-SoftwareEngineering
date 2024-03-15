@@ -6,7 +6,7 @@
 #include "../Utils.h"
 
 using namespace std;
-class PrintingSystemTest: public ::testing::Test{
+class PrintingSystemImporterTest: public ::testing::Test{
 protected:
     friend class PrintingSystem;
     void SetUp() override{
@@ -17,33 +17,32 @@ protected:
     PrintingSystem printsystem;
 };
 
+std::string inputSyntaxErrorsDirectory = "testXMLs/inputsyntaxerrors";
 
-
-TEST_F(PrintingSystemTest, inputsyntaxerrors){
-    ASSERT_TRUE(DirectoryExists("testXMLs/inputsyntaxerrors"));
+TEST_F(PrintingSystemImporterTest, inputsyntaxerrors){
+    ASSERT_TRUE(DirectoryExists(inputSyntaxErrorsDirectory));
     ofstream myfile;
     ImportEnum importresult;
     int counter = 1;
-    string filename = "testXMLs/inputsyntaxerrors/xmlsyntaxerror" + ToString(counter) + ".xml";
+    string filename = inputSyntaxErrorsDirectory + "/xmlsyntaxerror" + ToString(counter) + ".xml";
     string errorfilename;
     while(FileExists(filename)){
-        myfile.open("testXMLs/inputsyntaxerrors/xmlError.txt");
+        myfile.open(inputSyntaxErrorsDirectory + "/xmlError.txt");
         importresult = PrintingSystemImporter::importPrintingSystem(filename.c_str(),myfile,printsystem);
         myfile.close();
         EXPECT_TRUE(importresult == ImportError);
-        errorfilename = "testXMLs/inputsyntaxerrors/xmlsyntaxerror" + ToString(counter) + ".txt";
-        EXPECT_TRUE(FileCompare("testXMLs/inputsyntaxerrors/xmlError.txt", errorfilename));
+        errorfilename = inputSyntaxErrorsDirectory + "/xmlsyntaxerror" + ToString(counter) + ".txt";
+        EXPECT_TRUE(FileCompare(inputSyntaxErrorsDirectory + "/xmlError.txt", errorfilename));
         counter +=1;
-        filename = "testXMLs/inputsyntaxerrors/xmlsyntaxerror" + ToString(counter) + ".xml";
+        filename = inputSyntaxErrorsDirectory + "/xmlsyntaxerror" + ToString(counter) + ".xml";
     }
     EXPECT_TRUE(counter == 5);
 }
 
 
-
 std::string illegalInputDirectory = "testXMLs/illegalinput";
 
-TEST_F(PrintingSystemTest, inputillegalnumbers){
+TEST_F(PrintingSystemImporterTest, inputillegalnumbers){
     ASSERT_TRUE(DirectoryExists(illegalInputDirectory));
     ofstream myfile;
     ImportEnum importresult;
@@ -64,22 +63,23 @@ TEST_F(PrintingSystemTest, inputillegalnumbers){
 }
 
 
+std::string legalInputDirectory = "testXMLs/legalinput";
 
-TEST_F(PrintingSystemTest, inputlegal){
-    ASSERT_TRUE(DirectoryExists("testXMLs/legalinput"));
+TEST_F(PrintingSystemImporterTest, inputlegal){
+    ASSERT_TRUE(DirectoryExists(legalInputDirectory));
     ofstream myfile;
     ImportEnum importresult;
     int counter = 1;
-    string filename = "testXMLs/legalinput/inputlegal" + ToString(counter) + ".xml";
+    string filename = legalInputDirectory + "/inputlegal" + ToString(counter) + ".xml";
     string errorfilename;
     while(FileExists(filename)){
-        myfile.open("testXMLs/legalinput/xmlError.txt");
+        myfile.open(legalInputDirectory + "/xmlError.txt");
         importresult = PrintingSystemImporter::importPrintingSystem(filename.c_str(),myfile,printsystem);
         myfile.close();
         EXPECT_TRUE(importresult == ImportSuccess);
         counter +=1;
         if(counter == 5){break;}
-        filename = "testXMLs/legalinput/inputlegal" + ToString(counter) + ".xml";
+        filename = legalInputDirectory + "/inputlegal" + ToString(counter) + ".xml";
     }
     EXPECT_TRUE(counter == 5);
 }

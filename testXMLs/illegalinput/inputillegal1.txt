@@ -1,0 +1,3 @@
+XML INVALID VALUE: Expected an integer in the <jobNumber> attribute but got a different type
+XML INVALID VALUE: Expected an integer in the <jobNumber> attribute but got a different type
+XML NOT CONSISTENT: XML file was not consistent and is invalid, system will be cleared

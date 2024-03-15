@@ -2,9 +2,7 @@
 #include "PrintingSystem.h"
 #include <fstream>
 #include <iostream>
-#include <thread>
 #include <algorithm>
-#include "PrintingSystemImporter.h"
 
 bool PrintingSystem::properlyInitialized() {
     return _initCheck == this;
@@ -47,6 +45,7 @@ void PrintingSystem::addJob(Job *job) {
 }
 
 void PrintingSystem::saveOutput() {
+    REQUIRE(this->properlyInitialized(), "Printing system was not initialized while trying to save the output");
     std::ofstream outputFile ("output.txt");
 
     outputFile << "Printers: " << std::endl;
@@ -60,6 +59,7 @@ void PrintingSystem::saveOutput() {
     }
 
     outputFile.close();
+    ENSURE(!outputFile.is_open(), "File was not closed after writing out to it");
 }
 
 void PrintingSystem::processJob(int jobNR, std::ostream &outputStream) {
@@ -80,13 +80,11 @@ void PrintingSystem::processJob(int jobNR, std::ostream &outputStream) {
        return;
     }
 
-    // We're taking the first printer at the moment
+    // We're taking the first printer at the moment (only device in specification 1.0)
     Device* device = devices[0];
 
-    // Searched up how to sleep in c++ to make the processing more realistic
     for (int i = 0; i < jobToProcess->getPageCount(); ++i) {
         outputStream << "Printing page " << i + 1 << std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(device->getSpeed() * 10));
     }
 
     outputStream << "Printer \"" << device->getName() << "\" finished job:" << std::endl;
@@ -95,7 +93,7 @@ void PrintingSystem::processJob(int jobNR, std::ostream &outputStream) {
     outputStream <<  "\t " << jobToProcess->getPageCount() << " pages" << std::endl;
 
     jobs.erase(std::remove(jobs.begin(), jobs.end(), jobToProcess), jobs.end());
-
+    ENSURE(std::find(jobs.begin(), jobs.end(), jobToProcess) == jobs.end(), "Processed job wasn't deleted out of the system");
 }
 
 void PrintingSystem::processAllJobsAutomatically(std::ostream &outputStream) {
@@ -106,4 +104,6 @@ void PrintingSystem::processAllJobsAutomatically(std::ostream &outputStream) {
     while (!jobs.empty()) {
         processJob(jobs[0]->getJobNR(), outputStream);
     }
+
+    ENSURE(jobs.empty(), "Not all jobs were processed after trying to process all the jobs");
 }

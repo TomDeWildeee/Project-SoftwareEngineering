@@ -5,6 +5,4 @@ int main() {
     PrintingSystem printingSystem;
     PrintingSystemImporter::importPrintingSystem("testXMLs/System1.xml", std::cout, printingSystem);
     printingSystem.saveOutput();
-    printingSystem.processAllJobsAutomatically(std::cout);
-    printingSystem.saveOutput();
 }

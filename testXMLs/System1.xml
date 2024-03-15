@@ -2,7 +2,7 @@
 <SYSTEM>
     <DEVICE>
         <name>Office_Printer5</name>
-        <emissions>9555</emissions> <!-- Uittesten met foute spelling bvb -->
+        <emissions>3</emissions> <!-- Uittesten met foute spelling bvb -->
         <speed>1</speed>
     </DEVICE>
     <JOB>

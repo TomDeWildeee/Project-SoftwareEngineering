@@ -33,7 +33,7 @@ set(RELEASE_SOURCE_FILES
 # Set source files for DEBUG target
 # Only add cpp files, no h files!
 set(DEBUG_SOURCE_FILES
-        tests.cpp
+        Tests/tests.cpp
         PrintingSystemImporter.cpp
         PrintingSystem.cpp
         Device.cpp
@@ -42,7 +42,7 @@ set(DEBUG_SOURCE_FILES
         tinyxml/tinyxml.cpp
         tinyxml/tinyxmlerror.cpp
         tinyxml/tinyxmlparser.cpp
-        InputTest.cpp
+        Tests/InputTest.cpp
         Utils.cpp
 )
 

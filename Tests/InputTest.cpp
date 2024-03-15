@@ -1,9 +1,9 @@
-#include "PrintingSystem.h"
-#include "PrintingSystemImporter.h"
+#include "../PrintingSystem.h"
+#include "../PrintingSystemImporter.h"
 #include <iostream>
 #include <fstream>
-#include <gtest/gtest.h>
-#include "Utils.h"
+#include "gtest/gtest.h"
+#include "../Utils.h"
 
 using namespace std;
 class PrintingSystemTest: public ::testing::Test{
@@ -34,7 +34,8 @@ TEST_F(PrintingSystemTest, inputsyntaxerrors){
         filename = "testXMLs/xmlsyntaxerror" + ToString(counter) + ".xml";
     }
     EXPECT_TRUE(counter == 5);
-}/*
+}
+/*
 TEST_F(PrintingSystemTest, inputillegalnumbers){
     ASSERT_TRUE(DirectoryExists("testXMLs"));
     ofstream myfile;
@@ -53,7 +54,8 @@ TEST_F(PrintingSystemTest, inputillegalnumbers){
         filename = "testXMLs/inputillegal" + ToString(counter) + ".xml";
     }
     EXPECT_TRUE(counter == 5);
-}*/
+}
+ */
 TEST_F(PrintingSystemTest, inputlegal){
     ASSERT_TRUE(DirectoryExists("testXMLs"));
     ofstream myfile;

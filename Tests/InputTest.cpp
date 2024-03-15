@@ -17,7 +17,7 @@ protected:
     PrintingSystem printsystem;
 };
 
-std::string inputSyntaxErrorsDirectory = "testXMLs/inputsyntaxerrors";
+std::string inputSyntaxErrorsDirectory = "testXMLs/InputTests/inputsyntaxerrors";
 
 TEST_F(PrintingSystemImporterTest, inputsyntaxerrors){
     ASSERT_TRUE(DirectoryExists(inputSyntaxErrorsDirectory));
@@ -40,7 +40,7 @@ TEST_F(PrintingSystemImporterTest, inputsyntaxerrors){
 }
 
 
-std::string illegalInputDirectory = "testXMLs/illegalinput";
+std::string illegalInputDirectory = "testXMLs/InputTests/illegalinput";
 
 TEST_F(PrintingSystemImporterTest, inputillegalnumbers){
     ASSERT_TRUE(DirectoryExists(illegalInputDirectory));
@@ -63,7 +63,7 @@ TEST_F(PrintingSystemImporterTest, inputillegalnumbers){
 }
 
 
-std::string legalInputDirectory = "testXMLs/legalinput";
+std::string legalInputDirectory = "testXMLs/InputTests/legalinput";
 
 TEST_F(PrintingSystemImporterTest, inputlegal){
     ASSERT_TRUE(DirectoryExists(legalInputDirectory));

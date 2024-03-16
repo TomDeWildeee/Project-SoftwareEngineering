@@ -5,14 +5,27 @@
 
 class Device {
 public:
-    Device(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter);
     bool properlyInitialized();
+/**
+ Device will never be constructed with invalid parameters, because we check for that in the importer
+ ENSURE(this->properlyInitialized(), "constructor must end in properlyInitialized state");
+*/
+    Device(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter);
 
-    const std::string &getName() const;
+/**
+ REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting name");
+*/
+    const std::string &getName();
 
-    int getEmissions() const;
+/**
+ REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting emissions");
+*/
+    int getEmissions();
 
-    int getSpeed() const;
+/**
+ REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting speed");
+*/
+    int getSpeed();
 
 private:
     Device* _initCheck;

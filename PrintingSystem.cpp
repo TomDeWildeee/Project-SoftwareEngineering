@@ -10,11 +10,12 @@ bool PrintingSystem::properlyInitialized() {
 
 PrintingSystem::PrintingSystem() {
     _initCheck = this;
-    ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
+    ENSURE(this->properlyInitialized(), "constructor must end in properlyInitialized state");
 }
 
 
 bool PrintingSystem::isUniqueJobNumber(const int jobNR) {
+    REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to check if a job number is unique");
     for (const auto &job : jobs) {
         if (job->getJobNR() == jobNR) return false;
     }
@@ -22,6 +23,7 @@ bool PrintingSystem::isUniqueJobNumber(const int jobNR) {
 }
 
 void PrintingSystem::clearSystemBecauseInvalid() {
+    REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to clear it");
     for (auto device : devices) {
         delete device;
     }
@@ -36,11 +38,13 @@ void PrintingSystem::clearSystemBecauseInvalid() {
     ENSURE(jobs.empty(), "Jobs vector wasn't empty after clearing system");
 }
 
-void PrintingSystem::addDevice(Device *device) {
+void PrintingSystem::addDevice(Device* device) {
+    REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to add a device");
     devices.push_back(device);
 }
 
-void PrintingSystem::addJob(Job *job) {
+void PrintingSystem::addJob(Job* job) {
+    REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to add a job");
     jobs.push_back(job);
 }
 

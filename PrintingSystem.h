@@ -8,23 +8,61 @@
 
 class PrintingSystem {
 public:
-    PrintingSystem();
     bool properlyInitialized();
+/**
+ ENSURE(this->properlyInitialized(), "constructor must end in properlyInitialized state");
+*/
+    PrintingSystem();
+
+/**
+ REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to check if a job number is unique");
+*/
     bool isUniqueJobNumber(int jobNR);
+
+/**
+ REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to clear it");
+ ENSURE(devices.empty(), "Devices vector wasn't empty after clearing system");
+ ENSURE(jobs.empty(), "Jobs vector wasn't empty after clearing system");
+*/
     void clearSystemBecauseInvalid();
 
+/**
+ REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to add a device");
+*/
     void addDevice(Device* device);
+
+/**
+ REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to add a job");
+*/
     void addJob(Job* job);
 
-    void processJob(int jobNR, std::ostream &outputStream);
-    void processAllJobsAutomatically(std::ostream &outputStream);
-
+/**
+ REQUIRE(this->properlyInitialized(), "Printing system was not initialized while trying to save the output");
+ ENSURE(!outputFile.is_open(), "File was not closed after writing out to it");
+*/
     void saveOutput();
 
+/**
+ REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to process a job");
+ REQUIRE(!devices.empty(), "There has to be at least 1 printer available to process a job");
+ REQUIRE(!jobs.empty(), "There are no jobs that can be processed by a device");
+ ENSURE(std::find(jobs.begin(), jobs.end(), jobToProcess) == jobs.end(), "Processed job wasn't deleted out of the system");
+*/
+    void processJob(int jobNR, std::ostream &outputStream);
+
+/**
+ REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to automatically process jobs");
+ REQUIRE(!devices.empty(), "There has to be at least 1 printer available to process jobs automatically");
+ REQUIRE(!jobs.empty(), "There are no jobs that can be processed by a device");
+ ENSURE(jobs.empty(), "Not all jobs were processed after trying to process all the jobs");
+*/
+    void processAllJobsAutomatically(std::ostream &outputStream);
+
 private:
+    PrintingSystem* _initCheck;
+
     std::vector<Device*> devices;
     std::vector<Job*> jobs;
-    PrintingSystem* _initCheck;
 
 };
 

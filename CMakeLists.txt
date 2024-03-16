@@ -44,6 +44,8 @@ set(DEBUG_SOURCE_FILES
         tinyxml/tinyxmlparser.cpp
         Tests/InputTest.cpp
         Utils.cpp
+        Tests/JobTest.cpp
+        Tests/DeviceTest.cpp
 )
 
 # Create RELEASE target

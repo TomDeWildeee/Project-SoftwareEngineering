@@ -1,0 +1,52 @@
+\hypertarget{classJob}{}\doxysection{Job Class Reference}
+\label{classJob}\index{Job@{Job}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classJob_a50af6e4931ed0262da76ffa903e66682}\label{classJob_a50af6e4931ed0262da76ffa903e66682}} 
+bool {\bfseries properly\+Initialized} ()
+\item 
+\mbox{\hyperlink{classJob_a19af5ef4c2bf0128d8e13642920eee01}{Job}} (int job\+Nr, int page\+Ct, const std\+::string \&userN)
+\item 
+int \mbox{\hyperlink{classJob_a37e7421ad571ecee85a3bcdfbb3af5ae}{get\+Job\+NR}} ()
+\item 
+const std\+::string \& \mbox{\hyperlink{classJob_ae4282dfa2ea81f386d8675b0566e7bc8}{get\+User\+Name}} ()
+\item 
+int \mbox{\hyperlink{classJob_a6281448e15e1062fe194e9dc1af39ffe}{get\+Page\+Count}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classJob_a19af5ef4c2bf0128d8e13642920eee01}\label{classJob_a19af5ef4c2bf0128d8e13642920eee01}} 
+\index{Job@{Job}!Job@{Job}}
+\index{Job@{Job}!Job@{Job}}
+\doxysubsubsection{\texorpdfstring{Job()}{Job()}}
+{\footnotesize\ttfamily Job\+::\+Job (\begin{DoxyParamCaption}\item[{int}]{job\+Nr,  }\item[{int}]{page\+Ct,  }\item[{const std\+::string \&}]{userN }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classJob}{Job}} will never be constructed with invalid parameters, because we check for that in the importer ENSURE(this-\/$>$properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{}); 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classJob_a37e7421ad571ecee85a3bcdfbb3af5ae}\label{classJob_a37e7421ad571ecee85a3bcdfbb3af5ae}} 
+\index{Job@{Job}!getJobNR@{getJobNR}}
+\index{getJobNR@{getJobNR}!Job@{Job}}
+\doxysubsubsection{\texorpdfstring{getJobNR()}{getJobNR()}}
+{\footnotesize\ttfamily int Job\+::get\+Job\+NR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Job wasn\textquotesingle{}t initialized when getting jobnumber\char`\"{}); \mbox{\Hypertarget{classJob_a6281448e15e1062fe194e9dc1af39ffe}\label{classJob_a6281448e15e1062fe194e9dc1af39ffe}} 
+\index{Job@{Job}!getPageCount@{getPageCount}}
+\index{getPageCount@{getPageCount}!Job@{Job}}
+\doxysubsubsection{\texorpdfstring{getPageCount()}{getPageCount()}}
+{\footnotesize\ttfamily int Job\+::get\+Page\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Job wasn\textquotesingle{}t initialized when getting pagecount\char`\"{}); \mbox{\Hypertarget{classJob_ae4282dfa2ea81f386d8675b0566e7bc8}\label{classJob_ae4282dfa2ea81f386d8675b0566e7bc8}} 
+\index{Job@{Job}!getUserName@{getUserName}}
+\index{getUserName@{getUserName}!Job@{Job}}
+\doxysubsubsection{\texorpdfstring{getUserName()}{getUserName()}}
+{\footnotesize\ttfamily const std\+::string \& Job\+::get\+User\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Job wasn\textquotesingle{}t initialized when getting username\char`\"{}); 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Job.\+h\item 
+Job.\+cpp\end{DoxyCompactItemize}

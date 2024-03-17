@@ -1,0 +1,52 @@
+\hypertarget{classDevice}{}\doxysection{Device Class Reference}
+\label{classDevice}\index{Device@{Device}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDevice_ab70d6d270b62c48ddb2cc9cfe0d22cf2}\label{classDevice_ab70d6d270b62c48ddb2cc9cfe0d22cf2}} 
+bool {\bfseries properly\+Initialized} ()
+\item 
+\mbox{\hyperlink{classDevice_adc45556c46d1d75125b9905be57b2d47}{Device}} (const std\+::string \&device\+Name, int amount\+Of\+Emissions, int speed\+Of\+Printer)
+\item 
+const std\+::string \& \mbox{\hyperlink{classDevice_ab6248848f87e1ebddd2c6c91b1d9281f}{get\+Name}} ()
+\item 
+int \mbox{\hyperlink{classDevice_ae5d4f3c60c2d7a6bce84dce6ee584507}{get\+Emissions}} ()
+\item 
+int \mbox{\hyperlink{classDevice_aa159c3bff92a9d826d025fda6f492ee9}{get\+Speed}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDevice_adc45556c46d1d75125b9905be57b2d47}\label{classDevice_adc45556c46d1d75125b9905be57b2d47}} 
+\index{Device@{Device}!Device@{Device}}
+\index{Device@{Device}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{Device()}{Device()}}
+{\footnotesize\ttfamily Device\+::\+Device (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{device\+Name,  }\item[{int}]{amount\+Of\+Emissions,  }\item[{int}]{speed\+Of\+Printer }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classDevice}{Device}} will never be constructed with invalid parameters, because we check for that in the importer ENSURE(this-\/$>$properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{}); 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDevice_ae5d4f3c60c2d7a6bce84dce6ee584507}\label{classDevice_ae5d4f3c60c2d7a6bce84dce6ee584507}} 
+\index{Device@{Device}!getEmissions@{getEmissions}}
+\index{getEmissions@{getEmissions}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getEmissions()}{getEmissions()}}
+{\footnotesize\ttfamily int Device\+::get\+Emissions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting emissions\char`\"{}); \mbox{\Hypertarget{classDevice_ab6248848f87e1ebddd2c6c91b1d9281f}\label{classDevice_ab6248848f87e1ebddd2c6c91b1d9281f}} 
+\index{Device@{Device}!getName@{getName}}
+\index{getName@{getName}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string \& Device\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting name\char`\"{}); \mbox{\Hypertarget{classDevice_aa159c3bff92a9d826d025fda6f492ee9}\label{classDevice_aa159c3bff92a9d826d025fda6f492ee9}} 
+\index{Device@{Device}!getSpeed@{getSpeed}}
+\index{getSpeed@{getSpeed}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getSpeed()}{getSpeed()}}
+{\footnotesize\ttfamily int Device\+::get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting speed\char`\"{}); 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Device.\+h\item 
+Device.\+cpp\end{DoxyCompactItemize}

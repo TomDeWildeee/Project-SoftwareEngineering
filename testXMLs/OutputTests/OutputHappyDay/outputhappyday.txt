@@ -1,0 +1,5 @@
+Printers:
+	printerprinterprinter (CO2: 3322 g/page, Speed: 2233 pages/min)
+Jobs:
+	[#2323 | 2332 | 3232 pages]
+	[#3232 | 3223 | 2323 pages]

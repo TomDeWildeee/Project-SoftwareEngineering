@@ -19,7 +19,7 @@ public:
     void processJob(int jobNR, std::ostream &outputStream);
     void processAllJobsAutomatically(std::ostream &outputStream);
 
-    void saveOutput();
+    void saveOutput(const std::string& filename);
 
 private:
     std::vector<Device*> devices;

@@ -37,3 +37,26 @@ TEST_F(OutputTest, SimpleOutputHappyDay) {
     }
     EXPECT_TRUE(counter == 5);
 }
+
+string outputInvalidDirectory = "testXMLs/OutputTests/OutputInvalid";
+
+TEST_F(OutputTest, SimpleOutputInvalid) {
+    ASSERT_TRUE(DirectoryExists(outputInvalidDirectory));
+    ofstream myfile;
+    int counter = 1;
+    string filename = outputInvalidDirectory + "/outputinvalid" + ToString(counter) + ".xml";
+    string outputfilename;
+    while(FileExists(filename)){
+        myfile.open(outputInvalidDirectory + "/outputinvalid.txt");
+        PrintingSystemImporter::importPrintingSystem(filename.c_str(),myfile,printsystem);
+        printsystem.saveOutput(outputInvalidDirectory + "/outputinvalid.txt");
+        myfile.close();
+        outputfilename = outputInvalidDirectory + "/outputinvalid" + ToString(counter) + ".txt";
+        EXPECT_FALSE(FileCompare(outputInvalidDirectory + "/outputinvalid.txt", outputfilename));
+        counter += 1;
+        filename = outputInvalidDirectory + "/outputinvalid" + ToString(counter) + ".xml";
+        printsystem.clearSystemBecauseInvalid();
+    }
+    EXPECT_TRUE(counter == 5);
+}
+

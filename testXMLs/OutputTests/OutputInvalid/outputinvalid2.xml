@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<SYSTEM>
+    <DEVICE>
+        <name>Office_Printer5</name>
+        <emissions>9555</emissions>
+        <speed>1</speed>
+    </DEVICE>
+    <JOB>
+        <jobNumber>9</jobNumber>
+        <pageCount>1</pageCount>
+        <userName>a</userName>
+    </JOB>
+    <JOB>
+        <jobNumber>9929</jobNumber>
+        <pageCount>93333</pageCount>
+        <userName>David</userName>
+    </JOB>
+</SYSTEM>

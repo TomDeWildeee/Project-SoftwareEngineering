@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<SYSTEM>
+    <DEVICE>
+        <name>SuperPrinter3000</name>
+        <emissions>1</emissions>
+        <speed>999</speed>
+    </DEVICE>
+    <JOB>
+        <jobNumber>9999</jobNumber>
+        <pageCount>9999</pageCount>
+        <userName>stijn</userName>
+    </JOB>
+    <JOB>
+        <jobNumber>999</jobNumber>
+        <pageCount>9999</pageCount>
+        <userName>abcdefg</userName>
+    </JOB>
+</SYSTEM>

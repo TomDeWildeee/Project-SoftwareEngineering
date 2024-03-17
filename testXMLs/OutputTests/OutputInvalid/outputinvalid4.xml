@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<SYSTEM>
+    <DEVICE>
+        <name>printerprinterprinter</name>
+        <emissions>3322</emissions>
+        <speed>2233</speed>
+    </DEVICE>
+    <JOB>
+        <jobNumber>2323</jobNumber>
+        <pageCount>3232</pageCount>
+        <userName>2332</userName>
+    </JOB>
+    <JOB>
+        <jobNumber>3232</jobNumber>
+        <pageCount>2323</pageCount>
+        <userName>3223</userName>
+    </JOB>
+</SYSTEM>

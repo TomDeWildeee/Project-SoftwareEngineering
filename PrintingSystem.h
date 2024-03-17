@@ -40,7 +40,7 @@ public:
  REQUIRE(this->properlyInitialized(), "Printing system was not initialized while trying to save the output");
  ENSURE(!outputFile.is_open(), "File was not closed after writing out to it");
 */
-    void saveOutput();
+    void saveOutput(const std::string& filename);
 
 /**
  REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to process a job");

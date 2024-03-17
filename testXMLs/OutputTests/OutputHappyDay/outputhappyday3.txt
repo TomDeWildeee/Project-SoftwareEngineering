@@ -1,0 +1,5 @@
+Printers:
+	SuperPrinter3000 (CO2: 1 g/page, Speed: 999 pages/min)
+Jobs:
+	[#9999 | stijn | 9999 pages]
+	[#999 | abcdefg | 9999 pages]

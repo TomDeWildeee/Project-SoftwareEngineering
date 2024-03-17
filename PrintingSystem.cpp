@@ -48,16 +48,16 @@ void PrintingSystem::addJob(Job* job) {
     jobs.push_back(job);
 }
 
-void PrintingSystem::saveOutput() {
+void PrintingSystem::saveOutput(const std::string& filename = "output.txt") {
     REQUIRE(this->properlyInitialized(), "Printing system was not initialized while trying to save the output");
-    std::ofstream outputFile ("output.txt");
+    std::ofstream outputFile (filename);
 
-    outputFile << "Printers: " << std::endl;
+    outputFile << "Printers:" << std::endl;
     for (auto& device : devices) {
         outputFile << "\t" << device->getName() << " (CO2: " << device->getEmissions() << " g/page, Speed: "<< device->getSpeed() << " pages/min)" << std::endl;
     }
 
-    outputFile << "Jobs: " << std::endl;
+    outputFile << "Jobs:" << std::endl;
     for (auto& job : jobs) {
         outputFile << "\t[#" << job->getJobNR() << " | " << job->getUserName() << " | " << job->getPageCount() << " pages]" << std::endl;
     }

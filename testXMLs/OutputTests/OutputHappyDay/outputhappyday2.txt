@@ -1,0 +1,5 @@
+Printers:
+	Office_Printer5 (CO2: 9555 g/page, Speed: 1 pages/min)
+Jobs:
+	[#9 | a | 1 pages]
+	[#9929 | David | 93333 pages]

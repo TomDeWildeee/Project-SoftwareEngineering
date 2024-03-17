@@ -46,6 +46,7 @@ set(DEBUG_SOURCE_FILES
         Utils.cpp
         Tests/JobTest.cpp
         Tests/DeviceTest.cpp
+        Tests/ManuallyprocessTest.cpp
 )
 
 # Create RELEASE target

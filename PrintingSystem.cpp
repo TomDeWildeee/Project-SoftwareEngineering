@@ -111,3 +111,8 @@ void PrintingSystem::processAllJobsAutomatically(std::ostream &outputStream) {
 
     ENSURE(jobs.empty(), "Not all jobs were processed after trying to process all the jobs");
 }
+
+std::vector<Job*> PrintingSystem::getJobs() {
+    REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to get jobs");
+    return jobs;
+}

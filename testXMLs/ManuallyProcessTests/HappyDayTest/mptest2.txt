@@ -1,0 +1,8 @@
+Printer "Office_Printer5" finished job:
+	 Number: 100
+	 Submitted by "SergeDemeyer"
+	 0 pages
+Printer "Office_Printer5" finished job:
+	 Number: 1
+	 Submitted by "SergeDemeyer"
+	 0 pages

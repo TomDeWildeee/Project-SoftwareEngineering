@@ -57,6 +57,10 @@ public:
  ENSURE(jobs.empty(), "Not all jobs were processed after trying to process all the jobs");
 */
     void processAllJobsAutomatically(std::ostream &outputStream);
+/**
+ REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to get jobs");
+*/
+    std::vector<Job*> getJobs();
 
 private:
     PrintingSystem* _initCheck;

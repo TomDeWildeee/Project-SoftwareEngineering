@@ -1,0 +1,12 @@
+Printing page 1
+Printing page 2
+Printer "Office_Printer5" finished job:
+	 Number: 4
+	 Submitted by "SergeDemeyer"
+	 2 pages
+Printing page 1
+Printing page 2
+Printer "Office_Printer5" finished job:
+	 Number: 2
+	 Submitted by "SergeDemeyer"
+	 2 pages

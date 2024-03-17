@@ -30,19 +30,4 @@
         <pageCount>23</pageCount>
         <userName>CEO</userName>
     </JOB>
-    <JOB>
-        <jobNumber>7123</jobNumber>
-        <pageCount>17</pageCount>
-        <userName>Marketing_Assistant</userName>
-    </JOB>
-    <JOB>
-        <jobNumber>8312</jobNumber>
-        <pageCount>5</pageCount>
-        <userName>Finance_Officer</userName>
-    </JOB>
-    <JOB>
-        <jobNumber>2389</jobNumber>
-        <pageCount>9</pageCount>
-        <userName>HR_Manager</userName>
-    </JOB>
 </SYSTEM>

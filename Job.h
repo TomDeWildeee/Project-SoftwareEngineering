@@ -5,19 +5,35 @@
 #include <string>
 
 class Job {
+public:
+    bool properlyInitialized();
+/**
+ Job will never be constructed with invalid parameters, because we check for that in the importer
+ ENSURE(this->properlyInitialized(), "constructor must end in properlyInitialized state");
+*/
+    Job(int jobNr, int pageCt, const std::string &userN);
+
+/**
+ REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting jobnumber");
+*/
+    int getJobNR();
+
+/**
+ REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting username");
+*/
+    const std::string &getUserName();
+
+/**
+ REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting pagecount");
+*/
+    int getPageCount();
+
 private:
     Job* _initCheck;
+
     int jobNumber;
     int pageCount;
     std::string userName;
-public:
-    Job(int jobNr, int pageCt, const std::string &userN);
-    bool properlyInitialized();
-
-    int getPageCount() const;
-
-    int getJobNR() const;
-    const std::string &getUserName() const;
 };
 
 

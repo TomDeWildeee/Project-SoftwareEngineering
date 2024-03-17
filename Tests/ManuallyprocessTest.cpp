@@ -38,25 +38,25 @@ TEST_F(ManualllyProcessTest, HappyDayMP){
     EXPECT_TRUE(counter == 4);
 }
 
-string invalidOutputDir = "testXMLs/ManuallyProcessTests/InvalidOutputTest";
+string invalidOutputMPDir = "testXMLs/ManuallyProcessTests/InvalidOutputTest";
 
 TEST_F(ManualllyProcessTest, InvalidOutPut){
     ASSERT_TRUE(DirectoryExists(HappyDayMPDir));
     ofstream myfile;
     int counter = 1;
-    string filename = invalidOutputDir + "/mptest" + ToString(counter) + ".xml";
+    string filename = invalidOutputMPDir + "/mptest" + ToString(counter) + ".xml";
     string outputFileName;
     while(FileExists(filename)){
-        myfile.open(invalidOutputDir + "/outputXML.txt");
+        myfile.open(invalidOutputMPDir + "/outputXML.txt");
         PrintingSystemImporter::importPrintingSystem(filename.c_str(),myfile,printsystem);
         vector<Job*> jobs = printsystem.getJobs();
         printsystem.processJob(jobs[2]->getJobNR(), myfile);
         printsystem.processJob(jobs[4]->getJobNR(),myfile);
         myfile.close();
-        outputFileName = invalidOutputDir + "/mptest" + ToString(counter) + ".txt";
-        EXPECT_FALSE(FileCompare(invalidOutputDir + "/outputXML.txt", outputFileName));
+        outputFileName = invalidOutputMPDir + "/mptest" + ToString(counter) + ".txt";
+        EXPECT_FALSE(FileCompare(invalidOutputMPDir + "/outputXML.txt", outputFileName));
         counter += 1;
-        filename = invalidOutputDir + "/mptest" + ToString(counter) + ".xml";
+        filename = invalidOutputMPDir + "/mptest" + ToString(counter) + ".xml";
         printsystem.clearSystemBecauseInvalid();
     }
     EXPECT_TRUE(counter == 4);

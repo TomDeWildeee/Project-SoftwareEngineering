@@ -47,11 +47,8 @@ set(DEBUG_SOURCE_FILES
         Tests/OutputTest.cpp
         Tests/JobTest.cpp
         Tests/DeviceTest.cpp
-<<<<<<< HEAD
         Tests/ManuallyprocessTest.cpp
-=======
         Tests/AutomaticallyProcessTest.cpp
->>>>>>> 0a2c45e7ff181f9a2999733efd2d4624fed5f881
 )
 
 # Create RELEASE target

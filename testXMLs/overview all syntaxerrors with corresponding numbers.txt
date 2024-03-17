@@ -1,6 +1,0 @@
-syntaxerror1: error reading end tag
-syntaxerror2: XML UNRECOGNIZED ELEMENT: Expected <DEVICE> ... </DEVICE> or <JOB> ... </JOB>.
-XML NOT CONSISTENT: XML file was not consistent and is invalid, system will be cleared
-syntaxerror3: XML IMPORT ABORTED: Error reading Attributes.
-syntaxerror4: XML UNRECOGNIZED ATTRIBUTE: Expected <name> ... </name>
-XML NOT CONSISTENT: XML file was not consistent and is invalid, system will be cleared

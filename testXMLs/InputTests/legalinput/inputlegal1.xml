@@ -3,7 +3,7 @@
     <DEVICE>
         <name>Office_Printer5</name>
         <emissions>8</emissions> <!-- Uittesten met foute spelling bvb -->
-        <type>scan</type>
+        <type>bw</type>
         <speed>40</speed>
         <cost>30</cost>
     </DEVICE>

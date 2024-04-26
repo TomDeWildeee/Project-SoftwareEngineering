@@ -11,9 +11,9 @@ int main() {
     else{std::cout << "success" << std::endl;
         FileOutputStream fileoutput = FileOutputStream("testXMLs/InputTests/legalinput/xmlError.txt");
         printsystem.saveOutput(&fileoutput);
-        std::cout << printsystem.getDevices()[0]->getCost();
+        std::cout << printsystem.getDevices()[0]->getCost() << std::endl;
         printsystem.processJob(&fileoutput, printsystem.getJobs()[0]->getJobNR());
-        std::cout << printsystem.getDevices()[0]->getCost();
+        std::cout << printsystem.getDevices()[0]->getCost() << std::endl;
         printsystem.saveOutput(&fileoutput);
         std::cout << printsystem.gettotalEmissions();
     }

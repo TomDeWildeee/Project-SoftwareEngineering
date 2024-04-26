@@ -84,14 +84,32 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
     }
 
     // We're taking the first printer at the moment (only device in specification 1.0)
-    Device* device = devices[0];
-
+    /*Device* device = devices[0];
+    `*/
+    Device* processingdevice = nullptr;
+    for (Device* device : devices){
+        if(static_cast<int>(device->getDeviceType()) == static_cast<int>(jobToProcess->getJobType())){
+            processingdevice = device;
+            break;
+        }
+    }
+    ENSURE(processingdevice!=nullptr, "There is no device of the correct type to process job");
     for (int i = 0; i < jobToProcess->getPageCount(); ++i) {
         std::string printString = + "Printing page " + std::to_string(i + 1);
         outputStream->writeLine(printString);
     }
-    totalEmissions += jobToProcess->getPageCount() * device->getEmissions();
-    outputStream->writeLine("Printer \"" + device->getName() + "\" finished job:");
+    std::string typestring;
+    if(jobToProcess->getJobType() == JobType::color){
+        typestring = "color-printing";
+    }
+    if(jobToProcess->getJobType() == JobType::bw){
+        typestring = "black and white";
+    }
+    if(jobToProcess->getJobType() == JobType::scan){
+        typestring = "scanning";
+    }
+    totalEmissions += jobToProcess->getPageCount() * processingdevice->getEmissions();
+    outputStream->writeLine("Printer \"" + processingdevice->getName() + "\" finished " + typestring + " job:");
     outputStream->writeLine("\t Number: " + std::to_string(jobToProcess->getJobNR()));
     outputStream->writeLine("\t Submitted by \"" + jobToProcess->getUserName() + "\"");
     outputStream->writeLine("\t " + std::to_string(jobToProcess->getPageCount()) + " pages");

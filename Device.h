@@ -10,7 +10,7 @@ public:
  Device will never be constructed with invalid parameters, because we check for that in the importer
  ENSURE(this->properlyInitialized(), "constructor must end in properlyInitialized state");
 */
-    Device(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter);
+    Device(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int cost);
 
 /**
  REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting name");
@@ -26,6 +26,10 @@ public:
  REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting speed");
 */
     int getSpeed();
+/**
+ REQUIRE(this->properlyInitialized(), "Device wasn't initialized when gettting value");
+ */
+    float getCost();
 
 private:
     Device* _initCheck;
@@ -33,6 +37,7 @@ private:
     std::string name;
     int emissions;
     int speed;
+    float cost;
 };
 
 

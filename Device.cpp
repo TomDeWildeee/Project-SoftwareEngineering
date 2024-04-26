@@ -29,3 +29,8 @@ int Device::getSpeed() {
     REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting speed");
     return speed;
 }
+
+float Device::getCost() {
+    REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting value");
+    return cost;
+}

@@ -4,7 +4,7 @@
 #include <string>
 
 namespace JobType {
-    enum JobTypeEnum {color, bw};
+    enum JobTypeEnum {color, bw, scan};
 }
 
 class Job {

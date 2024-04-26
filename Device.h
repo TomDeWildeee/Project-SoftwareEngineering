@@ -4,7 +4,7 @@
 #include <string>
 
 namespace DeviceType {
-    enum DeviceTypeEnum {color, bw};
+    enum DeviceTypeEnum {color, bw, scan};
 }
 
 class Device {

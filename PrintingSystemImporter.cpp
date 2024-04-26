@@ -151,7 +151,7 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
             } else {
                 std::string deviceTypeString = getTextFromNode(deviceTypeNode);
                 if (deviceTypeString.empty()) {
-                    outputStream->writeLine("XML NO INPUT: Expected either bw or color in the <type> attribute but couldn't retrieve it");
+                    outputStream->writeLine("XML NO INPUT: Expected either bw, color or scan in the <type> attribute but couldn't retrieve it");
                     invalid = true;
                     continue;
                 }
@@ -160,8 +160,10 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
                     deviceType = DeviceType::color;
                 } else if (deviceTypeString == "bw") {
                     deviceType = DeviceType::bw;
+                } else if (deviceTypeString == "scan") {
+                    deviceType = DeviceType::scan;
                 } else {
-                    outputStream->writeLine("XML NO INPUT: Expected either bw or color in the <type> attribute but couldn't retrieve it");
+                    outputStream->writeLine("XML NO INPUT: Expected either bw, color or scan in the <type> attribute but couldn't retrieve it");
                     invalid = true;
                     continue;
                 }
@@ -290,7 +292,7 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
             } else {
                 std::string jobTypeString = getTextFromNode(jobTypeNode);
                 if (jobTypeString.empty()) {
-                    outputStream->writeLine("XML NO INPUT: Expected either bw or color in the <type> attribute but couldn't retrieve it");
+                    outputStream->writeLine("XML NO INPUT: Expected either bw, color or scan in the <type> attribute but couldn't retrieve it");
                     invalid = true;
                     continue;
                 }
@@ -299,8 +301,10 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
                     jobType = JobType::color;
                 } else if (jobTypeString == "bw") {
                     jobType = JobType::bw;
+                } else if (jobTypeString == "scan") {
+                    jobType = JobType::scan;
                 } else {
-                    outputStream->writeLine("XML NO INPUT: Expected either bw or color in the <type> attribute but couldn't retrieve it");
+                    outputStream->writeLine("XML NO INPUT: Expected either bw, color or scan in the <type> attribute but couldn't retrieve it");
                     invalid = true;
                     continue;
                 }

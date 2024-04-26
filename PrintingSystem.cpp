@@ -115,7 +115,10 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
             break;
         }
     }
-    ENSURE(processingdevice!=nullptr, "There is no device of the correct type to process job");
+    if (!processingdevice) {
+        outputStream->writeLine("ERR: There is no device of the correct type to process job");
+        return;
+    }
     for (int i = 0; i < jobToProcess->getPageCount(); ++i) {
         std::string printString = + "Printing page " + std::to_string(i + 1);
         outputStream->writeLine(printString);

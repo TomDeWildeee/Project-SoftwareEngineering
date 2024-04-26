@@ -11,6 +11,7 @@
 #include <sys/stat.h>
 #include <cstdio>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -84,11 +85,18 @@ string ToString( int x ) {
 	return str;
 }
 
-bool isNumber(std::string& s){
+bool isNumber(const std::string& s){
     for(char c : s ){
         if(!std::isdigit(c)){
             return false;
         }
     }
     return true;
+}
+
+bool isFloat(const string &myString) {
+    std::istringstream iss(myString);
+    float f;
+    iss >> noskipws >> f;
+    return iss.eof() && !iss.fail();
 }

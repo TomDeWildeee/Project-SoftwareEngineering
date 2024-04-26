@@ -22,7 +22,8 @@ bool FileIsEmpty(const std::string filename);
 
 bool FileCompare(const std::string leftFileName, const std::string rightFileName);
 
-bool isNumber(std::string& s);
+bool isNumber(const std::string &s);
+bool isFloat(const std::string &s);
 
 std::string ToString(int i);
 

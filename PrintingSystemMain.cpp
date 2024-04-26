@@ -3,16 +3,16 @@
 
 int main() {
     PrintingSystem printsystem;
-    FileOutputStream fileOutputStream = FileOutputStream("testXMLs/InputTests/legalinput/xmlError.txt");
-    ImportEnum imp = PrintingSystemImporter::importPrintingSystem("testXMLs/InputTests/legalinput/inputlegal1.xml", &fileOutputStream ,printsystem);
+    FileOutputStream fileOutputStream = FileOutputStream("testXMLs/error.txt");
+    ImportEnum imp = PrintingSystemImporter::importPrintingSystem("testXMLs/XML_test.xml", &fileOutputStream ,printsystem);
     if (imp == ImportError){
         std::cout << "error" << std::endl;
     }
-    else{std::cout << "success" << std::endl;
-        FileOutputStream fileoutput = FileOutputStream("testXMLs/InputTests/legalinput/xmlError.txt");
+    else{
+        FileOutputStream fileoutput = FileOutputStream("testXMLs/error.txt");
         printsystem.saveOutput(&fileoutput);
         std::cout << printsystem.getDevices()[0]->getCost() << std::endl;
-        printsystem.processJob(&fileoutput, printsystem.getJobs()[0]->getJobNR());
+        printsystem.processJob(&fileoutput, 123);
         std::cout << printsystem.getDevices()[0]->getCost() << std::endl;
         printsystem.saveOutput(&fileoutput);
         std::cout << printsystem.gettotalEmissions();

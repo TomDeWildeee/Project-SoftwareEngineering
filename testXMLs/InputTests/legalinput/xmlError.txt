@@ -1,5 +1,20 @@
-Printers:
-	Office_Printer5 (CO2: 8 g/page, Speed: 40 pages/min)
-Jobs:
-	[#2 | SergeDemeyer | 2 pages]
-	[#8 | anonymous_user | 3 pages]
+╔════════════════ [ System Diagnostic ] ════════════════╗
+
+──── Devices ────
+
+Office_Printer5:
+* Type: Black-and-white printer
+* Speed: 40 pages/minute
+* Cost: 0.300000cents/page
+* CO2: 8 g/page
+
+───── Jobs ─────
+
+[Job #2]
+* User: SergeDemeyer
+* Total Pages: 2
+[Job #8]
+* User: anonymous_user
+* Total Pages: 3
+
+╚════════════════ [ System Diagnostic ] ════════════════╝

@@ -1,0 +1,35 @@
+╔════════════════ [ System Diagnostic ] ════════════════╗
+
+──── Devices ────
+
+Office_Printer1:
+* Type: Scanner
+* Speed: 5 pages/minute
+* Cost: 0.050000cents/page
+* CO2: 3 g/page
+
+───── Jobs ─────
+
+[Job #1]
+* User: Tom
+* Total Pages: 20
+
+╚════════════════ [ System Diagnostic ] ════════════════╝
+ERR: JOB with job number: 123 can not be found
+╔════════════════ [ System Diagnostic ] ════════════════╗
+
+──── Devices ────
+
+Office_Printer1:
+* Type: Scanner
+* Speed: 5 pages/minute
+* Cost: 0.050000cents/page
+* CO2: 3 g/page
+
+───── Jobs ─────
+
+[Job #1]
+* User: Tom
+* Total Pages: 20
+
+╚════════════════ [ System Diagnostic ] ════════════════╝

@@ -39,7 +39,7 @@ public:
 /**
  REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting type");
 */
-    DeviceType::DeviceTypeEnum getDeviceType();
+    std::string getDeviceType();
 
 private:
     Device* _initCheck;

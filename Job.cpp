@@ -31,7 +31,13 @@ int Job::getPageCount() {
     return pageCount;
 }
 
-JobType::JobTypeEnum Job::getJobType() {
+std::string Job::getJobType() {
     REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting job type");
-    return type;
+    if (type == JobType::color) {
+        return "color";
+    } else if (type == JobType::bw) {
+        return "bw";
+    } else {
+        return "scan";
+    }
 }

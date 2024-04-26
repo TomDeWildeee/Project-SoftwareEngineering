@@ -51,17 +51,39 @@ void PrintingSystem::addJob(Job* job) {
 void PrintingSystem::saveOutput(OutputStream* outputStream) {
     REQUIRE(this->properlyInitialized(), "Printing system was not initialized while trying to save the output");
 
-    outputStream->writeLine("Printers:");
+    outputStream->writeLine("╔════════════════ [ System Diagnostic ] ════════════════╗\n");
+    outputStream->writeLine("──── Devices ────\n");
     for (auto& device : devices) {
-        std::string deviceInfo =  "\t" + device->getName() + " (CO2: " + std::to_string(device->getEmissions()) + " g/page, Speed: " + std::to_string(device->getSpeed()) + " pages/min)";
-        outputStream->writeLine(deviceInfo);
-    }
+        std::string deviceName = device->getName() + ":";
+        std::string deviceType = "* Type: ";
+        if (device->getDeviceType() == "color") {
+            deviceType += "Color printer";
+        } else if (device->getDeviceType() == "bw") {
+            deviceType += "Black-and-white printer";
+        } else {
+            deviceType += "Scanner";
+        }
+        std::string deviceSpeed = "* Speed: " + std::to_string(device->getSpeed()) + " pages/minute";
+        std::string deviceCost = "* Cost: " + std::to_string(device->getCost()) + "cents/page";
+        std::string deviceEmission = "* CO2: " + std::to_string(device->getEmissions()) + " g/page\n";
 
-    outputStream->writeLine("Jobs:");
-    for (auto& job : jobs) {
-        std::string jobInfo =  "\t[#" + std::to_string(job->getJobNR()) + " | " + job->getUserName() + " | " + std::to_string(job->getPageCount()) + " pages]";
-        outputStream->writeLine(jobInfo);
+        outputStream->writeLine(deviceName);
+        outputStream->writeLine(deviceType);
+        outputStream->writeLine(deviceSpeed);
+        outputStream->writeLine(deviceCost);
+        outputStream->writeLine(deviceEmission);
     }
+    outputStream->writeLine("───── Jobs ─────\n");
+    for (auto& job : jobs) {
+        std::string jobName = "[Job #" + std::to_string(job->getJobNR()) + "]";
+        std::string jobUser = "* User: " + job->getUserName();
+        std::string jobPageCount = "* Total Pages: " + std::to_string(job->getPageCount());
+
+        outputStream->writeLine(jobName);
+        outputStream->writeLine(jobUser);
+        outputStream->writeLine(jobPageCount);
+    }
+    outputStream->writeLine("\n╚════════════════ [ System Diagnostic ] ════════════════╝");
 }
 
 void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
@@ -88,7 +110,7 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
     `*/
     Device* processingdevice = nullptr;
     for (Device* device : devices){
-        if(static_cast<int>(device->getDeviceType()) == static_cast<int>(jobToProcess->getJobType())){
+        if(device->getDeviceType() == jobToProcess->getJobType()){
             processingdevice = device;
             break;
         }
@@ -99,13 +121,13 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
         outputStream->writeLine(printString);
     }
     std::string typestring;
-    if(jobToProcess->getJobType() == JobType::color){
+    if(jobToProcess->getJobType() == "color"){
         typestring = "color-printing";
     }
-    if(jobToProcess->getJobType() == JobType::bw){
-        typestring = "black and white";
+    if(jobToProcess->getJobType() == "bw"){
+        typestring = "black-and-white-printing";
     }
-    if(jobToProcess->getJobType() == JobType::scan){
+    if(jobToProcess->getJobType() == "scan"){
         typestring = "scanning";
     }
     totalEmissions += jobToProcess->getPageCount() * processingdevice->getEmissions();

@@ -32,9 +32,15 @@ int Device::getSpeed() {
     return speed;
 }
 
-DeviceType::DeviceTypeEnum Device::getDeviceType() {
+std::string Device::getDeviceType() {
     REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting type");
-    return type;
+    if (type == DeviceType::color) {
+        return "color";
+    } else if (type == DeviceType::bw) {
+        return "bw";
+    } else {
+        return "scan";
+    }
 }
 
 float Device::getCost() {

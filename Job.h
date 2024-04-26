@@ -34,7 +34,7 @@ public:
 /**
  REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting job type");
 */
-    JobType::JobTypeEnum getJobType();
+    std::string getJobType();
 
 private:
     Job* _initCheck;

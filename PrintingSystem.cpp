@@ -90,7 +90,7 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
         std::string printString = + "Printing page " + std::to_string(i + 1);
         outputStream->writeLine(printString);
     }
-
+    totalEmissions += jobToProcess->getPageCount() * device->getEmissions();
     outputStream->writeLine("Printer \"" + device->getName() + "\" finished job:");
     outputStream->writeLine("\t Number: " + std::to_string(jobToProcess->getJobNR()));
     outputStream->writeLine("\t Submitted by \"" + jobToProcess->getUserName() + "\"");
@@ -115,4 +115,12 @@ void PrintingSystem::processAllJobsAutomatically(OutputStream* outputStream) {
 std::vector<Job*> PrintingSystem::getJobs() {
     REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to get jobs");
     return jobs;
+}
+int PrintingSystem::gettotalEmissions() {
+    REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to get total emissions");
+    return totalEmissions;
+}
+std::vector<Device*> PrintingSystem::getDevices() {
+    REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to get devices");
+    return devices;
 }

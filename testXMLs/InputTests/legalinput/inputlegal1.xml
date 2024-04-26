@@ -2,17 +2,21 @@
 <SYSTEM>
     <DEVICE>
         <name>Office_Printer5</name>
-        <emissions>3</emissions> <!-- Uittesten met foute spelling bvb -->
+        <emissions>8</emissions> <!-- Uittesten met foute spelling bvb -->
+        <type>scan</type>
         <speed>40</speed>
+        <cost>30</cost>
     </DEVICE>
     <JOB>
         <jobNumber>2</jobNumber>
         <pageCount>2</pageCount>
+        <type>scan</type>
         <userName>SergeDemeyer</userName>
     </JOB>
     <JOB>
         <jobNumber>8</jobNumber>
         <pageCount>3</pageCount>
+        <type>scan</type>
         <userName>anonymous_user</userName>
     </JOB>
 </SYSTEM>

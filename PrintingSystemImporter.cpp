@@ -218,7 +218,7 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
             bool validDeviceProperties = checkValidnessDeviceProps(deviceName, deviceEmissions, deviceSpeed, deviceCost, invalid, outputStream);
             if (!validDeviceProperties) continue;
 
-            auto* newDevice = new Device(deviceName, deviceEmissions, deviceSpeed, deviceType, deviceCost/100);
+            auto* newDevice = new Device(deviceName, deviceEmissions, deviceSpeed, deviceType, deviceCost);
             printingSystem.addDevice(newDevice);
 
         } else if (elemName == "JOB") {

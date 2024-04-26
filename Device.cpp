@@ -7,7 +7,7 @@ Device::Device(const std::string &deviceName, int amountOfEmissions, int speedOf
     emissions = amountOfEmissions;
     speed = speedOfPrinter;
     type = deviceType;
-    cost = deviceCost;
+    cost = (float)deviceCost/100;
 
     _initCheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");

@@ -1,8 +1,11 @@
 #ifndef PROJECT_SOFTWAREENGINEERING_JOB_H
 #define PROJECT_SOFTWAREENGINEERING_JOB_H
 
-
 #include <string>
+
+namespace JobType {
+    enum JobTypeEnum {color, bw};
+}
 
 class Job {
 public:
@@ -11,7 +14,7 @@ public:
  Job will never be constructed with invalid parameters, because we check for that in the importer
  ENSURE(this->properlyInitialized(), "constructor must end in properlyInitialized state");
 */
-    Job(int jobNr, int pageCt, const std::string &userN);
+    Job(int jobNr, int pageCt, const std::string &userN, JobType::JobTypeEnum jobType);
 
 /**
  REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting jobnumber");
@@ -28,12 +31,18 @@ public:
 */
     int getPageCount();
 
+/**
+ REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting job type");
+*/
+    JobType::JobTypeEnum getJobType();
+
 private:
     Job* _initCheck;
 
     int jobNumber;
     int pageCount;
     std::string userName;
+    JobType::JobTypeEnum type;
 };
 
 

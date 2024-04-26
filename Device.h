@@ -3,6 +3,10 @@
 
 #include <string>
 
+namespace DeviceType {
+    enum DeviceTypeEnum {color, bw};
+}
+
 class Device {
 public:
     bool properlyInitialized();
@@ -10,7 +14,7 @@ public:
  Device will never be constructed with invalid parameters, because we check for that in the importer
  ENSURE(this->properlyInitialized(), "constructor must end in properlyInitialized state");
 */
-    Device(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter);
+    Device(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, DeviceType::DeviceTypeEnum deviceType);
 
 /**
  REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting name");
@@ -27,12 +31,18 @@ public:
 */
     int getSpeed();
 
+/**
+ REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting type");
+*/
+    DeviceType::DeviceTypeEnum getDeviceType();
+
 private:
     Device* _initCheck;
 
     std::string name;
     int emissions;
     int speed;
+    DeviceType::DeviceTypeEnum type;
 };
 
 

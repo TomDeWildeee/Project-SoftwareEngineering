@@ -94,9 +94,11 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
         if (elemName == "DEVICE") {
             std::string deviceName;
             int deviceEmissions, deviceSpeed;
+            DeviceType::DeviceTypeEnum deviceType;
 
             TiXmlNode* deviceNameNode = elem->FirstChild("name");
             TiXmlNode* deviceEmissionsNode = elem->FirstChild("emissions");
+            TiXmlNode* deviceTypeNode = elem->FirstChild("type");
             TiXmlNode* deviceSpeedNode = elem->FirstChild("speed");
 
             // Check if deviceNameNode is present in the XML file
@@ -132,6 +134,30 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
                 }
             }
 
+            // Check if deviceTypeNode is present in the XML file
+            if (deviceTypeNode == nullptr) {
+                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <type> ... </type>");
+                invalid = true;
+                continue;
+
+            } else {
+                std::string deviceTypeString = getTextFromNode(deviceTypeNode);
+                if (deviceTypeString.empty()) {
+                    outputStream->writeLine("XML NO INPUT: Expected either bw or color in the <type> attribute but couldn't retrieve it");
+                    invalid = true;
+                    continue;
+                }
+
+                if (deviceTypeString == "color") {
+                    deviceType = DeviceType::color;
+                } else if (deviceTypeString == "bw") {
+                    deviceType = DeviceType::bw;
+                } else {
+                    outputStream->writeLine("XML NO INPUT: Expected either bw or color in the <type> attribute but couldn't retrieve it");
+                    invalid = true;
+                    continue;
+                }
+            }
 
             // Check if deviceSpeedNode is present in the XML file
             if (deviceSpeedNode == nullptr) {
@@ -159,15 +185,17 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
             bool validDeviceProperties = checkValidnessDeviceProps(deviceName, deviceEmissions, deviceSpeed, invalid, outputStream);
             if (!validDeviceProperties) continue;
 
-            auto* newDevice = new Device(deviceName, deviceEmissions, deviceSpeed);
+            auto* newDevice = new Device(deviceName, deviceEmissions, deviceSpeed, deviceType);
             printingSystem.addDevice(newDevice);
 
         } else if (elemName == "JOB") {
             int jobNumber, pageCount;
             std::string username;
+            JobType::JobTypeEnum jobType;
 
             TiXmlNode* jobNumberNode = elem->FirstChild("jobNumber");
             TiXmlNode* pageCountNode = elem->FirstChild("pageCount");
+            TiXmlNode* jobTypeNode = elem->FirstChild("type");
             TiXmlNode* userNameNode = elem->FirstChild("userName");
 
             if (userNameNode == nullptr) {
@@ -223,10 +251,34 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
                 }
             }
 
+            if (jobTypeNode == nullptr) {
+                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <type> ... </type>");
+                invalid = true;
+                continue;
+
+            } else {
+                std::string jobTypeString = getTextFromNode(jobTypeNode);
+                if (jobTypeString.empty()) {
+                    outputStream->writeLine("XML NO INPUT: Expected either bw or color in the <type> attribute but couldn't retrieve it");
+                    invalid = true;
+                    continue;
+                }
+
+                if (jobTypeString == "color") {
+                    jobType = JobType::color;
+                } else if (jobTypeString == "bw") {
+                    jobType = JobType::bw;
+                } else {
+                    outputStream->writeLine("XML NO INPUT: Expected either bw or color in the <type> attribute but couldn't retrieve it");
+                    invalid = true;
+                    continue;
+                }
+            }
+
             bool validJobProperties = checkValidnessJobProps(username, pageCount, jobNumber, invalid, outputStream, printingSystem);
             if (!validJobProperties) continue;
 
-            auto* newJob = new Job(jobNumber, pageCount, username);
+            auto* newJob = new Job(jobNumber, pageCount, username, jobType);
             printingSystem.addJob(newJob);
 
         } else {

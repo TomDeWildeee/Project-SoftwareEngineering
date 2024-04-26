@@ -12,7 +12,7 @@ std::string getTextFromNode(TiXmlNode* node) {
     return text->Value();
 }
 
-bool checkValidnessDeviceProps(const std::string &deviceName, int deviceEmissions, int deviceSpeed, bool &invalid, OutputStream* outputStream) {
+bool checkValidnessDeviceProps(const std::string &deviceName, int deviceEmissions, int deviceSpeed, int deviceCost, bool &invalid, OutputStream* outputStream) {
     if (deviceName.empty()) {
         outputStream->writeLine("XML NO INPUT: Expected a string in the <name> attribute but couldn't retrieve it");
         invalid = true;
@@ -27,6 +27,12 @@ bool checkValidnessDeviceProps(const std::string &deviceName, int deviceEmission
 
     if (deviceEmissions < 0) {
         outputStream->writeLine("NEGATIVE EMISSIONS INTEGER: Expected a positive integer in the <emissions> attribute but got a negative integer instead");
+        invalid = true;
+        return false;
+    }
+
+    if (deviceCost < 0) {
+        outputStream->writeLine("NEGATIVE COST INTEGER: Expected a positive integer in the <cost> attribute but got a negative integer instead");
         invalid = true;
         return false;
     }
@@ -93,13 +99,14 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
 
         if (elemName == "DEVICE") {
             std::string deviceName;
-            int deviceEmissions, deviceSpeed;
             DeviceType::DeviceTypeEnum deviceType;
+            int deviceEmissions, deviceSpeed, deviceCost;
 
             TiXmlNode* deviceNameNode = elem->FirstChild("name");
             TiXmlNode* deviceEmissionsNode = elem->FirstChild("emissions");
             TiXmlNode* deviceTypeNode = elem->FirstChild("type");
             TiXmlNode* deviceSpeedNode = elem->FirstChild("speed");
+            TiXmlNode* deviceCostNode = elem->FirstChild("cost");
 
             // Check if deviceNameNode is present in the XML file
             if (deviceNameNode == nullptr) {
@@ -132,6 +139,7 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
                 } else {
                     deviceEmissions = std::stoi(deviceEmissionsString);
                 }
+
             }
 
             // Check if deviceTypeNode is present in the XML file
@@ -182,10 +190,33 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
                 }
             }
 
-            bool validDeviceProperties = checkValidnessDeviceProps(deviceName, deviceEmissions, deviceSpeed, invalid, outputStream);
+            //Check if deviceCostNode is present in the XML file
+            if (deviceCostNode == nullptr) {
+                outputStream ->writeLine("XML INVALID COST: Expected <cost> ... </cost>");
+                invalid = true;
+                continue;
+
+            } else {
+                std::string deviceCostString = getTextFromNode(deviceCostNode);
+                if (deviceCostString.empty()) {
+                    outputStream->writeLine("XML NO INPUT: Expected an integer in the <cost> attribute but couldn't retrieve it");
+                    invalid = true;
+                    continue;
+                }
+
+                if (!isNumber(deviceCostString)) {
+                    outputStream->writeLine("XML INVALID VALUE: Expected an integer in the <cost> attribute but got a different type");
+                    invalid = true;
+                    continue;
+                } else {
+                    deviceCost = std::stoi(deviceCostString);
+                }
+            }
+
+            bool validDeviceProperties = checkValidnessDeviceProps(deviceName, deviceEmissions, deviceSpeed, deviceCost, invalid, outputStream);
             if (!validDeviceProperties) continue;
 
-            auto* newDevice = new Device(deviceName, deviceEmissions, deviceSpeed, deviceType);
+            auto* newDevice = new Device(deviceName, deviceEmissions, deviceSpeed, deviceType, deviceCost/100);
             printingSystem.addDevice(newDevice);
 
         } else if (elemName == "JOB") {

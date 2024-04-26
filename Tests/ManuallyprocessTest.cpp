@@ -18,17 +18,18 @@ string HappyDayMPDir = "testXMLs/ManuallyProcessTests/HappyDayTest";
 
 TEST_F(ManualllyProcessTest, HappyDayMP){
     ASSERT_TRUE(DirectoryExists(HappyDayMPDir));
-    ofstream myfile;
     int counter = 1;
     string filename = HappyDayMPDir + "/mptest" + ToString(counter) + ".xml";
     string outputFileName;
     while(FileExists(filename)){
-        myfile.open(HappyDayMPDir + "/outputXML.txt");
-        PrintingSystemImporter::importPrintingSystem(filename.c_str(),myfile,printsystem);
+        FileOutputStream errStream = FileOutputStream(HappyDayMPDir + "/outputXML.txt");
+        PrintingSystemImporter::importPrintingSystem(filename.c_str(),&errStream,printsystem);
+
         vector<Job*> jobs = printsystem.getJobs();
-        printsystem.processJob(jobs[2]->getJobNR(), myfile);
-        printsystem.processJob(jobs[4]->getJobNR(),myfile);
-        myfile.close();
+        FileOutputStream fileOutputStream = FileOutputStream(HappyDayMPDir + "/outputXML.txt");
+        printsystem.processJob(&fileOutputStream, jobs[2]->getJobNR());
+        printsystem.processJob(&fileOutputStream, jobs[4]->getJobNR());
+
         outputFileName = HappyDayMPDir + "/mptest" + ToString(counter) + ".txt";
         EXPECT_TRUE(FileCompare(HappyDayMPDir + "/outputXML.txt", outputFileName));
         counter += 1;
@@ -42,17 +43,18 @@ string invalidOutputMPDir = "testXMLs/ManuallyProcessTests/InvalidOutputTest";
 
 TEST_F(ManualllyProcessTest, InvalidOutPut){
     ASSERT_TRUE(DirectoryExists(HappyDayMPDir));
-    ofstream myfile;
     int counter = 1;
     string filename = invalidOutputMPDir + "/mptest" + ToString(counter) + ".xml";
     string outputFileName;
     while(FileExists(filename)){
-        myfile.open(invalidOutputMPDir + "/outputXML.txt");
-        PrintingSystemImporter::importPrintingSystem(filename.c_str(),myfile,printsystem);
+        FileOutputStream errStream = FileOutputStream(invalidOutputMPDir + "/outputXML.txt");
+        PrintingSystemImporter::importPrintingSystem(filename.c_str(),&errStream,printsystem);
+
         vector<Job*> jobs = printsystem.getJobs();
-        printsystem.processJob(jobs[2]->getJobNR(), myfile);
-        printsystem.processJob(jobs[4]->getJobNR(),myfile);
-        myfile.close();
+        FileOutputStream fileOutputStream = FileOutputStream(invalidOutputMPDir + "/outputXML.txt");
+        printsystem.processJob(&fileOutputStream, jobs[2]->getJobNR());
+        printsystem.processJob(&fileOutputStream, jobs[4]->getJobNR());
+
         outputFileName = invalidOutputMPDir + "/mptest" + ToString(counter) + ".txt";
         EXPECT_FALSE(FileCompare(invalidOutputMPDir + "/outputXML.txt", outputFileName));
         counter += 1;

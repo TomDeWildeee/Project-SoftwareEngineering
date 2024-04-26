@@ -48,25 +48,23 @@ void PrintingSystem::addJob(Job* job) {
     jobs.push_back(job);
 }
 
-void PrintingSystem::saveOutput(const std::string& filename = "output.txt") {
+void PrintingSystem::saveOutput(OutputStream* outputStream) {
     REQUIRE(this->properlyInitialized(), "Printing system was not initialized while trying to save the output");
-    std::ofstream outputFile (filename);
 
-    outputFile << "Printers:" << std::endl;
+    outputStream->writeLine("Printers:");
     for (auto& device : devices) {
-        outputFile << "\t" << device->getName() << " (CO2: " << device->getEmissions() << " g/page, Speed: "<< device->getSpeed() << " pages/min)" << std::endl;
+        std::string deviceInfo =  "\t" + device->getName() + " (CO2: " + std::to_string(device->getEmissions()) + " g/page, Speed: " + std::to_string(device->getSpeed()) + " pages/min)";
+        outputStream->writeLine(deviceInfo);
     }
 
-    outputFile << "Jobs:" << std::endl;
+    outputStream->writeLine("Jobs:");
     for (auto& job : jobs) {
-        outputFile << "\t[#" << job->getJobNR() << " | " << job->getUserName() << " | " << job->getPageCount() << " pages]" << std::endl;
+        std::string jobInfo =  "\t[#" + std::to_string(job->getJobNR()) + " | " + job->getUserName() + " | " + std::to_string(job->getPageCount()) + " pages]";
+        outputStream->writeLine(jobInfo);
     }
-
-    outputFile.close();
-    ENSURE(!outputFile.is_open(), "File was not closed after writing out to it");
 }
 
-void PrintingSystem::processJob(int jobNR, std::ostream &outputStream) {
+void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
     REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to process a job");
     REQUIRE(!devices.empty(), "There has to be at least 1 printer available to process a job");
     REQUIRE(!jobs.empty(), "There are no jobs that can be processed by a device");
@@ -80,7 +78,8 @@ void PrintingSystem::processJob(int jobNR, std::ostream &outputStream) {
     }
 
     if (jobToProcess == nullptr) {
-       outputStream << "ERR: JOB with job number: " << jobNR << " can not be found" << std::endl;
+       std::string errString = "ERR: JOB with job number: " + std::to_string(jobNR) + " can not be found";
+       outputStream->writeLine(errString);
        return;
     }
 
@@ -88,25 +87,26 @@ void PrintingSystem::processJob(int jobNR, std::ostream &outputStream) {
     Device* device = devices[0];
 
     for (int i = 0; i < jobToProcess->getPageCount(); ++i) {
-        outputStream << "Printing page " << i + 1 << std::endl;
+        std::string printString = + "Printing page " + std::to_string(i + 1);
+        outputStream->writeLine(printString);
     }
 
-    outputStream << "Printer \"" << device->getName() << "\" finished job:" << std::endl;
-    outputStream << "\t Number: " << jobToProcess->getJobNR() << std::endl;
-    outputStream << "\t Submitted by \"" << jobToProcess->getUserName() << "\"" << std::endl;
-    outputStream <<  "\t " << jobToProcess->getPageCount() << " pages" << std::endl;
+    outputStream->writeLine("Printer \"" + device->getName() + "\" finished job:");
+    outputStream->writeLine("\t Number: " + std::to_string(jobToProcess->getJobNR()));
+    outputStream->writeLine("\t Submitted by \"" + jobToProcess->getUserName() + "\"");
+    outputStream->writeLine("\t " + std::to_string(jobToProcess->getPageCount()) + " pages");
 
     jobs.erase(std::remove(jobs.begin(), jobs.end(), jobToProcess), jobs.end());
     ENSURE(std::find(jobs.begin(), jobs.end(), jobToProcess) == jobs.end(), "Processed job wasn't deleted out of the system");
 }
 
-void PrintingSystem::processAllJobsAutomatically(std::ostream &outputStream) {
+void PrintingSystem::processAllJobsAutomatically(OutputStream* outputStream) {
     REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to automatically process jobs");
     REQUIRE(!devices.empty(), "There has to be at least 1 printer available to process jobs automatically");
     REQUIRE(!jobs.empty(), "There are no jobs that can be processed by a device");
 
     while (!jobs.empty()) {
-        processJob(jobs[0]->getJobNR(), outputStream);
+        processJob(outputStream, jobs[0]->getJobNR());
     }
 
     ENSURE(jobs.empty(), "Not all jobs were processed after trying to process all the jobs");

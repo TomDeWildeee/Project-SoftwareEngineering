@@ -20,15 +20,15 @@ string outputHappyDayDirectory = "testXMLs/OutputTests/OutputHappyDay";
 
 TEST_F(OutputTest, SimpleOutputHappyDay) {
     ASSERT_TRUE(DirectoryExists(outputHappyDayDirectory));
-    ofstream myfile;
     int counter = 1;
     string filename = outputHappyDayDirectory + "/outputhappyday" + ToString(counter) + ".xml";
     string outputfilename;
     while(FileExists(filename)){
-        myfile.open(outputHappyDayDirectory + "/outputhappyday.txt");
-        PrintingSystemImporter::importPrintingSystem(filename.c_str(),myfile,printsystem);
-        printsystem.saveOutput(outputHappyDayDirectory + "/outputhappyday.txt");
-        myfile.close();
+        FileOutputStream errStream = FileOutputStream(outputHappyDayDirectory + "/outputhappyday.txt");
+        PrintingSystemImporter::importPrintingSystem(filename.c_str(),&errStream,printsystem);
+
+        FileOutputStream fileOutputStream = FileOutputStream(outputHappyDayDirectory + "/outputhappyday.txt");
+        printsystem.saveOutput(&fileOutputStream);
         outputfilename = outputHappyDayDirectory + "/outputhappyday" + ToString(counter) + ".txt";
         EXPECT_TRUE(FileCompare(outputHappyDayDirectory + "/outputhappyday.txt", outputfilename));
         counter += 1;
@@ -42,15 +42,15 @@ string outputInvalidDirectory = "testXMLs/OutputTests/OutputInvalid";
 
 TEST_F(OutputTest, SimpleOutputInvalid) {
     ASSERT_TRUE(DirectoryExists(outputInvalidDirectory));
-    ofstream myfile;
     int counter = 1;
     string filename = outputInvalidDirectory + "/outputinvalid" + ToString(counter) + ".xml";
     string outputfilename;
     while(FileExists(filename)){
-        myfile.open(outputInvalidDirectory + "/outputinvalid.txt");
-        PrintingSystemImporter::importPrintingSystem(filename.c_str(),myfile,printsystem);
-        printsystem.saveOutput(outputInvalidDirectory + "/outputinvalid.txt");
-        myfile.close();
+        FileOutputStream errStream = FileOutputStream(outputInvalidDirectory + "/outputinvalid.txt");
+        PrintingSystemImporter::importPrintingSystem(filename.c_str(),&errStream,printsystem);
+
+        FileOutputStream fileOutputStream = FileOutputStream(outputInvalidDirectory + "/outputinvalid.txt");
+        printsystem.saveOutput(&fileOutputStream);
         outputfilename = outputInvalidDirectory + "/outputinvalid" + ToString(counter) + ".txt";
         EXPECT_FALSE(FileCompare(outputInvalidDirectory + "/outputinvalid.txt", outputfilename));
         counter += 1;

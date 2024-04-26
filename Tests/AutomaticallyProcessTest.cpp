@@ -18,15 +18,15 @@ string happydayAPDir = "testXMLs/AutomaticallyProcessTests/HappyDayTest";
 
 TEST_F(AutomaticallyProcessTest, HappyDayAP) {
     ASSERT_TRUE(DirectoryExists(happydayAPDir));
-    ofstream myfile;
     int counter = 1;
     string filename = happydayAPDir + "/aptest" + ToString(counter) + ".xml";
     string outputFileName;
     while(FileExists(filename)){
-        myfile.open(happydayAPDir + "/outputXML.txt");
-        PrintingSystemImporter::importPrintingSystem(filename.c_str(),myfile,printsystem);
-        printsystem.processAllJobsAutomatically(myfile);
-        myfile.close();
+        FileOutputStream errStream = FileOutputStream(happydayAPDir + "/outputXML.txt");
+        PrintingSystemImporter::importPrintingSystem(filename.c_str(),&errStream,printsystem);
+
+        FileOutputStream fileOutputStream = FileOutputStream(happydayAPDir + "/outputXML.txt");
+        printsystem.processAllJobsAutomatically(&fileOutputStream);
         outputFileName = happydayAPDir + "/aptest" + ToString(counter) + ".txt";
         EXPECT_TRUE(FileCompare(happydayAPDir + "/outputXML.txt", outputFileName));
         counter +=1;
@@ -40,15 +40,15 @@ string invalidOutputAPDir = "testXMLs/AutomaticallyProcessTests/InvalidOutputTes
 
 TEST_F(AutomaticallyProcessTest, InvalidOutput) {
     ASSERT_TRUE(DirectoryExists(invalidOutputAPDir));
-    ofstream myfile;
     int counter = 1;
     string filename = invalidOutputAPDir + "/invalidoutput" + ToString(counter) + ".xml";
     string outputFileName;
     while(FileExists(filename)){
-        myfile.open(invalidOutputAPDir + "/outputXML.txt");
-        PrintingSystemImporter::importPrintingSystem(filename.c_str(),myfile,printsystem);
-        printsystem.processAllJobsAutomatically(myfile);
-        myfile.close();
+        FileOutputStream errStream = FileOutputStream(invalidOutputAPDir + "/outputXML.txt");
+        PrintingSystemImporter::importPrintingSystem(filename.c_str(),&errStream,printsystem);
+
+        FileOutputStream fileOutputStream = FileOutputStream(invalidOutputAPDir + "/outputXML.txt");
+        printsystem.processAllJobsAutomatically(&fileOutputStream);
         outputFileName = invalidOutputAPDir + "/invalidoutput" + ToString(counter) + ".txt";
         EXPECT_FALSE(FileCompare(invalidOutputAPDir + "/outputXML.txt", outputFileName));
         counter +=1;

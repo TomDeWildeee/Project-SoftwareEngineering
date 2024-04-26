@@ -5,6 +5,7 @@
 #include <vector>
 #include "Device.h"
 #include "Job.h"
+#include "Output.h"
 
 class PrintingSystem {
 public:
@@ -40,7 +41,7 @@ public:
  REQUIRE(this->properlyInitialized(), "Printing system was not initialized while trying to save the output");
  ENSURE(!outputFile.is_open(), "File was not closed after writing out to it");
 */
-    void saveOutput(const std::string& filename);
+    void saveOutput(OutputStream* outputStream);
 
 /**
  REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to process a job");
@@ -48,7 +49,7 @@ public:
  REQUIRE(!jobs.empty(), "There are no jobs that can be processed by a device");
  ENSURE(std::find(jobs.begin(), jobs.end(), jobToProcess) == jobs.end(), "Processed job wasn't deleted out of the system");
 */
-    void processJob(int jobNR, std::ostream &outputStream);
+    void processJob(OutputStream* outputStream, int jobNR);
 
 /**
  REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to automatically process jobs");
@@ -56,7 +57,7 @@ public:
  REQUIRE(!jobs.empty(), "There are no jobs that can be processed by a device");
  ENSURE(jobs.empty(), "Not all jobs were processed after trying to process all the jobs");
 */
-    void processAllJobsAutomatically(std::ostream &outputStream);
+    void processAllJobsAutomatically(OutputStream* outputStream);
 /**
  REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to get jobs");
 */

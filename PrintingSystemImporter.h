@@ -7,7 +7,7 @@ enum ImportEnum {ImportSuccess, ImportError};
 
 class PrintingSystemImporter {
 public:
-    static ImportEnum importPrintingSystem(const char* filename, std::ostream &errStream, PrintingSystem &printingSystem);
+    static ImportEnum importPrintingSystem(const char* filename, OutputStream* outputStream, PrintingSystem &printingSystem);
 };
 
 

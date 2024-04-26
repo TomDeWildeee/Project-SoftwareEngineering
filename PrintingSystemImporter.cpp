@@ -12,21 +12,21 @@ std::string getTextFromNode(TiXmlNode* node) {
     return text->Value();
 }
 
-bool checkValidnessDeviceProps(const std::string &deviceName, int deviceEmissions, int deviceSpeed, bool &invalid, std::ostream &errStream) {
+bool checkValidnessDeviceProps(const std::string &deviceName, int deviceEmissions, int deviceSpeed, bool &invalid, OutputStream* outputStream) {
     if (deviceName.empty()) {
-        errStream << "XML NO INPUT: Expected a string in the <name> attribute but couldn't retrieve it" << std::endl;
+        outputStream->writeLine("XML NO INPUT: Expected a string in the <name> attribute but couldn't retrieve it");
         invalid = true;
         return false;
     }
 
     if (deviceSpeed < 0) {
-        errStream << "NEGATIVE SPEED INTEGER: Expected a positive integer in the <speed> attribute but got a negative integer instead" << std::endl;
+        outputStream->writeLine("NEGATIVE SPEED INTEGER: Expected a positive integer in the <speed> attribute but got a negative integer instead");
         invalid = true;
         return false;
     }
 
     if (deviceEmissions < 0) {
-        errStream << "NEGATIVE EMISSIONS INTEGER: Expected a positive integer in the <emissions> attribute but got a negative integer instead" << std::endl;
+        outputStream->writeLine("NEGATIVE EMISSIONS INTEGER: Expected a positive integer in the <emissions> attribute but got a negative integer instead");
         invalid = true;
         return false;
     }
@@ -34,27 +34,27 @@ bool checkValidnessDeviceProps(const std::string &deviceName, int deviceEmission
 }
 
 
-bool checkValidnessJobProps(const std::string &username, int pageCount, int jobNumber, bool &invalid, std::ostream &errStream, PrintingSystem &printingSystem) {
+bool checkValidnessJobProps(const std::string &username, int pageCount, int jobNumber, bool &invalid, OutputStream* outputStream, PrintingSystem &printingSystem) {
     if (username.empty()) {
-        errStream << "XML NO INPUT: Expected a string in the <name> attribute but couldn't retrieve it" << std::endl;
+       outputStream->writeLine("XML NO INPUT: Expected a string in the <userName> attribute but couldn't retrieve it");
         invalid = true;
         return false;
     }
 
     if (pageCount < 0) {
-        errStream << "NEGATIVE SPEED INTEGER: Expected a positive integer in the <speed> attribute but got a negative integer instead" << std::endl;
+        outputStream->writeLine("NEGATIVE pageCount INTEGER: Expected a positive integer in the <pageCount> attribute but got a negative integer instead");
         invalid = true;
         return false;
     }
 
     if (jobNumber < 0) {
-        errStream << "NEGATIVE EMISSIONS INTEGER: Expected a positive integer in the <emissions> attribute but got a negative integer instead" << std::endl;
+        outputStream->writeLine("NEGATIVE jobNumber INTEGER: Expected a positive integer in the <jobNumber> attribute but got a negative integer instead");
         invalid = true;
         return false;
     }
 
     if (!printingSystem.isUniqueJobNumber(jobNumber)) {
-        errStream << "NON-UNIQUE JOB NUMBER: Expected a unique jobNumber integer in the <jobNumber> attribute but got a non-unique" << std::endl;
+       outputStream->writeLine("NON-UNIQUE JOB NUMBER: Expected a unique jobNumber integer in the <jobNumber> attribute but got a non-unique");
         invalid = true;
         return false;
     }
@@ -62,27 +62,26 @@ bool checkValidnessJobProps(const std::string &username, int pageCount, int jobN
 }
 
 
-ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, std::ostream &errStream, PrintingSystem &printingSystem) {
+ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, OutputStream* outputStream, PrintingSystem &printingSystem) {
     REQUIRE(printingSystem.properlyInitialized(), "PrintingSystem wasn't initialized when trying to import the printing system");
 
     TiXmlDocument doc;
 
     if (!doc.LoadFile(filename)) {
-        errStream << "XML IMPORT ABORTED: " << doc.ErrorDesc() << std::endl;
+        outputStream->writeLine("XML IMPORT ABORTED: " + std::string(doc.ErrorDesc()));
         return ImportError;
     }
 
     TiXmlElement* root = doc.FirstChildElement();
     if (root == nullptr) {
-        errStream << "Failed to load file: No root element." << std::endl;
+        outputStream->writeLine("Failed to load file: No root element.");
         doc.Clear();
         return ImportError;
     }
-
     std::string rootName = root->Value();
     if (rootName != "SYSTEM") {
-        errStream << "XML UNRECOGNIZED ELEMENT: Expected <SYSTEM> ... </SYSTEM> and got <"
-                  << rootName <<  "> ... </" << rootName << ">." << std::endl;
+        outputStream->writeLine("XML UNRECOGNIZED ELEMENT: Expected <SYSTEM> ... </SYSTEM> and got <"
+        + rootName +  "> ... </" + rootName + ">.");
         doc.Clear();
         return ImportError;
     }
@@ -102,7 +101,7 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, st
 
             // Check if deviceNameNode is present in the XML file
             if (deviceNameNode == nullptr) {
-                errStream << "XML UNRECOGNIZED ATTRIBUTE: Expected <name> ... </name>" << std::endl;
+                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <name> ... </name>");
                 invalid = true;
                 continue;
 
@@ -112,20 +111,20 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, st
 
             // Check if deviceEmissionsNode is present in the XML file
             if (deviceEmissionsNode == nullptr) {
-                errStream << "XML UNRECOGNIZED ATTRIBUTE: Expected <emissions> ... </emissions>" << std::endl;
+                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <emissions> ... </emissions>");
                 invalid = true;
                 continue;
 
             } else {
                 std::string deviceEmissionsString = getTextFromNode(deviceEmissionsNode);
                 if (deviceEmissionsString.empty()) {
-                    errStream << "XML NO INPUT: Expected an integer in the <emissions> attribute but couldn't retrieve it" << std::endl;
+                    outputStream->writeLine("XML NO INPUT: Expected an integer in the <emissions> attribute but couldn't retrieve it");
                     invalid = true;
                     continue;
                 }
 
                 if (!isNumber(deviceEmissionsString)) {
-                    errStream << "XML INVALID VALUE: Expected an integer in the <emissions> attribute but got a different type" << std::endl;
+                    outputStream->writeLine("XML INVALID VALUE: Expected an integer in the <emissions> attribute but got a different type");
                     invalid = true;
                     continue;
                 } else {
@@ -136,20 +135,20 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, st
 
             // Check if deviceSpeedNode is present in the XML file
             if (deviceSpeedNode == nullptr) {
-                errStream << "XML UNRECOGNIZED ATTRIBUTE: Expected <speed> ... </speed>" << std::endl;
+                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <speed> ... </speed>");
                 invalid = true;
                 continue;
 
             } else {
                 std::string deviceSpeedString = getTextFromNode(deviceSpeedNode);
                 if (deviceSpeedString.empty()) {
-                    errStream << "XML NO INPUT: Expected an integer in the <speed> attribute but couldn't retrieve it" << std::endl;
+                    outputStream->writeLine("XML NO INPUT: Expected an integer in the <speed> attribute but couldn't retrieve it");
                     invalid = true;
                     continue;
                 }
 
                 if (!isNumber(deviceSpeedString)) {
-                    errStream << "XML INVALID VALUE: Expected an integer in the <speed> attribute but got a different type" << std::endl;
+                    outputStream->writeLine("XML INVALID VALUE: Expected an integer in the <speed> attribute but got a different type");
                     invalid = true;
                     continue;
                 } else {
@@ -157,7 +156,7 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, st
                 }
             }
 
-            bool validDeviceProperties = checkValidnessDeviceProps(deviceName, deviceEmissions, deviceSpeed, invalid, errStream);
+            bool validDeviceProperties = checkValidnessDeviceProps(deviceName, deviceEmissions, deviceSpeed, invalid, outputStream);
             if (!validDeviceProperties) continue;
 
             auto* newDevice = new Device(deviceName, deviceEmissions, deviceSpeed);
@@ -172,7 +171,7 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, st
             TiXmlNode* userNameNode = elem->FirstChild("userName");
 
             if (userNameNode == nullptr) {
-                errStream << "XML UNRECOGNIZED ATTRIBUTE: Expected <userName> ... </userName>" << std::endl;
+                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <userName> ... </userName>");
                 invalid = true;
                 continue;
             } else {
@@ -180,7 +179,7 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, st
             }
 
             if (jobNumberNode == nullptr) {
-                errStream << "XML UNRECOGNIZED ATTRIBUTE: Expected <jobNumber> ... </jobNumber>" << std::endl;
+                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <jobNumber> ... </jobNumber>");
                 invalid = true;
                 continue;
 
@@ -188,13 +187,13 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, st
                 std::string jobNumberString = getTextFromNode(jobNumberNode);
 
                 if (jobNumberString.empty()) {
-                    errStream << "XML NO INPUT: Expected an integer in the <jobNumber> attribute but couldn't retrieve it" << std::endl;
+                    outputStream->writeLine("XML NO INPUT: Expected an integer in the <jobNumber> attribute but couldn't retrieve it");
                     invalid = true;
                     continue;
                 }
 
                 if (!isNumber(jobNumberString)) {
-                    errStream << "XML INVALID VALUE: Expected an integer in the <jobNumber> attribute but got a different type" << std::endl;
+                    outputStream->writeLine("XML INVALID VALUE: Expected an integer in the <jobNumber> attribute but got a different type");
                     invalid = true;
                     continue;
                 } else {
@@ -203,20 +202,20 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, st
             }
 
             if (pageCountNode == nullptr) {
-                errStream << "XML UNRECOGNIZED ATTRIBUTE: Expected <pageCount> ... </pageCount>" << std::endl;
+                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <pageCount> ... </pageCount>");
                 invalid = true;
                 continue;
             } else {
                 std::string pageCountString = getTextFromNode(pageCountNode);
 
                 if (pageCountString.empty()) {
-                    errStream << "XML NO INPUT: Expected an integer in the <pageCount> attribute but couldn't retrieve it" << std::endl;
+                    outputStream->writeLine("XML NO INPUT: Expected an integer in the <pageCount> attribute but couldn't retrieve it");
                     invalid = true;
                     continue;
                 }
 
                 if (!isNumber(pageCountString)) {
-                    errStream << "XML INVALID VALUE: Expected an integer in the <pageCount> attribute but got a different type" << std::endl;
+                    outputStream->writeLine("XML INVALID VALUE: Expected an integer in the <pageCount> attribute but got a different type");
                     invalid = true;
                     continue;
                 } else {
@@ -224,20 +223,20 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, st
                 }
             }
 
-            bool validJobProperties = checkValidnessJobProps(username, pageCount, jobNumber, invalid, errStream, printingSystem);
+            bool validJobProperties = checkValidnessJobProps(username, pageCount, jobNumber, invalid, outputStream, printingSystem);
             if (!validJobProperties) continue;
 
             auto* newJob = new Job(jobNumber, pageCount, username);
             printingSystem.addJob(newJob);
 
         } else {
-            errStream << "XML UNRECOGNIZED ELEMENT: Expected <DEVICE> ... </DEVICE> or <JOB> ... </JOB>." << std::endl;
+            outputStream->writeLine("XML UNRECOGNIZED ELEMENT: Expected <DEVICE> ... </DEVICE> or <JOB> ... </JOB>.");
             invalid = true;
         }
     }
 
     if (invalid) {
-        errStream << "XML NOT CONSISTENT: XML file was not consistent and is invalid, system will be cleared" << std::endl;
+        outputStream->writeLine("XML NOT CONSISTENT: XML file was not consistent and is invalid, system will be cleared");
         printingSystem.clearSystemBecauseInvalid();
         doc.Clear();
         return ImportError;

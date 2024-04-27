@@ -78,10 +78,12 @@ void PrintingSystem::saveOutput(OutputStream* outputStream) {
         std::string jobName = "[Job #" + std::to_string(job->getJobNR()) + "]";
         std::string jobUser = "* User: " + job->getUserName();
         std::string jobPageCount = "* Total Pages: " + std::to_string(job->getPageCount());
+        std::string jobDevice = "* Device: " + job->getDevice()->getName();
 
         outputStream->writeLine(jobName);
         outputStream->writeLine(jobUser);
         outputStream->writeLine(jobPageCount);
+        outputStream->writeLine(jobDevice);
     }
     outputStream->writeLine("\n╚════════════════ [ System Diagnostic ] ════════════════╝");
 }
@@ -115,6 +117,7 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
             break;
         }
     }
+    jobToProcess->setDevice(processingdevice);
 
     if (!processingdevice) {
         outputStream->writeLine("ERR: There is no device of the correct type to process job");

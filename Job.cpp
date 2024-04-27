@@ -41,3 +41,13 @@ std::string Job::getJobType() {
         return "scan";
     }
 }
+
+Device *Job::getDevice() {
+    REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting processing device");
+    return device;
+}
+
+void Job::setDevice(Device* processingDevice) {
+    REQUIRE(this->properlyInitialized(), "Job wasn't initialized when setting processing device");
+    Job::device = processingDevice;
+}

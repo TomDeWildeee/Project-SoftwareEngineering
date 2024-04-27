@@ -9,8 +9,7 @@ int main() {
         std::cout << "error" << std::endl;
     } else {
         printsystem.saveOutput(&fileOutputStream);
+        //printsystem.processJob(&fileOutputStream, 1);
         printsystem.processAllJobsAutomatically(&fileOutputStream);
-        printsystem.saveOutput(&fileOutputStream);
-        std::cout << printsystem.getTotalEmissions();
     }
 }

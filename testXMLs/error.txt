@@ -4,7 +4,13 @@
 
 Office_Printer1:
 * Type: Scanner
-* Speed: 5 pages/minute
+* Speed: 20 pages/minute
+* Cost: 0.050000cents/page
+* CO2: 3 g/page
+
+Office_Printer2:
+* Type: Black-and-white printer
+* Speed: 30 pages/minute
 * Cost: 0.050000cents/page
 * CO2: 3 g/page
 
@@ -89,21 +95,7 @@ Printing page 27
 Printing page 28
 Printing page 29
 Printing page 30
-Printer "Office_Printer1" finished scanning job:
+Printer "Office_Printer2" finished black-and-white-printing job:
 	 Number: 3
 	 Submitted by "John"
 	 30 pages
-╔════════════════ [ System Diagnostic ] ════════════════╗
-
-──── Devices ────
-
-Office_Printer1:
-* Type: Scanner
-* Speed: 5 pages/minute
-* Cost: 0.050000cents/page
-* CO2: 3 g/page
-
-───── Jobs ─────
-
-
-╚════════════════ [ System Diagnostic ] ════════════════╝

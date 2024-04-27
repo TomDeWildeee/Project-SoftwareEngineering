@@ -1,6 +1,5 @@
 #include "DesignByContract.h"
 #include "PrintingSystem.h"
-#include <fstream>
 #include <iostream>
 #include <algorithm>
 
@@ -115,7 +114,6 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
             break;
         }
     }
-
     if (!processingdevice) {
         outputStream->writeLine("ERR: There is no device of the correct type to process job");
         return;
@@ -149,8 +147,10 @@ void PrintingSystem::processAllJobsAutomatically(OutputStream* outputStream) {
     REQUIRE(!devices.empty(), "There has to be at least 1 printer available to process jobs automatically");
     REQUIRE(!jobs.empty(), "There are no jobs that can be processed by a device");
 
-    while (!jobs.empty()) {
-        processJob(outputStream, jobs[0]->getJobNR());
+    std::vector<Job*> savedJobs = jobs;
+
+    for (auto job : savedJobs) {
+        processJob(outputStream, job->getJobNR());
     }
 
     ENSURE(jobs.empty(), "Not all jobs were processed after trying to process all the jobs, check if the devices have the right types");

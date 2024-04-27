@@ -121,17 +121,20 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
         outputStream->writeLine(printString);
     }
     std::string typestring;
-    if(jobToProcess->getJobType() == "color"){
+    if(jobToProcess->getJobType() == "color") {
         typestring = "color-printing";
-    }
-    if(jobToProcess->getJobType() == "bw"){
+    } else if(jobToProcess->getJobType() == "bw") {
         typestring = "black-and-white-printing";
     }
     if(jobToProcess->getJobType() == "scan"){
         typestring = "scanning";
     }
     totalEmissions += jobToProcess->getPageCount() * processingdevice->getEmissions();
-    outputStream->writeLine("Printer \"" + processingdevice->getName() + "\" finished " + typestring + " job:");
+    if (jobToProcess->getJobType() == "scan") {
+        outputStream->writeLine("Scanner \"" + processingdevice->getName() + "\" finished scanning job:");
+    } else {
+        outputStream->writeLine("Printer \"" + processingdevice->getName() + "\" finished " + typestring + " job:");
+    }
     outputStream->writeLine("\t Number: " + std::to_string(jobToProcess->getJobNR()));
     outputStream->writeLine("\t Submitted by \"" + jobToProcess->getUserName() + "\"");
     outputStream->writeLine("\t " + std::to_string(jobToProcess->getPageCount()) + " pages");

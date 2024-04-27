@@ -115,6 +115,7 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
             break;
         }
     }
+
     if (!processingdevice) {
         outputStream->writeLine("ERR: There is no device of the correct type to process job");
         return;
@@ -152,14 +153,14 @@ void PrintingSystem::processAllJobsAutomatically(OutputStream* outputStream) {
         processJob(outputStream, jobs[0]->getJobNR());
     }
 
-    ENSURE(jobs.empty(), "Not all jobs were processed after trying to process all the jobs");
+    ENSURE(jobs.empty(), "Not all jobs were processed after trying to process all the jobs, check if the devices have the right types");
 }
 
 std::vector<Job*> PrintingSystem::getJobs() {
     REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to get jobs");
     return jobs;
 }
-int PrintingSystem::gettotalEmissions() {
+int PrintingSystem::getTotalEmissions() {
     REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to get total emissions");
     return totalEmissions;
 }

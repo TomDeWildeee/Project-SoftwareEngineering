@@ -62,7 +62,7 @@ public:
  REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to get jobs");
 */
     std::vector<Job*> getJobs();
-    int gettotalEmissions();
+    int getTotalEmissions();
     std::vector<Device*> getDevices();
 private:
     PrintingSystem* _initCheck;

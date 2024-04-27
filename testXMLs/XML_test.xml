@@ -11,6 +11,18 @@
         <jobNumber>1</jobNumber>
         <pageCount>20</pageCount>
         <userName>Tom</userName>
-        <type>bw</type>
+        <type>scan</type>
+    </JOB>
+    <JOB>
+        <jobNumber>2</jobNumber>
+        <pageCount>10</pageCount>
+        <userName>Jan</userName>
+        <type>scan</type>
+    </JOB>
+    <JOB>
+        <jobNumber>3</jobNumber>
+        <pageCount>30</pageCount>
+        <userName>John</userName>
+        <type>scan</type>
     </JOB>
 </SYSTEM>

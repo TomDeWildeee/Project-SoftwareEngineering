@@ -51,7 +51,7 @@ void PrintingSystem::addJob(Job* job) {
 void PrintingSystem::saveOutput(OutputStream* outputStream) {
     REQUIRE(this->properlyInitialized(), "Printing system was not initialized while trying to save the output");
 
-    outputStream->writeLine("╔════════════════ [ System Diagnostic ] ════════════════╗\n");
+    outputStream->writeLine("╔════════════════ [ System Report ] ════════════════╗\n");
     outputStream->writeLine("──── Devices ────\n");
     for (auto& device : devices) {
         std::string deviceName = device->getName() + ":";
@@ -85,7 +85,25 @@ void PrintingSystem::saveOutput(OutputStream* outputStream) {
         outputStream->writeLine(jobPageCount);
         outputStream->writeLine(jobDevice);
     }
-    outputStream->writeLine("\n╚════════════════ [ System Diagnostic ] ════════════════╝");
+    outputStream->writeLine("\n╚════════════════ [ System Report ] ════════════════╝");
+}
+
+void PrintingSystem::advancedOutput(OutputStream *outputStream) {
+    REQUIRE(this->properlyInitialized(), "Printing system was not initialized while trying to save the output");
+
+    outputStream->writeLine("─────══════ [ System Diagnostic ] ══════─────\n");
+
+    for (auto& device : devices) {
+        std::string deviceType;
+        if (device->getDeviceType() == "bw") {
+            deviceType = " Black-and-white printer";
+        } else if (device->getDeviceType() == "color") {
+            deviceType = " Color printer";
+        } else {
+            deviceType = " Scanner";
+        }
+        outputStream->writeLine("» " + device->getName() + deviceType);
+    }
 }
 
 void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {

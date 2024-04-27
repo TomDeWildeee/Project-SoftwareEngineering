@@ -77,10 +77,10 @@ void PrintingSystem::saveOutput(OutputStream* outputStream) {
         std::string jobName = "[Job #" + std::to_string(job->getJobNR()) + "]";
         std::string jobUser = "* User: " + job->getUserName();
         std::string jobPageCount = "* Total Pages: " + std::to_string(job->getPageCount());
-        std::string jobDevice = "* Device: " + job->getDevice()->getName();
+        std::string jobDevice = "* Device: " + (job->getDevice() ? job->getDevice()->getName() : "None");
 
-        std::string jobEmission = "* Total CO2: " + std::to_string(job->getDevice()->getEmissions() * job->getPageCount());
-        std::string jobCost = "* Total Cost: " + std::to_string(job->getDevice()->getCost() * job->getPageCount());
+        std::string jobEmission = "* Total CO2: " + (job->getDevice() ? std::to_string(job->getDevice()->getEmissions() * job->getPageCount()) : "Needs device to calculate");
+        std::string jobCost = "* Total Cost: " + (job->getDevice() ? std::to_string(job->getDevice()->getCost() * job->getPageCount()) : "Needs device to calculate");
 
         outputStream->writeLine(jobName);
         outputStream->writeLine(jobUser);

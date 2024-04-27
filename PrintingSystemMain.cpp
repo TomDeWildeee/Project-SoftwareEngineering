@@ -9,6 +9,7 @@ int main() {
         std::cout << "error" << std::endl;
     } else {
         printsystem.saveOutput(&fileOutputStream);
+        printsystem.processAllJobsAutomatically(&fileOutputStream);
         auto devices2 = printsystem.getDevices();
         for(auto device : devices2){
             auto jobs = device->getFinishedjobs();
@@ -16,5 +17,8 @@ int main() {
                 std::cout << job->getJobNR() << std::endl;
             }
         }
+
+        ConsoleOutputStream c;
+        printsystem.advancedOutput(&c);
     }
 }

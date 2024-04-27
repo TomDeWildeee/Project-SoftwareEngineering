@@ -30,6 +30,6 @@
         <jobNumber>3</jobNumber>
         <pageCount>30</pageCount>
         <userName>John</userName>
-        <type>bw</type>
+        <type>scan</type>
     </JOB>
 </SYSTEM>

@@ -201,13 +201,13 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
             } else {
                 std::string deviceCostString = getTextFromNode(deviceCostNode);
                 if (deviceCostString.empty()) {
-                    outputStream->writeLine("XML NO INPUT: Expected an integer in the <cost> attribute but couldn't retrieve it");
+                    outputStream->writeLine("XML NO INPUT: Expected a float in the <cost> attribute but couldn't retrieve it");
                     invalid = true;
                     continue;
                 }
 
-                if (!isNumber(deviceCostString)) {
-                    outputStream->writeLine("XML INVALID VALUE: Expected an integer in the <cost> attribute but got a different type");
+                if (!isFloat(deviceCostString)) {
+                    outputStream->writeLine("XML INVALID VALUE: Expected a float in the <cost> attribute but got a different type");
                     invalid = true;
                     continue;
                 } else {

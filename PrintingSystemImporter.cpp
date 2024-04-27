@@ -328,7 +328,7 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
         doc.Clear();
         return ImportError;
     }
-
+    printingSystem.queueJobs();
     doc.Clear();
     return ImportSuccess;
 }

@@ -9,14 +9,14 @@
     </DEVICE>
     <DEVICE>
         <name>Office_Printer2</name>
-        <emissions>3</emissions>
-        <speed>30</speed>
+        <emissions>5</emissions>
+        <speed>5</speed>
         <cost>5.5</cost>
-        <type>bw</type>
+        <type>scan</type>
     </DEVICE>
     <JOB>
         <jobNumber>1</jobNumber>
-        <pageCount>20</pageCount>
+        <pageCount>10</pageCount>
         <userName>Tom</userName>
         <type>scan</type>
     </JOB>

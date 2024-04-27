@@ -2,11 +2,12 @@
 #define PROJECT_SOFTWAREENGINEERING_JOB_H
 
 #include <string>
+//#include "Device.h"
 
 namespace JobType {
     enum JobTypeEnum {color, bw, scan};
 }
-
+class Device;
 class Job {
 public:
     bool properlyInitialized();
@@ -36,13 +37,23 @@ public:
 */
     std::string getJobType();
 
+/**
+ REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting processing device");
+*/
+    Device *getDevice();
+
+/**
+ REQUIRE(this->properlyInitialized(), "Job wasn't initialized when setting processing device");
+*/
+    void setDevice(Device *processingDevice);
+
 private:
     Job* _initCheck;
-
     int jobNumber;
     int pageCount;
     std::string userName;
     JobType::JobTypeEnum type;
+    Device* device;
 };
 
 

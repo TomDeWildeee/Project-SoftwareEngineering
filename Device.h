@@ -2,11 +2,11 @@
 #define PROJECT_SOFTWAREENGINEERING_DEVICE_H
 
 #include <string>
-
+#include <vector>
 namespace DeviceType {
     enum DeviceTypeEnum {color, bw, scan};
 }
-
+class Job;
 class Device {
 public:
     bool properlyInitialized();
@@ -40,6 +40,27 @@ public:
  REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting type");
 */
     std::string getDeviceType();
+/**
+  REQUIRE(this->properlyInitialized(), "Device wasn't initialized checking if it exceeds the CO2 limit");
+ */
+    bool exceedslimit();
+
+/**
+ REQUIRE(this->properlyInitialized(), "Device wasn't initialized when calculating value");
+*/
+    int calculatevalue();
+/**
+ REQUIRE(this->properlyInitialized(), "Device wasn't initialized when adding to queue");
+ */
+    void enqueue(Job*);
+/**
+ REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting queue");
+ */
+    std::vector<Job*> getJobqueue();
+
+    std::vector<Job*> getFinishedjobs();
+
+    void addFinishedJob(Job* finishedjob);
 
 private:
     Device* _initCheck;
@@ -49,7 +70,8 @@ private:
     int speed;
     DeviceType::DeviceTypeEnum type;
     float cost;
-
+    std::vector<Job*> jobqueue;
+    std::vector<Job*> finishedjobs;
 };
 
 

@@ -9,7 +9,12 @@ int main() {
         std::cout << "error" << std::endl;
     } else {
         printsystem.saveOutput(&fileOutputStream);
-        //printsystem.processJob(&fileOutputStream, 1);
-        printsystem.processAllJobsAutomatically(&fileOutputStream);
+        auto devices2 = printsystem.getDevices();
+        for(auto device : devices2){
+            auto jobs = device->getFinishedjobs();
+            for(auto job : jobs){
+                std::cout << job->getJobNR() << std::endl;
+            }
+        }
     }
 }

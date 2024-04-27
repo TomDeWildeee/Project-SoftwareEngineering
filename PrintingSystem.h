@@ -44,6 +44,12 @@ public:
     void saveOutput(OutputStream* outputStream);
 
 /**
+ REQUIRE(this->properlyInitialized(), "Printing system was not initialized while trying to save the output");
+ ENSURE(!outputFile.is_open(), "File was not closed after writing out to it");
+*/
+    void advancedOutput(OutputStream* outputStream);
+
+/**
  REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to process a job");
  REQUIRE(!devices.empty(), "There has to be at least 1 printer available to process a job");
  REQUIRE(!jobs.empty(), "There are no jobs that can be processed by a device");
@@ -61,6 +67,10 @@ public:
 /**
  REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to get jobs");
 */
+    void queueJobs();
+/**
+ REQUIRE(this->properlyIntialized(), "System was not properly initialized when trying to get jobs");
+ */
     std::vector<Job*> getJobs();
     int getTotalEmissions();
     std::vector<Device*> getDevices();

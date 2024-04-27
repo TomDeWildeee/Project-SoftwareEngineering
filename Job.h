@@ -54,7 +54,6 @@ private:
     int pageCount;
     std::string userName;
     JobType::JobTypeEnum type;
-    Device* device;
 };
 
 

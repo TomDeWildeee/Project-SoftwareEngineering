@@ -80,10 +80,15 @@ void PrintingSystem::saveOutput(OutputStream* outputStream) {
         std::string jobPageCount = "* Total Pages: " + std::to_string(job->getPageCount());
         std::string jobDevice = "* Device: " + job->getDevice()->getName();
 
+        std::string jobEmission = "* Total CO2: " + std::to_string(job->getDevice()->getEmissions() * job->getPageCount());
+        std::string jobCost = "* Total Cost: " + std::to_string(job->getDevice()->getCost() * job->getPageCount());
+
         outputStream->writeLine(jobName);
         outputStream->writeLine(jobUser);
         outputStream->writeLine(jobPageCount);
         outputStream->writeLine(jobDevice);
+        outputStream->writeLine(jobEmission);
+        outputStream->writeLine(jobCost);
     }
     outputStream->writeLine("\n╚════════════════ [ System Report ] ════════════════╝");
 }
@@ -135,7 +140,6 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
             break;
         }
     }
-    jobToProcess->setDevice(processingdevice);
 
     if (!processingdevice) {
         outputStream->writeLine("ERR: There is no device of the correct type to process job");

@@ -67,6 +67,10 @@ public:
 /**
  REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to get jobs");
 */
+    void queueJobs();
+/**
+ REQUIRE(this->properlyIntialized(), "System was not properly initialized when trying to get jobs");
+ */
     std::vector<Job*> getJobs();
     int getTotalEmissions();
     std::vector<Device*> getDevices();

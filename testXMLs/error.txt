@@ -1,26 +1,41 @@
-╔════════════════ [ System Diagnostic ] ════════════════╗
+╔════════════════ [ System Report ] ════════════════╗
 
 ──── Devices ────
 
 Office_Printer1:
 * Type: Scanner
 * Speed: 5 pages/minute
-* Cost: 0.050000cents/page
+* Cost: 5.000000cents/page
 * CO2: 3 g/page
+
+Office_Printer2:
+* Type: Scanner
+* Speed: 5 pages/minute
+* Cost: 5.000000cents/page
+* CO2: 5 g/page
 
 ───── Jobs ─────
 
 [Job #1]
 * User: Tom
-* Total Pages: 20
+* Total Pages: 10
+* Device: Office_Printer1
+* Total CO2: 30
+* Total Cost: 50.000000
 [Job #2]
 * User: Jan
 * Total Pages: 10
+* Device: Office_Printer2
+* Total CO2: 50
+* Total Cost: 50.000000
 [Job #3]
 * User: John
 * Total Pages: 30
+* Device: Office_Printer1
+* Total CO2: 90
+* Total Cost: 150.000000
 
-╚════════════════ [ System Diagnostic ] ════════════════╝
+╚════════════════ [ System Report ] ════════════════╝
 Printing page 1
 Printing page 2
 Printing page 3
@@ -31,20 +46,10 @@ Printing page 7
 Printing page 8
 Printing page 9
 Printing page 10
-Printing page 11
-Printing page 12
-Printing page 13
-Printing page 14
-Printing page 15
-Printing page 16
-Printing page 17
-Printing page 18
-Printing page 19
-Printing page 20
-Printer "Office_Printer1" finished scanning job:
+Scanner "Office_Printer1" finished scanning job:
 	 Number: 1
 	 Submitted by "Tom"
-	 20 pages
+	 10 pages
 Printing page 1
 Printing page 2
 Printing page 3
@@ -55,7 +60,7 @@ Printing page 7
 Printing page 8
 Printing page 9
 Printing page 10
-Printer "Office_Printer1" finished scanning job:
+Scanner "Office_Printer2" finished scanning job:
 	 Number: 2
 	 Submitted by "Jan"
 	 10 pages
@@ -89,21 +94,27 @@ Printing page 27
 Printing page 28
 Printing page 29
 Printing page 30
-Printer "Office_Printer1" finished scanning job:
+Scanner "Office_Printer1" finished scanning job:
 	 Number: 3
 	 Submitted by "John"
 	 30 pages
-╔════════════════ [ System Diagnostic ] ════════════════╗
+╔════════════════ [ System Report ] ════════════════╗
 
 ──── Devices ────
 
 Office_Printer1:
 * Type: Scanner
 * Speed: 5 pages/minute
-* Cost: 0.050000cents/page
+* Cost: 5.000000cents/page
 * CO2: 3 g/page
+
+Office_Printer2:
+* Type: Scanner
+* Speed: 5 pages/minute
+* Cost: 5.000000cents/page
+* CO2: 5 g/page
 
 ───── Jobs ─────
 
 
-╚════════════════ [ System Diagnostic ] ════════════════╝
+╚════════════════ [ System Report ] ════════════════╝

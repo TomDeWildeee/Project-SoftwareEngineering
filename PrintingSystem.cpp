@@ -133,14 +133,7 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
     // We're taking the first printer at the moment (only device in specification 1.0)
     /*Device* device = devices[0];
     `*/
-    Device* processingdevice = nullptr;
-    for (Device* device : devices){
-        if(device->getDeviceType() == jobToProcess->getJobType()){
-            processingdevice = device;
-            break;
-        }
-    }
-
+    auto processingdevice = jobToProcess->getDevice();
     if (!processingdevice) {
         outputStream->writeLine("ERR: There is no device of the correct type to process job");
         return;
@@ -149,14 +142,12 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
         std::string printString = + "Printing page " + std::to_string(i + 1);
         outputStream->writeLine(printString);
     }
+    jobToProcess->getDevice()->addFinishedJob(jobToProcess);
     std::string typestring;
     if(jobToProcess->getJobType() == "color") {
         typestring = "color-printing";
     } else if(jobToProcess->getJobType() == "bw") {
         typestring = "black-and-white-printing";
-    }
-    if(jobToProcess->getJobType() == "scan"){
-        typestring = "scanning";
     }
     totalEmissions += jobToProcess->getPageCount() * processingdevice->getEmissions();
     if (jobToProcess->getJobType() == "scan") {
@@ -195,4 +186,27 @@ int PrintingSystem::getTotalEmissions() {
 std::vector<Device*> PrintingSystem::getDevices() {
     REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to get devices");
     return devices;
+}
+
+void PrintingSystem::queueJobs() {
+    REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to queue jobs");
+    Device* currentdevice;
+    for(auto job : jobs){
+        currentdevice = nullptr;
+        for(auto device : devices){
+            if(device->getDeviceType() == job->getJobType() && currentdevice == nullptr && !device->exceedslimit()){
+                currentdevice = device;
+            }
+            if(device->getDeviceType() == job->getJobType() && !device->exceedslimit()){
+                if(currentdevice->calculatevalue() > device->calculatevalue()){
+                    currentdevice = device;
+                }
+            }
+        }
+        if(!currentdevice){
+            return;
+        }
+        job->setDevice(currentdevice);
+        currentdevice->enqueue(job);
+    }
 }

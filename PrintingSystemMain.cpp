@@ -8,9 +8,22 @@ int main() {
     if (imp == ImportError) {
         std::cout << "error" << std::endl;
     } else {
+        auto devices = printsystem.getDevices();
+        for(auto device : devices){
+            auto jobs = device->getJobqueue();
+            for(auto job : jobs){
+                std::cout << job->getJobNR() << std::endl;
+            }
+        }
         printsystem.saveOutput(&fileOutputStream);
         printsystem.processAllJobsAutomatically(&fileOutputStream);
         printsystem.saveOutput(&fileOutputStream);
-        std::cout << printsystem.getTotalEmissions();
+        auto devices2 = printsystem.getDevices();
+        for(auto device : devices2){
+            auto jobs = device->getFinishedjobs();
+            for(auto job : jobs){
+                std::cout << job->getJobNR() << std::endl;
+            }
+        }
     }
 }

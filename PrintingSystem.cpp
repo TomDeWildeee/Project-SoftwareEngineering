@@ -101,13 +101,24 @@ void PrintingSystem::advancedOutput(OutputStream *outputStream) {
     for (auto& device : devices) {
         std::string deviceType;
         if (device->getDeviceType() == "bw") {
-            deviceType = " Black-and-white printer";
+            deviceType = " | Black-and-white printer";
         } else if (device->getDeviceType() == "color") {
-            deviceType = " Color printer";
+            deviceType = " | Color printer";
         } else {
-            deviceType = " Scanner";
+            deviceType = " | Scanner";
         }
         outputStream->writeLine("» " + device->getName() + deviceType);
+
+        std::string jobqueue = "* Queued: ";
+        for (auto& job : device->getJobqueue()) {
+            jobqueue += "[#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "]";
+        }
+        outputStream->writeLine(jobqueue);
+        std::string jobfinished = "* Completed: ";
+        for (auto& job : device->getFinishedjobs()) {
+            jobqueue += "[#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "]";
+        }
+        outputStream->writeLine(jobfinished + "\n");
     }
 }
 

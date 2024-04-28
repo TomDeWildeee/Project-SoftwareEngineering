@@ -14,6 +14,6 @@ int main() {
         printsystem.processJob(&n, printsystem.getJobs()[1]->getJobNR());
 
         printsystem.advancedOutput(&c);
-
     }
+
 }

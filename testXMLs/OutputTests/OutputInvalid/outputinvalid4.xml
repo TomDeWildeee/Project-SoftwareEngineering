@@ -3,7 +3,7 @@
 <SYSTEM>
     <DEVICE>
         <name>Printer_287257</name>
-        <emissions>50</emissions>
+        <emissions>2</emissions>
         <speed>1</speed>
         <cost>20</cost>
         <type>color</type>

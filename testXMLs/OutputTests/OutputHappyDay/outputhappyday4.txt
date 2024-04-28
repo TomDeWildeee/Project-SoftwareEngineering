@@ -6,7 +6,7 @@ Printer_287257:
 * Type: Color printer
 * Speed: 1 pages/minute
 * Cost: 20 cents/page
-* CO2: 50 g/page
+* CO2: 2 g/page
 
 printer2821:
 * Type: Color printer
@@ -31,9 +31,9 @@ scanner-2974:
 [Job #9]
 * User: Mauro
 * Total Pages: 1
-* Device: printer2821
+* Device: Printer_287257
 * Total CO2: 2 g CO2
-* Total Cost: 25 cents
+* Total Cost: 20 cents
 
 [Job #202]
 * User: Lucas
@@ -52,9 +52,9 @@ scanner-2974:
 [Job #9929]
 * User: Tom
 * Total Pages: 47
-* Device: printer2821
+* Device: Printer_287257
 * Total CO2: 94 g CO2
-* Total Cost: 1175 cents
+* Total Cost: 940 cents
 
 [Job #2222]
 * User: Mauro

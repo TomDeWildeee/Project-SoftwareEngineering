@@ -6,7 +6,7 @@ Printer_287257:
 * Type: Color printer
 * Speed: 1 pages/minute
 * Cost: 20 cents/page
-* CO2: 50 g/page
+* CO2: 2 g/page
 
 printer2821:
 * Type: Color printer

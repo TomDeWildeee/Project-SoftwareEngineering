@@ -74,9 +74,9 @@ Scanner "Office_Printer1" finished scanning job:
 
 » Office_Printer1 | Scanner
 * Queued: 
-* Completed: 
+* Completed: [#1 | 10][#3 | 30]
 
 » Office_Printer2 | Scanner
 * Queued: 
-* Completed: 
+* Completed: [#2 | 10]
 

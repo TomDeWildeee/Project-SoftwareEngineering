@@ -115,7 +115,7 @@ void PrintingSystem::advancedOutput(OutputStream *outputStream) {
         outputStream->writeLine(jobqueue);
         std::string jobfinished = "* Completed: ";
         for (auto& job : device->getFinishedjobs()) {
-            jobqueue += "[#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "]";
+            jobfinished += "[#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "]";
         }
         outputStream->writeLine(jobfinished + "\n");
     }
@@ -139,7 +139,7 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
        outputStream->writeLine(errString);
        return;
     }
-    auto processingdevice = jobToProcess->getDevice();
+    Device* processingdevice = jobToProcess->getDevice();
 
     if (!processingdevice) {
         outputStream->writeLine("ERR: There is no device of the correct type to process job");
@@ -149,7 +149,7 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
         std::string printString = + "Printing page " + std::to_string(i + 1);
         outputStream->writeLine(printString);
     }
-    jobToProcess->getDevice()->addFinishedJob(jobToProcess);
+    processingdevice->addFinishedJob(jobToProcess);
 
     std::string typestring;
     if(jobToProcess->getJobType() == "color") {

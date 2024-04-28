@@ -11,7 +11,7 @@ protected:
 };
 
 TEST_F(JobTest, ConstructorTest) {
-    auto* job = new Job(100, 5, "Jan");
+    auto* job = new Job(100, 5, "Jan", JobType::JobTypeEnum::color);
     EXPECT_NE(job->getJobNR(), 10);
     EXPECT_EQ(job->getJobNR(), 100);
     EXPECT_NE(job->getPageCount(), 10);

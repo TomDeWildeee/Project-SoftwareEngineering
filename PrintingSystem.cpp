@@ -121,14 +121,14 @@ void PrintingSystem::advancedOutput(OutputStream *outputStream) {
         }
         outputStream->writeLine("» " + device->getName() + deviceType);
 
-        std::string jobqueue = "* Queued: ";
+        std::string jobqueue = "* Queued:";
         for (auto& job : device->getJobqueue()) {
-            jobqueue += "[#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "p]";
+            jobqueue += " [#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "p]";
         }
         outputStream->writeLine(jobqueue);
-        std::string jobfinished = "* Completed: ";
+        std::string jobfinished = "* Completed:";
         for (auto& job : device->getFinishedjobs()) {
-            jobfinished += "[#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "p]";
+            jobfinished += " [#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "p]";
         }
         outputStream->writeLine(jobfinished + "\n");
     }
@@ -221,17 +221,12 @@ void PrintingSystem::queueJobs() {
                 currentdevice = device;
             }
             if(device->getDeviceType() == job->getJobType() && !device->exceedslimit()){
-                if(currentdevice->calculatevalue() < device->calculatevalue()){
+                if(currentdevice->calculatevalue() > device->calculatevalue()){
                     currentdevice = device;
                 }
             }
         }
 
-        /*
-        if(!currentdevice){
-            return;
-        }
-         */
         job->setDevice(currentdevice);
         if (currentdevice) {
             currentdevice->enqueue(job);

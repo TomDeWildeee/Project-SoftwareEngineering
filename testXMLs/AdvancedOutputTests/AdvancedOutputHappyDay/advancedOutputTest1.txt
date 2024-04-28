@@ -1,0 +1,18 @@
+─────══════ [ System Diagnostic ] ══════─────
+
+» Office_Printer1 | Scanner
+* Queued:
+* Completed:
+
+» Office_Printer2 | Black-and-white printer
+* Queued:
+* Completed: [#121 | 41p] [#881 | 61p]
+
+» Office_Printer3 | Color printer
+* Queued:
+* Completed: [#111 | 12p] [#999 | 2p]
+
+» Office_Printer4 | Scanner
+* Queued:
+* Completed:
+

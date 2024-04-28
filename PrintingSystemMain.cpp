@@ -8,11 +8,10 @@ int main() {
     if (imp == ImportError) {
         std::cout << "error" << std::endl;
     } else {
-        printsystem.saveOutput(&fileOutputStream);
-        printsystem.processAllJobsAutomatically(&fileOutputStream);
-        printsystem.saveOutput(&fileOutputStream);
+        FileOutputStream c("testXMLs/test.txt");
+        NoOutputStream n;
+        printsystem.processAllJobsAutomatically(&n);
 
-        ConsoleOutputStream c;
         printsystem.advancedOutput(&c);
     }
 }

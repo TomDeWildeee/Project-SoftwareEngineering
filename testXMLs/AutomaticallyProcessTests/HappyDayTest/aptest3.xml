@@ -1,33 +1,43 @@
 <?xml version="1.0" ?>
 <SYSTEM>
     <DEVICE>
-        <name>Office_Printer2</name>
-        <emissions>92</emissions>
-        <speed>50</speed>
+        <name>Groenenborger</name>
+        <emissions>5</emissions>
+        <speed>5</speed>
+        <cost>4</cost>
+        <type>color</type>
+    </DEVICE>
+    <DEVICE>
+        <name>Mike</name>
+        <emissions>3</emissions>
+        <speed>2</speed>
+        <cost>1</cost>
+        <type>color</type>
+    </DEVICE>
+    <DEVICE>
+        <name>Frenkie</name>
+        <emissions>2</emissions>
+        <speed>4</speed>
+        <cost>15</cost>
+        <type>bw</type>
+    </DEVICE>
+    <DEVICE>
+        <name>scanner-2974</name>
+        <emissions>2</emissions>
+        <speed>5</speed>
+        <cost>2</cost>
+        <type>scan</type>
     </DEVICE>
     <JOB>
-        <jobNumber>9991</jobNumber>
-        <pageCount>2</pageCount>
-        <userName>Admin_2</userName>
+        <jobNumber>9</jobNumber>
+        <pageCount>1</pageCount>
+        <userName>AdamaTraore</userName>
+        <type>color</type>
     </JOB>
     <JOB>
-        <jobNumber>8429</jobNumber>
-        <pageCount>8</pageCount>
-        <userName>Admin1</userName>
-    </JOB>
-    <JOB>
-        <jobNumber>1092</jobNumber>
-        <pageCount>13</pageCount>
-        <userName>Employee3192</userName>
-    </JOB>
-    <JOB>
-        <jobNumber>1203</jobNumber>
-        <pageCount>44</pageCount>
-        <userName>Employee920</userName>
-    </JOB>
-    <JOB>
-        <jobNumber>4923</jobNumber>
-        <pageCount>23</pageCount>
-        <userName>CEO</userName>
+        <jobNumber>4</jobNumber>
+        <pageCount>27</pageCount>
+        <userName>DavidGoggins247</userName>
+        <type>bw</type>
     </JOB>
 </SYSTEM>

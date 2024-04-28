@@ -2,17 +2,42 @@
 <SYSTEM>
     <DEVICE>
         <name>Office_Printer5</name>
-        <emissions>3</emissions> <!-- Uittesten met foute spelling bvb -->
-        <speed>40</speed>
+        <emissions>-1</emissions>
+        <speed>1</speed>
+        <cost>255</cost>
+        <type>color</type>
+    </DEVICE>
+    <DEVICE>
+        <name>printer2821</name>
+        <emissions>3</emissions>
+        <speed>2</speed>
+        <cost>25</cost>
+        <type>color</type>
+    </DEVICE>
+    <DEVICE>
+        <name>printprinter</name>
+        <emissions>2</emissions>
+        <speed>4</speed>
+        <cost>15</cost>
+        <type>bw</type>
+    </DEVICE>
+    <DEVICE>
+        <name>scanner-2974</name>
+        <emissions>2</emissions>
+        <speed>1</speed>
+        <cost>2</cost>
+        <type>scan</type>
     </DEVICE>
     <JOB>
-        <jobNumber>vijf</jobNumber>
-        <pageCount>2</pageCount>
-        <userName>SergeDemeyer</userName>
+        <jobNumber>9</jobNumber>
+        <pageCount>1</pageCount>
+        <userName>a</userName>
+        <type>color</type>
     </JOB>
     <JOB>
-        <jobNumber>beter</jobNumber>
-        <pageCount>3</pageCount>
-        <userName>anonymous_user</userName>
+        <jobNumber>4</jobNumber>
+        <pageCount>27</pageCount>
+        <userName>David</userName>
+        <type>bw</type>
     </JOB>
 </SYSTEM>

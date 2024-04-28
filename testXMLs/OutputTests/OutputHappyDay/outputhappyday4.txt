@@ -1,5 +1,66 @@
-Printers:
-	printerprinterprinter (CO2: 3322 g/page, Speed: 2233 pages/min)
-Jobs:
-	[#2323 | 2332 | 3232 pages]
-	[#3232 | 3223 | 2323 pages]
+╔════════════════ [ System Report ] ════════════════╗
+
+──── Devices ────
+
+Printer_287257:
+* Type: Color printer
+* Speed: 1 pages/minute
+* Cost: 20 cents/page
+* CO2: 50 g/page
+
+printer2821:
+* Type: Color printer
+* Speed: 2 pages/minute
+* Cost: 25 cents/page
+* CO2: 2 g/page
+
+Device_0283201:
+* Type: Black-and-white printer
+* Speed: 4 pages/minute
+* Cost: 15 cents/page
+* CO2: 3 g/page
+
+scanner-2974:
+* Type: Scanner
+* Speed: 1 pages/minute
+* Cost: 2 cents/page
+* CO2: 3 g/page
+
+───── Jobs ─────
+
+[Job #9]
+* User: Mauro
+* Total Pages: 1
+* Device: printer2821
+* Total CO2: 2 g CO2
+* Total Cost: 25 cents
+
+[Job #202]
+* User: Lucas
+* Total Pages: 22
+* Device: printer2821
+* Total CO2: 44 g CO2
+* Total Cost: 550 cents
+
+[Job #4]
+* User: Lucas
+* Total Pages: 2922
+* Device: Device_0283201
+* Total CO2: 8766 g CO2
+* Total Cost: 43830 cents
+
+[Job #9929]
+* User: Tom
+* Total Pages: 47
+* Device: printer2821
+* Total CO2: 94 g CO2
+* Total Cost: 1175 cents
+
+[Job #2222]
+* User: Mauro
+* Total Pages: 20
+* Device: printer2821
+* Total CO2: 40 g CO2
+* Total Cost: 500 cents
+
+╚════════════════ [ System Report ] ════════════════╝

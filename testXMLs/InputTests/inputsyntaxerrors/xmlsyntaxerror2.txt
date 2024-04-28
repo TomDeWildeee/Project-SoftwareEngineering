@@ -1,2 +1,4 @@
 XML UNRECOGNIZED ELEMENT: Expected <DEVICE> ... </DEVICE> or <JOB> ... </JOB>.
+XML UNRECOGNIZED ATTRIBUTE: Expected <type> ... </type>
+XML UNRECOGNIZED ATTRIBUTE: Expected <type> ... </type>
 XML NOT CONSISTENT: XML file was not consistent and is invalid, system will be cleared

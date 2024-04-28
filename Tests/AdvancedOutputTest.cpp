@@ -23,9 +23,14 @@ TEST_F(AdvancedOutputTest, HappyDayAdvancedOutput) {
     while(FileExists(filename)){
         FileOutputStream errStream = FileOutputStream(happydayAdvancedOutputDir + "/outputXML.txt");
         PrintingSystemImporter::importPrintingSystem(filename.c_str(),&errStream,printsystem);
-
         NoOutputStream n;
-        printsystem.processAllJobsAutomatically(&n);
+        if (counter == 3) {
+            printsystem.processJob(&n, printsystem.getJobs()[0]->getJobNR());
+            printsystem.processJob(&n, printsystem.getJobs()[1]->getJobNR());
+        } else {
+            printsystem.processAllJobsAutomatically(&n);
+        }
+
         printsystem.advancedOutput(&errStream);
 
         outputFileName = happydayAdvancedOutputDir + "/advancedOutputTest" + ToString(counter) + ".txt";
@@ -34,7 +39,7 @@ TEST_F(AdvancedOutputTest, HappyDayAdvancedOutput) {
         filename = happydayAdvancedOutputDir + "/advancedOutputTest" + ToString(counter) + ".xml";
         printsystem.clearSystemBecauseInvalid();
     }
-    EXPECT_TRUE(counter == 2);
+    EXPECT_TRUE(counter == 4);
 }
 
 // string invalidOutputAPDir = "testXMLs/AutomaticallyProcessTests/InvalidOutputTest";

@@ -3,7 +3,7 @@
 <SYSTEM>
     <DEVICE>
         <name>Dusty Color Printer V1</name>
-        <emissions>13</emissions>
+        <emissions>7</emissions>
         <speed>1</speed>
         <cost>31</cost>
         <type>color</type>

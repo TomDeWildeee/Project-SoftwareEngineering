@@ -8,20 +8,24 @@ Printing page 7
 Printing page 8
 Printing page 9
 Printing page 10
-Printing page 11
-Printing page 12
-Printing page 13
-Printing page 14
-Printing page 15
-Printing page 16
-Printing page 17
-Printing page 18
-Printing page 19
-Printing page 20
-Printer "Office_Printer1" finished job:
+Scanner "Office_Printer1" finished scanning job:
 	 Number: 1
 	 Submitted by "Tom"
-	 20 pages
+	 10 pages
+Printing page 1
+Printing page 2
+Printing page 3
+Printing page 4
+Printing page 5
+Printing page 6
+Printing page 7
+Printing page 8
+Printing page 9
+Printing page 10
+Scanner "Office_Printer2" finished scanning job:
+	 Number: 2
+	 Submitted by "Jan"
+	 10 pages
 Printing page 1
 Printing page 2
 Printing page 3
@@ -52,22 +56,7 @@ Printing page 27
 Printing page 28
 Printing page 29
 Printing page 30
-Printer "Office_Printer1" finished job:
-	 Number: 2
-	 Submitted by "David"
-	 30 pages
-Printing page 1
-Printing page 2
-Printing page 3
-Printing page 4
-Printing page 5
-Printer "Office_Printer1" finished job:
+Scanner "Office_Printer1" finished scanning job:
 	 Number: 3
 	 Submitted by "John"
-	 5 pages
-Printing page 1
-Printing page 2
-Printer "Office_Printer1" finished job:
-	 Number: 4
-	 Submitted by "Jan"
-	 2 pages
+	 30 pages

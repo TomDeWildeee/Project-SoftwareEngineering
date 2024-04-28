@@ -1,0 +1,10 @@
+─────══════ [ System Diagnostic ] ══════─────
+
+» Speedoscan 3000 | Scanner
+* Queued:
+* Completed: [#2 | 9p]
+
+» Speedoprint 3150 BW edition | Black-and-white printer
+* Queued:
+* Completed: [#900 | 61p]
+

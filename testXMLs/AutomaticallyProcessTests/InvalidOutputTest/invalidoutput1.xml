@@ -1,48 +1,51 @@
 <?xml version="1.0" ?>
+
 <SYSTEM>
     <DEVICE>
-        <name>Office_Printer2</name>
-        <emissions>92</emissions>
-        <speed>50</speed>
+        <name>Office_Printer5</name>
+        <emissions>1</emissions>
+        <speed>1</speed>
+        <cost>24</cost>
+        <type>color</type>
+    </DEVICE>
+    <DEVICE>
+        <name>printer2821</name>
+        <emissions>7</emissions>
+        <speed>2</speed>
+        <cost>25</cost>
+        <type>color</type>
+    </DEVICE>
+    <DEVICE>
+        <name>printprinter</name>
+        <emissions>2</emissions>
+        <speed>4</speed>
+        <cost>15</cost>
+        <type>bw</type>
+    </DEVICE>
+    <DEVICE>
+        <name>print3</name>
+        <emissions>2</emissions>
+        <speed>4</speed>
+        <cost>15</cost>
+        <type>bw</type>
+    </DEVICE>
+    <DEVICE>
+        <name>scanner-2974</name>
+        <emissions>2</emissions>
+        <speed>1</speed>
+        <cost>2</cost>
+        <type>scan</type>
     </DEVICE>
     <JOB>
-        <jobNumber>9991</jobNumber>
-        <pageCount>2</pageCount>
-        <userName>Admin_2</userName>
+        <jobNumber>9</jobNumber>
+        <pageCount>1</pageCount>
+        <userName>a</userName>
+        <type>color</type>
     </JOB>
     <JOB>
-        <jobNumber>8429</jobNumber>
-        <pageCount>8</pageCount>
-        <userName>Admin1</userName>
-    </JOB>
-    <JOB>
-        <jobNumber>1092</jobNumber>
-        <pageCount>13</pageCount>
-        <userName>Employee3192</userName>
-    </JOB>
-    <JOB>
-        <jobNumber>1203</jobNumber>
-        <pageCount>44</pageCount>
-        <userName>Employee920</userName>
-    </JOB>
-    <JOB>
-        <jobNumber>4923</jobNumber>
-        <pageCount>23</pageCount>
-        <userName>CEO</userName>
-    </JOB>
-    <JOB>
-        <jobNumber>7123</jobNumber>
-        <pageCount>17</pageCount>
-        <userName>Marketing_Assistant</userName>
-    </JOB>
-    <JOB>
-        <jobNumber>8312</jobNumber>
-        <pageCount>5</pageCount>
-        <userName>Finance_Officer</userName>
-    </JOB>
-    <JOB>
-        <jobNumber>2389</jobNumber>
-        <pageCount>9</pageCount>
-        <userName>HR_Manager</userName>
+        <jobNumber>4</jobNumber>
+        <pageCount>27</pageCount>
+        <userName>David</userName>
+        <type>bw</type>
     </JOB>
 </SYSTEM>

@@ -18,7 +18,7 @@ Printer "Office_Printer2" finished job:
 	 8 pages
 Printing page 1
 Printing page 2
-Printing page 3
+Printing page 4
 Printing page 4
 Printing page 5
 Printing page 6

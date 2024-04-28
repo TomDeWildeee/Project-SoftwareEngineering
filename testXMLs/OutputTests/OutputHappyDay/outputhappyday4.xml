@@ -1,18 +1,62 @@
 <?xml version="1.0" ?>
+
 <SYSTEM>
     <DEVICE>
-        <name>printerprinterprinter</name>
-        <emissions>3322</emissions>
-        <speed>2233</speed>
+        <name>Printer_287257</name>
+        <emissions>50</emissions>
+        <speed>1</speed>
+        <cost>20</cost>
+        <type>color</type>
+    </DEVICE>
+    <DEVICE>
+        <name>printer2821</name>
+        <emissions>2</emissions>
+        <speed>2</speed>
+        <cost>25</cost>
+        <type>color</type>
+    </DEVICE>
+    <DEVICE>
+        <name>Device_0283201</name>
+        <emissions>3</emissions>
+        <speed>4</speed>
+        <cost>15</cost>
+        <type>bw</type>
+    </DEVICE>
+    <DEVICE>
+        <name>scanner-2974</name>
+        <emissions>3</emissions>
+        <speed>1</speed>
+        <cost>2</cost>
+        <type>scan</type>
     </DEVICE>
     <JOB>
-        <jobNumber>2323</jobNumber>
-        <pageCount>3232</pageCount>
-        <userName>2332</userName>
+        <jobNumber>9</jobNumber>
+        <pageCount>1</pageCount>
+        <userName>Mauro</userName>
+        <type>color</type>
     </JOB>
     <JOB>
-        <jobNumber>3232</jobNumber>
-        <pageCount>2323</pageCount>
-        <userName>3223</userName>
+        <jobNumber>202</jobNumber>
+        <pageCount>22</pageCount>
+        <userName>Lucas</userName>
+        <type>color</type>
+    </JOB>
+    <JOB>
+        <jobNumber>4</jobNumber>
+        <pageCount>2922</pageCount>
+        <userName>Lucas</userName>
+        <type>bw</type>
+    </JOB>
+    <JOB>
+        <jobNumber>9929</jobNumber>
+        <pageCount>47</pageCount>
+        <userName>Tom</userName>
+        <type>color</type>
+    </JOB>
+    <JOB>
+        <jobNumber>2222</jobNumber>
+        <pageCount>20</pageCount>
+        <userName>Mauro</userName>
+        <type>color</type>
     </JOB>
 </SYSTEM>

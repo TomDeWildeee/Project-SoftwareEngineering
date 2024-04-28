@@ -4,15 +4,19 @@
         <name>Office_Printer5</name>
         <emissions>9555</emissions> <!-- Uittesten met foute spelling bvb -->
         <speed>1</speed>
+        <type>scan</type>
+        <cost>2041</cost>
     </DEVICE>
     <JOB>
         <jobNumber>9</jobNumber>
         <pageCount>1</pageCount>
         <userName>a</userName>
+        <type>color</type>
     </JOB>
     <JOB>
         <jobNumber>9929</jobNumber>
         <pageCount>93333</pageCount>
         <userName>David</userName>
+        <type>bw</type>
     </JOB>
 </SYSTEM>

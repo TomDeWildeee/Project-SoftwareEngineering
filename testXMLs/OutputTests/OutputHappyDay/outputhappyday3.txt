@@ -1,5 +1,66 @@
-Printers:
-	SuperPrinter3000 (CO2: 1 g/page, Speed: 999 pages/min)
-Jobs:
-	[#9999 | stijn | 9999 pages]
-	[#999 | abcdefg | 9999 pages]
+╔════════════════ [ System Report ] ════════════════╗
+
+──── Devices ────
+
+Office_Printer5:
+* Type: Color printer
+* Speed: 1 pages/minute
+* Cost: 20 cents/page
+* CO2: 2 g/page
+
+printer2821:
+* Type: Color printer
+* Speed: 2 pages/minute
+* Cost: 25 cents/page
+* CO2: 2 g/page
+
+printprinter:
+* Type: Black-and-white printer
+* Speed: 4 pages/minute
+* Cost: 15 cents/page
+* CO2: 3 g/page
+
+scanner-2974:
+* Type: Scanner
+* Speed: 1 pages/minute
+* Cost: 2 cents/page
+* CO2: 3 g/page
+
+───── Jobs ─────
+
+[Job #9]
+* User: a
+* Total Pages: 1
+* Device: Office_Printer5
+* Total CO2: 2 g CO2
+* Total Cost: 20 cents
+
+[Job #202]
+* User: bomboclat
+* Total Pages: 22
+* Device: printer2821
+* Total CO2: 44 g CO2
+* Total Cost: 550 cents
+
+[Job #4]
+* User: David
+* Total Pages: 2922
+* Device: printprinter
+* Total CO2: 8766 g CO2
+* Total Cost: 43830 cents
+
+[Job #9929]
+* User: David
+* Total Pages: 47
+* Device: Office_Printer5
+* Total CO2: 94 g CO2
+* Total Cost: 940 cents
+
+[Job #2222]
+* User: David
+* Total Pages: 10
+* Device: printer2821
+* Total CO2: 20 g CO2
+* Total Cost: 250 cents
+
+╚════════════════ [ System Report ] ════════════════╝

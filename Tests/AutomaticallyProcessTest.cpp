@@ -27,7 +27,6 @@ TEST_F(AutomaticallyProcessTest, HappyDayAP) {
         FileOutputStream fileOutputStream = FileOutputStream(happydayAPDir + "/outputXML.txt");
         printsystem.processAllJobsAutomatically(&fileOutputStream);
         outputFileName = happydayAPDir + "/aptest" + ToString(counter) + ".txt";
-        std::cout <<outputFileName << std::endl;
         EXPECT_TRUE(FileCompare(happydayAPDir + "/outputXML.txt", outputFileName));
         counter +=1;
         filename = happydayAPDir + "/aptest" + ToString(counter) + ".xml";

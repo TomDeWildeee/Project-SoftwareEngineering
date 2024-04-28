@@ -3,8 +3,9 @@
 
 int main() {
     PrintingSystem printsystem;
-    FileOutputStream fileOutputStream("testXMLs/error.txt");
-    ImportEnum imp = PrintingSystemImporter::importPrintingSystem("testXMLs/XML_test.xml", &fileOutputStream, printsystem);
+    FileOutputStream fileOutputStream("testXMLs/ManuallyProcessTests/InvalidOutputTest/outputXML.txt");/*
+    FileOutputStream fileOutputStream("testXMLs/error.txt");*/
+    ImportEnum imp = PrintingSystemImporter::importPrintingSystem("testXMLs/ManuallyProcessTests/InvalidOutputTest/mptest3.xml", &fileOutputStream, printsystem);
     if (imp == ImportError) {
         std::cout << "error" << std::endl;
     } else {
@@ -18,6 +19,5 @@ int main() {
         }
 
         printsystem.saveOutput(&c);
-
     }
 }

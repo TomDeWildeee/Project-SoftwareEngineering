@@ -2,7 +2,7 @@
 <SYSTEM>
     <DEVICE>
         <name>Office_Printer5</name>
-        <emissions>9555</emissions> <!-- Uittesten met foute spelling bvb -->
+        <emissions>12</emissions> <!-- Uittesten met foute spelling bvb -->
         <speed>1</speed>
         <type>scan</type>
         <cost>2041</cost>

@@ -23,7 +23,7 @@ Printing page 22
 Printing page 23
 Printing page 24
 Printing page 25
-Printer "Office_Printer5" finished job:
+Scanner "Office_Printer5" finished scanning job:
 	 Number: 120
 	 Submitted by "SergeDemeyer"
 	 25 pages
@@ -32,7 +32,7 @@ Printing page 2
 Printing page 3
 Printing page 4
 Printing page 5
-Printer "Office_Printer5" finished job:
+Scanner "Office_Printer5" finished scanning job:
 	 Number: 210
 	 Submitted by "SergeDemeyer"
 	 5 pages

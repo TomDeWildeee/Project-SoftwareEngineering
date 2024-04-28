@@ -1,0 +1,3 @@
+System has emitted: 78grams of CO2
+System has emitted: 84grams of CO2
+System has emitted: 93grams of CO2

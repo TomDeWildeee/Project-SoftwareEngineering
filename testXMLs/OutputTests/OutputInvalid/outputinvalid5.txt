@@ -2,56 +2,30 @@
 
 ──── Devices ────
 
-Office_Printer5:
+Printer_287257:
 * Type: Color printer
 * Speed: 1 pages/minute
 * Cost: 20 cents/page
+* CO2: 50 g/page
 
 printer2821:
 * Type: Color printer
 * Speed: 2 pages/minute
 * Cost: 25 cents/page
+* CO2: 2 g/page
 
-printprinter:
+Device_0283201:
 * Type: Black-and-white printer
 * Speed: 4 pages/minute
 * Cost: 15 cents/page
+* CO2: 3 g/page
 
 scanner-2974:
 * Type: Scanner
 * Speed: 1 pages/minute
 * Cost: 2 cents/page
+* CO2: 3 g/page
 
 ───── Jobs ─────
-
-[Job #9]
-* User: a
-* Total Pages: 1
-* Device: Office_Printer5
-* Total Cost: 20 cents
-
-[Job #202]
-* User: bomboclat
-* Total Pages: 22
-* Device: printer2821
-* Total Cost: 550 cents
-
-[Job #4]
-* User: David
-* Total Pages: 2922
-* Device: printprinter
-* Total Cost: 43830 cents
-
-[Job #9929]
-* User: David
-* Total Pages: 47
-* Device: Office_Printer5
-* Total Cost: 940 cents
-
-[Job #2222]
-* User: David
-* Total Pages: 10
-* Device: printer2821
-* Total Cost: 250 cents
 
 ╚════════════════ [ System Report ] ════════════════╝

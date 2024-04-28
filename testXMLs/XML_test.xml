@@ -3,14 +3,14 @@
 <SYSTEM>
     <DEVICE>
         <name>Office_Printer5</name>
-        <emissions>26</emissions>
+        <emissions>1</emissions>
         <speed>1</speed>
         <cost>24</cost>
         <type>color</type>
     </DEVICE>
     <DEVICE>
         <name>printer2821</name>
-        <emissions>25</emissions>
+        <emissions>3</emissions>
         <speed>2</speed>
         <cost>25</cost>
         <type>color</type>

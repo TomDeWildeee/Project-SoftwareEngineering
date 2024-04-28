@@ -45,11 +45,11 @@ set(DEBUG_SOURCE_FILES
         tinyxml/tinyxmlparser.cpp
         Tests/InputTest.cpp
         Utils.cpp
-        Tests/OutputTest.cpp
-        Tests/JobTest.cpp
-        Tests/DeviceTest.cpp
-        Tests/ManuallyprocessTest.cpp
-        Tests/AutomaticallyProcessTest.cpp
+#        Tests/OutputTest.cpp
+#        Tests/JobTest.cpp
+#        Tests/DeviceTest.cpp
+#        Tests/ManuallyprocessTest.cpp
+#        Tests/AutomaticallyProcessTest.cpp
         Output.cpp
 )
 

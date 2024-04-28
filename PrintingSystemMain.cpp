@@ -3,16 +3,13 @@
 
 int main() {
     PrintingSystem printsystem;
-    FileOutputStream fileOutputStream("testXMLs/error.txt");
-    ImportEnum imp = PrintingSystemImporter::importPrintingSystem("testXMLs/XML_test.xml", &fileOutputStream, printsystem);
+    FileOutputStream fileOutputStream("testXMLs/InputTests/inputsyntaxerrors/xmlError.txt");/*
+    FileOutputStream fileOutputStream("testXMLs/error.txt");*/
+    ImportEnum imp = PrintingSystemImporter::importPrintingSystem("testXMLs/InputTests/inputsyntaxerrors/xmlsyntaxerror4.xml", &fileOutputStream, printsystem);
     if (imp == ImportError) {
         std::cout << "error" << std::endl;
     } else {
-        printsystem.saveOutput(&fileOutputStream);
         printsystem.processAllJobsAutomatically(&fileOutputStream);
-        printsystem.saveOutput(&fileOutputStream);
 
-        ConsoleOutputStream c;
-        printsystem.advancedOutput(&c);
     }
 }

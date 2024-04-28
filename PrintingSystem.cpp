@@ -221,17 +221,12 @@ void PrintingSystem::queueJobs() {
                 currentdevice = device;
             }
             if(device->getDeviceType() == job->getJobType() && !device->exceedslimit()){
-                if(currentdevice->calculatevalue() < device->calculatevalue()){
+                if(currentdevice->calculatevalue() > device->calculatevalue()){
                     currentdevice = device;
                 }
             }
         }
 
-        /*
-        if(!currentdevice){
-            return;
-        }
-         */
         job->setDevice(currentdevice);
         if (currentdevice) {
             currentdevice->enqueue(job);

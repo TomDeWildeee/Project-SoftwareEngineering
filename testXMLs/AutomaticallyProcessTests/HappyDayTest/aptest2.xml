@@ -1,23 +1,35 @@
 <?xml version="1.0" ?>
 <SYSTEM>
     <DEVICE>
+        <name>Office_Printer1</name>
+        <emissions>3</emissions>
+        <speed>20</speed>
+        <cost>5.5</cost>
+        <type>scan</type>
+    </DEVICE>
+    <DEVICE>
         <name>Office_Printer2</name>
-        <emissions>20</emissions>
-        <speed>2</speed>
+        <emissions>5</emissions>
+        <speed>5</speed>
+        <cost>5.5</cost>
+        <type>scan</type>
     </DEVICE>
     <JOB>
-        <jobNumber>100</jobNumber>
-        <pageCount>31</pageCount>
-        <userName>user1</userName>
+        <jobNumber>1</jobNumber>
+        <pageCount>10</pageCount>
+        <userName>Tom</userName>
+        <type>scan</type>
     </JOB>
     <JOB>
-        <jobNumber>101</jobNumber>
-        <pageCount>19</pageCount>
-        <userName>user38</userName>
+        <jobNumber>5</jobNumber>
+        <pageCount>10</pageCount>
+        <userName>Mark</userName>
+        <type>scan</type>
     </JOB>
     <JOB>
-        <jobNumber>202</jobNumber>
-        <pageCount>13</pageCount>
-        <userName>user9</userName>
+        <jobNumber>4</jobNumber>
+        <pageCount>1</pageCount>
+        <userName>Johannes</userName>
+        <type>scan</type>
     </JOB>
 </SYSTEM>

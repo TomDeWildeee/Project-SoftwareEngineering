@@ -4,35 +4,43 @@
         <name>Office_Printer5</name>
         <emissions>3</emissions> <!-- Uittesten met foute spelling bvb -->
         <speed>40</speed>
+        <cost>126.62</cost>
+        <type>color</type>
     </DEVICE>
     <JOB>
         <jobNumber>89751</jobNumber>
         <pageCount>2</pageCount>
         <userName>SergeDemeyer</userName>
+        <type>color</type>
     </JOB>
     <JOB>
         <jobNumber>2189</jobNumber>
         <pageCount>3</pageCount>
-        <userName>anonymous_user</userName>
+        <userName>anon</userName>
+        <type>color</type>
     </JOB>
     <JOB>
         <jobNumber>4</jobNumber>
         <pageCount>2</pageCount>
         <userName>SergeDemeyer</userName>
+        <type>color</type>
     </JOB>
     <JOB>
         <jobNumber>3</jobNumber>
         <pageCount>3</pageCount>
-        <userName>anonymous_user</userName>
+        <userName>mike</userName>
+        <type>color</type>
     </JOB>
     <JOB>
         <jobNumber>2</jobNumber>
         <pageCount>2</pageCount>
         <userName>SergeDemeyer</userName>
+        <type>color</type>
     </JOB>
     <JOB>
         <jobNumber>1</jobNumber>
         <pageCount>3</pageCount>
         <userName>anonymous_user</userName>
+        <type>color</type>
     </JOB>
 </SYSTEM>

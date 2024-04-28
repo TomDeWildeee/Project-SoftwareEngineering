@@ -168,7 +168,19 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
                     continue;
                 }
             }
-
+            if(deviceType == DeviceType::color && deviceEmissions > 23){
+                outputStream->writeLine("XML INVALID VALUE: Emissions cap for color is 23g/page, but got " + std::to_string(deviceEmissions));
+                invalid = true;
+                continue;
+            }else if(deviceType == DeviceType::bw && deviceEmissions > 8){
+                outputStream->writeLine("XML INVALID VALUE: Emissions cap for color is 8g/page, but got " + std::to_string(deviceEmissions));
+                invalid = true;
+                continue;
+            }else if(deviceType == DeviceType::scan && deviceEmissions > 12){
+                outputStream->writeLine("XML INVALID VALUE: Emissions cap for color is 12g/page, but got " + std::to_string(deviceEmissions));
+                invalid = true;
+                continue;
+            }
             // Check if deviceSpeedNode is present in the XML file
             if (deviceSpeedNode == nullptr) {
                 outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <speed> ... </speed>");

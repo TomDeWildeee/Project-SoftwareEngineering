@@ -51,11 +51,11 @@ float Device::getCost() {
 bool Device::exceedslimit() {
     REQUIRE(this->properlyInitialized(), "Device wasn't initialized checking if it exceeds the CO2 limit");
     if (type == DeviceType::color) {
-        return this->getEmissions() >23;
+        return this->getEmissions() > 23;
     } else if (type == DeviceType::bw) {
-        return this->getEmissions() >8;
+        return this->getEmissions() > 8;
     } else {
-        return this->getEmissions() >12;
+        return this->getEmissions() > 12;
     }
 }
 int Device::calculatevalue(){

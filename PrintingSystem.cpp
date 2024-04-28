@@ -2,6 +2,7 @@
 #include "PrintingSystem.h"
 #include <iostream>
 #include <algorithm>
+#include <cmath>
 
 bool PrintingSystem::properlyInitialized() {
     return _initCheck == this;
@@ -62,8 +63,9 @@ void PrintingSystem::saveOutput(OutputStream* outputStream) {
         } else {
             deviceType += "Scanner";
         }
+        int intCost = std::round(device->getCost());
         std::string deviceSpeed = "* Speed: " + std::to_string(device->getSpeed()) + " pages/minute";
-        std::string deviceCost = "* Cost: " + std::to_string(device->getCost()) + "cents/page";
+        std::string deviceCost = "* Cost: " + std::to_string(intCost) + " cents/page";
         std::string deviceEmission = "* CO2: " + std::to_string(device->getEmissions()) + " g/page\n";
 
         outputStream->writeLine(deviceName);
@@ -73,23 +75,28 @@ void PrintingSystem::saveOutput(OutputStream* outputStream) {
         outputStream->writeLine(deviceEmission);
     }
     outputStream->writeLine("───── Jobs ─────\n");
-    for (auto& job : jobs) {
-        std::string jobName = "[Job #" + std::to_string(job->getJobNR()) + "]";
-        std::string jobUser = "* User: " + job->getUserName();
-        std::string jobPageCount = "* Total Pages: " + std::to_string(job->getPageCount());
-        std::string jobDevice = "* Device: " + (job->getDevice() ? job->getDevice()->getName() : "None");
+    if (jobs.empty()) {
+        outputStream->writeLine("NO PENDING JOBS\n");
+    } else {
+        for (auto &job: jobs) {
+            std::string jobName = "[Job #" + std::to_string(job->getJobNR()) + "]";
+            std::string jobUser = "* User: " + job->getUserName();
+            std::string jobPageCount = "* Total Pages: " + std::to_string(job->getPageCount());
+            std::string jobDevice = "* Device: " + (job->getDevice() ? job->getDevice()->getName() : "None");
 
-        std::string jobEmission = "* Total CO2: " + (job->getDevice() ? std::to_string(job->getDevice()->getEmissions() * job->getPageCount()) : "Needs device to calculate");
-        std::string jobCost = "* Total Cost: " + (job->getDevice() ? std::to_string(job->getDevice()->getCost() * job->getPageCount()) : "Needs device to calculate");
+            int intCost = std::round(job->getDevice()->getCost());
+            std::string jobEmission = "* Total CO2: " + (job->getDevice() ? std::to_string(job->getDevice()->getEmissions() * job->getPageCount()) + " g CO2": "Needs device to calculate");
+            std::string jobCost = "* Total Cost: " + (job->getDevice() ? std::to_string(intCost * job->getPageCount()) + " cents" : "Needs device to calculate");
 
-        outputStream->writeLine(jobName);
-        outputStream->writeLine(jobUser);
-        outputStream->writeLine(jobPageCount);
-        outputStream->writeLine(jobDevice);
-        outputStream->writeLine(jobEmission);
-        outputStream->writeLine(jobCost);
+            outputStream->writeLine(jobName);
+            outputStream->writeLine(jobUser);
+            outputStream->writeLine(jobPageCount);
+            outputStream->writeLine(jobDevice);
+            outputStream->writeLine(jobEmission);
+            outputStream->writeLine(jobCost + "\n");
+        }
     }
-    outputStream->writeLine("\n╚════════════════ [ System Report ] ════════════════╝");
+    outputStream->writeLine("╚════════════════ [ System Report ] ════════════════╝");
 }
 
 void PrintingSystem::advancedOutput(OutputStream *outputStream) {
@@ -110,12 +117,12 @@ void PrintingSystem::advancedOutput(OutputStream *outputStream) {
 
         std::string jobqueue = "* Queued: ";
         for (auto& job : device->getJobqueue()) {
-            jobqueue += "[#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "]";
+            jobqueue += "[#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "p]";
         }
         outputStream->writeLine(jobqueue);
         std::string jobfinished = "* Completed: ";
         for (auto& job : device->getFinishedjobs()) {
-            jobfinished += "[#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "]";
+            jobfinished += "[#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "p]";
         }
         outputStream->writeLine(jobfinished + "\n");
     }

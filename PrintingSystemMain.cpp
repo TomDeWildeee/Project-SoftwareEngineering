@@ -15,9 +15,9 @@ int main() {
                 std::cout << job->getJobNR() << std::endl;
             }
         }
-        printsystem.advancedOutput(&fileOutputStream);
+        printsystem.saveOutput(&fileOutputStream);
         printsystem.processAllJobsAutomatically(&fileOutputStream);
-        printsystem.advancedOutput(&fileOutputStream);
+        printsystem.saveOutput(&fileOutputStream);
         auto devices2 = printsystem.getDevices();
         for(auto device : devices2){
             auto jobs = device->getFinishedjobs();

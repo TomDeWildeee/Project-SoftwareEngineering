@@ -1,13 +1,43 @@
-─────══════ [ System Diagnostic ] ══════─────
+╔════════════════ [ System Report ] ════════════════╗
 
-» Office_Printer1 | Scanner
-* Queued: [#1 | 10][#3 | 30]
-* Completed: 
+──── Devices ────
 
-» Office_Printer2 | Scanner
-* Queued: [#2 | 10]
-* Completed: 
+Office_Printer1:
+* Type: Scanner
+* Speed: 20 pages/minute
+* Cost: 5 cents/page
+* CO2: 3 g/page
 
+Office_Printer2:
+* Type: Scanner
+* Speed: 5 pages/minute
+* Cost: 5 cents/page
+* CO2: 5 g/page
+
+───── Jobs ─────
+
+[Job #1]
+* User: Tom
+* Total Pages: 10
+* Device: Office_Printer1
+* Total CO2: 30 g CO2
+* Total Cost: 50 cents
+
+[Job #2]
+* User: Jan
+* Total Pages: 10
+* Device: Office_Printer2
+* Total CO2: 50 g CO2
+* Total Cost: 50 cents
+
+[Job #3]
+* User: John
+* Total Pages: 30
+* Device: Office_Printer1
+* Total CO2: 90 g CO2
+* Total Cost: 150 cents
+
+╚════════════════ [ System Report ] ════════════════╝
 Printing page 1
 Printing page 2
 Printing page 3
@@ -70,13 +100,24 @@ Scanner "Office_Printer1" finished scanning job:
 	 Number: 3
 	 Submitted by "John"
 	 30 pages
-─────══════ [ System Diagnostic ] ══════─────
+╔════════════════ [ System Report ] ════════════════╗
 
-» Office_Printer1 | Scanner
-* Queued: 
-* Completed: [#1 | 10][#3 | 30]
+──── Devices ────
 
-» Office_Printer2 | Scanner
-* Queued: 
-* Completed: [#2 | 10]
+Office_Printer1:
+* Type: Scanner
+* Speed: 20 pages/minute
+* Cost: 5 cents/page
+* CO2: 3 g/page
 
+Office_Printer2:
+* Type: Scanner
+* Speed: 5 pages/minute
+* Cost: 5 cents/page
+* CO2: 5 g/page
+
+───── Jobs ─────
+
+NO PENDING JOBS
+
+╚════════════════ [ System Report ] ════════════════╝

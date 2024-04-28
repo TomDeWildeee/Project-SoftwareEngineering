@@ -21,3 +21,7 @@ FileOutputStream::~FileOutputStream() {
 void ConsoleOutputStream::writeLine(const std::string &message) {
     std::cout << message << std::endl;
 }
+
+void NoOutputStream::writeLine(const std::string &message) {
+
+}

@@ -25,3 +25,8 @@ class ConsoleOutputStream : public OutputStream {
 public:
     void writeLine(const std::string& message) override;
 };
+
+class NoOutputStream : public OutputStream {
+public:
+    void writeLine(const std::string& message) override;
+};

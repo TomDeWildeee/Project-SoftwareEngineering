@@ -57,6 +57,6 @@ TEST_F(OutputTest, SimpleOutputInvalid) {
         filename = outputInvalidDirectory + "/outputinvalid" + ToString(counter) + ".xml";
         printsystem.clearSystemBecauseInvalid();
     }
-    EXPECT_TRUE(counter == 5);
+    EXPECT_TRUE(counter == 6);
 }
 

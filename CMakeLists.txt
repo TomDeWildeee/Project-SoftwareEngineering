@@ -48,7 +48,7 @@ set(DEBUG_SOURCE_FILES
         #Tests/InputTest.cpp
         Tests/OutputTest.cpp
         #Tests/JobTest.cpp
-        #Tests/DeviceTest.cpp
+        Tests/DeviceTest.cpp
         #Tests/ManuallyprocessTest.cpp
         #Tests/AutomaticallyProcessTest.cpp
         Tests/AdvancedOutputTest.cpp

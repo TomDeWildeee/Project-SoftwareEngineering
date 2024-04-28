@@ -1,5 +1,9 @@
+#include "../PrintingSystem.h"
+#include "../PrintingSystemImporter.h"
+#include <iostream>
+#include <fstream>
 #include "gtest/gtest.h"
-#include "../Device.h"
+#include "../Utils.h"
 
 using namespace std;
 class DeviceTest: public ::testing::Test{
@@ -8,6 +12,7 @@ protected:
     }
     void TearDown() override {
     }
+    PrintingSystem printsystem;
 };
 
 TEST_F(DeviceTest, ConstructorTest) {
@@ -19,4 +24,30 @@ TEST_F(DeviceTest, ConstructorTest) {
     EXPECT_NE(device->getSpeed(), 10);
     EXPECT_EQ(device->getSpeed(), 5);
     delete device;
+}
+
+string QueueHappyDayDirectory = "testXMLs/DeviceTests/JobQueueHappyDay";
+TEST_F(DeviceTest, JobQueueHappyDay) {
+    ASSERT_TRUE(DirectoryExists(QueueHappyDayDirectory));
+    int counter = 1;
+    string filename = QueueHappyDayDirectory + "/jobqueuehappyday" + to_string(counter) + ".xml";
+    string outputfilename;
+    while (FileExists(filename)) {
+        FileOutputStream errStream = FileOutputStream(QueueHappyDayDirectory + "/jobqueuehappyday.txt");
+        PrintingSystemImporter::importPrintingSystem(filename.c_str(),&errStream,printsystem);
+        FileOutputStream fileOutputStream = FileOutputStream(QueueHappyDayDirectory + "/jobqueuehappyday.txt");
+
+        for (auto& device : printsystem.getDevices()) {
+            fileOutputStream.writeLine(device->getName());
+            for (auto& job : device->getJobqueue()) {
+                fileOutputStream.writeLine(to_string(job->getJobNR()));
+            }
+        }
+        outputfilename = QueueHappyDayDirectory + "/jobqueuehappyday" + ToString(counter) + ".txt";
+        EXPECT_TRUE(FileCompare(QueueHappyDayDirectory + "/jobqueuehappyday.txt", outputfilename));
+        counter += 1;
+        filename = QueueHappyDayDirectory + "/jobqueuehappyday" + ToString(counter) + ".xml";
+        printsystem.clearSystemBecauseInvalid();
+    }
+    EXPECT_TRUE(counter == 5);
 }

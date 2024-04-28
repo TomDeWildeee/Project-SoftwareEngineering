@@ -10,10 +10,14 @@ int main() {
     } else {
         FileOutputStream c("testXMLs/error.txt");
         NoOutputStream n;
-        printsystem.processJob(&n, printsystem.getJobs()[0]->getJobNR());
-        printsystem.processJob(&n, printsystem.getJobs()[1]->getJobNR());
+        for (auto& device : printsystem.getDevices()) {
+            c.writeLine(device->getName());
+            for (auto& job : device->getJobqueue()) {
+                c.writeLine(std::to_string(job->getJobNR()));
+            }
+        }
 
-        printsystem.advancedOutput(&c);
+        printsystem.saveOutput(&c);
 
     }
 }

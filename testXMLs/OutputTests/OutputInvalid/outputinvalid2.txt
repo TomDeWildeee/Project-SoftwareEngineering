@@ -1,5 +1,33 @@
-Printers:
-	Office_Printer5 (CO2: 9555 g/page, Speed: 1 pages/min)
-Jobs:
-	[#1 | a | 9 pages]
-	[#93333 | David | 9929 pages]
+╔════════════════ [ System Report ] ════════════════╗
+
+───── Jobs ─────
+
+[Job #9]
+* User: a
+* Total Pages: 1
+* Device: Office_Printer5
+* Total CO2: 2 g CO2
+* Total Cost: 20 cents
+
+[Job #4]
+* User: David
+* Total Pages: 2922
+* Device: printprinter
+* Total CO2: 8766 g CO2
+* Total Cost: 43830 cents
+
+[Job #9929]
+* User: David
+* Total Pages: 47
+* Device: scanner-2974
+* Total CO2: 141 g CO2
+* Total Cost: 94 cents
+
+[Job #2222]
+* User: David
+* Total Pages: 10
+* Device: scanner-2974
+* Total CO2: 30 g CO2
+* Total Cost: 20 cents
+
+╚════════════════ [ System Report ] ════════════════╝

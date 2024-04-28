@@ -1,5 +1,23 @@
-Printers:
-	Office_Printer5 (CO2: 40 g/page, Speed: 3 pages/min)
-Jobs:
-	[#2 | SergeDemeyer | 2 pages]
-	[#8 | anonymous_user | 3 pages]
+──── Devices ────
+
+Office_Printer5:
+* Type: Color printer
+* Speed: 40 pages/minute
+* Cost: 20 cents/page
+* CO2: 3 g/page
+
+───── Jobs ─────
+
+[Job #2]
+* User: SergeDemeyer
+* Total Pages: 2
+* Device: Office_Printer5
+* Total CO2: 6 g CO2
+* Total Cost: 40 cents
+
+[Job #8]
+* User: anonymous_user
+* Total Pages: 3
+* Device: Office_Printer5
+* Total CO2: 9 g CO2
+* Total Cost: 60 cents

@@ -84,9 +84,15 @@ void PrintingSystem::saveOutput(OutputStream* outputStream) {
             std::string jobPageCount = "* Total Pages: " + std::to_string(job->getPageCount());
             std::string jobDevice = "* Device: " + (job->getDevice() ? job->getDevice()->getName() : "None");
 
-            int intCost = std::round(job->getDevice()->getCost());
+
+            std::string jobCost = "* Total Cost: ";
+            if (job->getDevice()) {
+                int intCost = std::round(job->getDevice()->getCost());
+                jobCost += std::to_string(intCost * job->getPageCount()) + " cents";
+            } else {
+                jobCost += "Needs device to calculate";
+            }
             std::string jobEmission = "* Total CO2: " + (job->getDevice() ? std::to_string(job->getDevice()->getEmissions() * job->getPageCount()) + " g CO2": "Needs device to calculate");
-            std::string jobCost = "* Total Cost: " + (job->getDevice() ? std::to_string(intCost * job->getPageCount()) + " cents" : "Needs device to calculate");
 
             outputStream->writeLine(jobName);
             outputStream->writeLine(jobUser);
@@ -215,15 +221,20 @@ void PrintingSystem::queueJobs() {
                 currentdevice = device;
             }
             if(device->getDeviceType() == job->getJobType() && !device->exceedslimit()){
-                if(currentdevice->calculatevalue() > device->calculatevalue()){
+                if(currentdevice->calculatevalue() < device->calculatevalue()){
                     currentdevice = device;
                 }
             }
         }
+
+        /*
         if(!currentdevice){
             return;
         }
+         */
         job->setDevice(currentdevice);
-        currentdevice->enqueue(job);
+        if (currentdevice) {
+            currentdevice->enqueue(job);
+        }
     }
 }

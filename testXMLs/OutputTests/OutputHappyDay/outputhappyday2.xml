@@ -4,15 +4,52 @@
         <name>Office_Printer5</name>
         <emissions>9555</emissions>
         <speed>1</speed>
+        <cost>20</cost>
+        <type>color</type>
+    </DEVICE>
+    <DEVICE>
+        <name>printer2821</name>
+        <emissions>1010</emissions>
+        <speed>2</speed>
+        <cost>25</cost>
+        <type>color</type>
+    </DEVICE>
+    <DEVICE>
+        <name>printprinter</name>
+        <emissions>55</emissions>
+        <speed>4</speed>
+        <cost>15</cost>
+        <type>bw</type>
+    </DEVICE>
+    <DEVICE>
+        <name>scanner-2974</name>
+        <emissions>55</emissions>
+        <speed>1</speed>
+        <cost>2</cost>
+        <type>scan</type>
     </DEVICE>
     <JOB>
         <jobNumber>9</jobNumber>
         <pageCount>1</pageCount>
         <userName>a</userName>
+        <type>color</type>
+    </JOB>
+    <JOB>
+        <jobNumber>4</jobNumber>
+        <pageCount>2922</pageCount>
+        <userName>David</userName>
+        <type>bw</type>
     </JOB>
     <JOB>
         <jobNumber>9929</jobNumber>
         <pageCount>93333</pageCount>
         <userName>David</userName>
+        <type>scan</type>
+    </JOB>
+    <JOB>
+        <jobNumber>2222</jobNumber>
+        <pageCount>474736</pageCount>
+        <userName>David</userName>
+        <type>scan</type>
     </JOB>
 </SYSTEM>

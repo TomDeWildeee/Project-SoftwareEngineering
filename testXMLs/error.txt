@@ -2,70 +2,48 @@
 
 ──── Devices ────
 
-Office_Printer1:
-* Type: Scanner
-* Speed: 20 pages/minute
-* Cost: 5 cents/page
-* CO2: 3 g/page
+Office_Printer5:
+* Type: Color printer
+* Speed: 1 pages/minute
+* Cost: 24 cents/page
+* CO2: 26 g/page
 
-Office_Printer2:
+printer2821:
+* Type: Color printer
+* Speed: 2 pages/minute
+* Cost: 25 cents/page
+* CO2: 25 g/page
+
+printprinter:
+* Type: Black-and-white printer
+* Speed: 4 pages/minute
+* Cost: 15 cents/page
+* CO2: 2 g/page
+
+scanner-2974:
 * Type: Scanner
-* Speed: 5 pages/minute
-* Cost: 5 cents/page
-* CO2: 5 g/page
+* Speed: 1 pages/minute
+* Cost: 2 cents/page
+* CO2: 2 g/page
 
 ───── Jobs ─────
 
-[Job #1]
-* User: Tom
-* Total Pages: 10
-* Device: Office_Printer1
-* Total CO2: 30 g CO2
-* Total Cost: 50 cents
+[Job #9]
+* User: a
+* Total Pages: 1
+* Device: None
+* Total CO2: Needs device to calculate
+* Total Cost: Needs device to calculate
 
-[Job #2]
-* User: Jan
-* Total Pages: 10
-* Device: Office_Printer2
-* Total CO2: 50 g CO2
-* Total Cost: 50 cents
-
-[Job #3]
-* User: John
-* Total Pages: 30
-* Device: Office_Printer1
-* Total CO2: 90 g CO2
-* Total Cost: 150 cents
+[Job #4]
+* User: David
+* Total Pages: 27
+* Device: printprinter
+* Total CO2: 54 g CO2
+* Total Cost: 405 cents
 
 ╚════════════════ [ System Report ] ════════════════╝
-Printing page 1
-Printing page 2
-Printing page 3
-Printing page 4
-Printing page 5
-Printing page 6
-Printing page 7
-Printing page 8
-Printing page 9
-Printing page 10
-Scanner "Office_Printer1" finished scanning job:
-	 Number: 1
-	 Submitted by "Tom"
-	 10 pages
-Printing page 1
-Printing page 2
-Printing page 3
-Printing page 4
-Printing page 5
-Printing page 6
-Printing page 7
-Printing page 8
-Printing page 9
-Printing page 10
-Scanner "Office_Printer2" finished scanning job:
-	 Number: 2
-	 Submitted by "Jan"
-	 10 pages
+ERR: There is no device of the correct type to process job
 Printing page 1
 Printing page 2
 Printing page 3
@@ -93,31 +71,7 @@ Printing page 24
 Printing page 25
 Printing page 26
 Printing page 27
-Printing page 28
-Printing page 29
-Printing page 30
-Scanner "Office_Printer1" finished scanning job:
-	 Number: 3
-	 Submitted by "John"
-	 30 pages
-╔════════════════ [ System Report ] ════════════════╗
-
-──── Devices ────
-
-Office_Printer1:
-* Type: Scanner
-* Speed: 20 pages/minute
-* Cost: 5 cents/page
-* CO2: 3 g/page
-
-Office_Printer2:
-* Type: Scanner
-* Speed: 5 pages/minute
-* Cost: 5 cents/page
-* CO2: 5 g/page
-
-───── Jobs ─────
-
-NO PENDING JOBS
-
-╚════════════════ [ System Report ] ════════════════╝
+Printer "printprinter" finished black-and-white-printing job:
+	 Number: 4
+	 Submitted by "David"
+	 27 pages

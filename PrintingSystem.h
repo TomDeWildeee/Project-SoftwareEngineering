@@ -29,11 +29,13 @@ public:
 
 /**
  REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to add a device");
+ ENSURE(find != devices.end(), "Device wasn't added to the printing system");
 */
     void addDevice(Device* device);
 
 /**
  REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to add a job");
+ ENSURE(find != jobs.end(),"Job wasn't added to the printing system");
 */
     void addJob(Job* job);
 
@@ -65,14 +67,20 @@ public:
 */
     void processAllJobsAutomatically(OutputStream* outputStream);
 /**
- REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to get jobs");
+ REQUIRE(this->properlyInitialized(), "System was not properly initialized when trying to queue jobs");
 */
     void queueJobs();
 /**
  REQUIRE(this->properlyIntialized(), "System was not properly initialized when trying to get jobs");
- */
+*/
     std::vector<Job*> getJobs();
+/**
+ REQUIRE(this->properlyIntialized(), "System was not properly initialized when trying to get total emissions");
+*/
     int getTotalEmissions();
+/**
+  REQUIRE(this->properlyIntialized(), "System was not properly initialized when trying to get devices");
+*/
     std::vector<Device*> getDevices();
 private:
     PrintingSystem* _initCheck;

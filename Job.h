@@ -44,6 +44,7 @@ public:
 
 /**
  REQUIRE(this->properlyInitialized(), "Job wasn't initialized when setting processing device");
+ ENSURE(processingdevice == device, "Device wasn't allocated properly");
 */
     void setDevice(Device *processingDevice);
 

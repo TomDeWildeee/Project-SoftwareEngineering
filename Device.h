@@ -51,15 +51,21 @@ public:
     int calculatevalue();
 /**
  REQUIRE(this->properlyInitialized(), "Device wasn't initialized when adding to queue");
+ ENSURE(find != jobqueue.end(), "job wasn't added to the queue");
  */
     void enqueue(Job*);
 /**
  REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting queue");
  */
     std::vector<Job*> getJobqueue();
-
+/**
+ REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting finished jobs");
+ */
     std::vector<Job*> getFinishedjobs();
-
+/**
+ REQUIRE(this->properlyInitialized(), "Device wasn't initialized when adding finished job");
+ ENSURE(find != finishedjobs.end(), "job wasn't added to the queue");
+ */
     void addFinishedJob(Job* finishedjob);
 
 private:

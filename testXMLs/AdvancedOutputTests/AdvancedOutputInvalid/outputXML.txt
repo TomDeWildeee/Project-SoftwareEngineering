@@ -1,0 +1,10 @@
+─────══════ [ System Diagnostic ] ══════─────
+
+» Dusty Color Printer V1 | Color printer
+* Queued: [#901 | 31p] [#902 | 31p]
+* Completed: [#901 | 31p]
+
+» Scannny | Scanner
+* Queued:
+* Completed: [#2 | 9p]
+

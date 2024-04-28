@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+
+<SYSTEM>
+    <DEVICE>
+        <name>Speedoscan 3000</name>
+        <emissions>8</emissions>
+        <speed>8</speed>
+        <cost>13</cost>
+        <type>scan</type>
+    </DEVICE>
+    <DEVICE>
+        <name>Speedoprint 3150 BW edition</name>
+        <emissions>6</emissions>
+        <speed>2</speed>
+        <cost>17</cost>
+        <type>bw</type>
+    </DEVICE>
+    <JOB>
+        <jobNumber>2</jobNumber>
+        <pageCount>9</pageCount>
+        <userName>John</userName>
+        <type>scan</type>
+    </JOB>
+    <JOB>
+        <jobNumber>900</jobNumber>
+        <pageCount>61</pageCount>
+        <userName>Doe</userName>
+        <type>bw</type>
+    </JOB>
+</SYSTEM>

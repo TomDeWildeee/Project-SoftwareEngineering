@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+
+<SYSTEM>
+    <DEVICE>
+        <name>Dusty Color Printer V1</name>
+        <emissions>7</emissions>
+        <speed>1</speed>
+        <cost>31</cost>
+        <type>color</type>
+    </DEVICE>
+    <DEVICE>
+        <name>Scannny</name>
+        <emissions>11</emissions>
+        <speed>4</speed>
+        <cost>12</cost>
+        <type>scan</type>
+    </DEVICE>
+    <JOB>
+        <jobNumber>2</jobNumber>
+        <pageCount>9</pageCount>
+        <userName>John</userName>
+        <type>scan</type>
+    </JOB>
+    <JOB>
+        <jobNumber>900</jobNumber>
+        <pageCount>61</pageCount>
+        <userName>Jane</userName>
+        <type>color</type>
+    </JOB>
+    <JOB>
+        <jobNumber>901</jobNumber>
+        <pageCount>31</pageCount>
+        <userName>William</userName>
+        <type>color</type>
+    </JOB>
+    <JOB>
+        <jobNumber>902</jobNumber>
+        <pageCount>31</pageCount>
+        <userName>Dustin</userName>
+        <type>color</type>
+    </JOB>
+</SYSTEM>

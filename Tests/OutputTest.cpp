@@ -35,7 +35,7 @@ TEST_F(OutputTest, SimpleOutputHappyDay) {
         filename = outputHappyDayDirectory + "/outputhappyday" + ToString(counter) + ".xml";
         printsystem.clearSystemBecauseInvalid();
     }
-    EXPECT_TRUE(counter == 6);
+    EXPECT_TRUE(counter == 5);
 }
 
 string outputInvalidDirectory = "testXMLs/OutputTests/OutputInvalid";

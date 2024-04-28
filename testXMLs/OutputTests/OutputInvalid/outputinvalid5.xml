@@ -3,7 +3,7 @@
 <SYSTEM>
     <DEVICE>
         <name>Printer_287257</name>
-        <emissions>50</emissions>
+        <emissions>2</emissions>
         <speed>1</speed>
         <cost>20</cost>
         <type>color</type>
@@ -29,4 +29,34 @@
         <cost>2</cost>
         <type>scan</type>
     </DEVICE>
+    <JOB>
+        <jobNumber>9</jobNumber>
+        <pageCount>1</pageCount>
+        <userName>Mauro</userName>
+        <type>color</type>
+    </JOB>
+    <JOB>
+        <jobNumber>202</jobNumber>
+        <pageCount>22</pageCount>
+        <userName>Lucas</userName>
+        <type>color</type>
+    </JOB>
+    <JOB>
+        <jobNumber>4</jobNumber>
+        <pageCount>2922</pageCount>
+        <userName>Lucas</userName>
+        <type>bw</type>
+    </JOB>
+    <JOB>
+        <jobNumber>9929</jobNumber>
+        <pageCount>47</pageCount>
+        <userName>Tom</userName>
+        <type>color</type>
+    </JOB>
+    <JOB>
+        <jobNumber>2222</jobNumber>
+        <pageCount>20</pageCount>
+        <userName>Mauro</userName>
+        <type>color</type>
+    </JOB>
 </SYSTEM>

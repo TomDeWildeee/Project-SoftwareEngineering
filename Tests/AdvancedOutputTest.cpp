@@ -42,26 +42,25 @@ TEST_F(AdvancedOutputTest, HappyDayAdvancedOutput) {
     EXPECT_TRUE(counter == 4);
 }
 
-// string invalidOutputAPDir = "testXMLs/AutomaticallyProcessTests/InvalidOutputTest";
+ string invalidAdvOutputAPDir = "testXMLs/AutomaticallyProcessTests/InvalidOutputTest";
 
-/*
-TEST_F(A, InvalidOutput) {
-    ASSERT_TRUE(DirectoryExists(invalidOutputAPDir));
+
+TEST_F(AdvancedOutputTest, InvalidOutput) {
+    ASSERT_TRUE(DirectoryExists(invalidAdvOutputAPDir));
     int counter = 1;
-    string filename = invalidOutputAPDir + "/invalidoutput" + ToString(counter) + ".xml";
+    string filename = invalidAdvOutputAPDir + "/invalidoutput" + ToString(counter) + ".xml";
     string outputFileName;
     while(FileExists(filename)){
-        FileOutputStream errStream = FileOutputStream(invalidOutputAPDir + "/outputXML.txt");
+        FileOutputStream errStream = FileOutputStream(invalidAdvOutputAPDir + "/outputXML.txt");
         PrintingSystemImporter::importPrintingSystem(filename.c_str(),&errStream,printsystem);
 
-        FileOutputStream fileOutputStream = FileOutputStream(invalidOutputAPDir + "/outputXML.txt");
+        FileOutputStream fileOutputStream = FileOutputStream(invalidAdvOutputAPDir + "/outputXML.txt");
         printsystem.processAllJobsAutomatically(&fileOutputStream);
-        outputFileName = invalidOutputAPDir + "/invalidoutput" + ToString(counter) + ".txt";
-        EXPECT_FALSE(FileCompare(invalidOutputAPDir + "/outputXML.txt", outputFileName));
+        outputFileName = invalidAdvOutputAPDir + "/invalidoutput" + ToString(counter) + ".txt";
+        EXPECT_FALSE(FileCompare(invalidAdvOutputAPDir + "/outputXML.txt", outputFileName));
         counter +=1;
-        filename = invalidOutputAPDir + "/invalidoutput" + ToString(counter) + ".xml";
+        filename = invalidAdvOutputAPDir + "/invalidoutput" + ToString(counter) + ".xml";
         printsystem.clearSystemBecauseInvalid();
     }
     EXPECT_TRUE(counter == 2);
 }
-*/

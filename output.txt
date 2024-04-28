@@ -1,7 +1,0 @@
-Printers: 
-	Office_Printer5 (CO2: 3 g/page, Speed: 40 pages/min)
-Jobs: 
-	[#89751 | SergeDemeyer | 2 pages]
-	[#2189 | anonymous_user | 3 pages]
-	[#3 | anonymous_user | 3 pages]
-	[#1 | anonymous_user | 3 pages]

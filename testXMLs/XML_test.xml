@@ -3,7 +3,7 @@
     <DEVICE>
         <name>Office_Printer1</name>
         <emissions>3</emissions>
-        <speed>5</speed>
+        <speed>20</speed>
         <cost>5.5</cost>
         <type>scan</type>
     </DEVICE>

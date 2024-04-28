@@ -25,5 +25,8 @@ int main() {
                 std::cout << job->getJobNR() << std::endl;
             }
         }
+
+        ConsoleOutputStream c;
+        printsystem.advancedOutput(&c);
     }
 }

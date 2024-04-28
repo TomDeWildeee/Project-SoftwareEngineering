@@ -1,0 +1,4 @@
+─────══════ [ System Diagnostic ] ══════─────
+
+» Office_Printer1 Scanner
+» Office_Printer2 Scanner

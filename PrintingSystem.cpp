@@ -1,6 +1,5 @@
 #include "DesignByContract.h"
 #include "PrintingSystem.h"
-#include <fstream>
 #include <iostream>
 #include <algorithm>
 
@@ -78,10 +77,10 @@ void PrintingSystem::saveOutput(OutputStream* outputStream) {
         std::string jobName = "[Job #" + std::to_string(job->getJobNR()) + "]";
         std::string jobUser = "* User: " + job->getUserName();
         std::string jobPageCount = "* Total Pages: " + std::to_string(job->getPageCount());
-        std::string jobDevice = "* Device: " + job->getDevice()->getName();
+        std::string jobDevice = "* Device: " + (job->getDevice() ? job->getDevice()->getName() : "None");
 
-        std::string jobEmission = "* Total CO2: " + std::to_string(job->getDevice()->getEmissions() * job->getPageCount());
-        std::string jobCost = "* Total Cost: " + std::to_string(job->getDevice()->getCost() * job->getPageCount());
+        std::string jobEmission = "* Total CO2: " + (job->getDevice() ? std::to_string(job->getDevice()->getEmissions() * job->getPageCount()) : "Needs device to calculate");
+        std::string jobCost = "* Total Cost: " + (job->getDevice() ? std::to_string(job->getDevice()->getCost() * job->getPageCount()) : "Needs device to calculate");
 
         outputStream->writeLine(jobName);
         outputStream->writeLine(jobUser);
@@ -140,11 +139,8 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
        outputStream->writeLine(errString);
        return;
     }
-
-    // We're taking the first printer at the moment (only device in specification 1.0)
-    /*Device* device = devices[0];
-    `*/
     auto processingdevice = jobToProcess->getDevice();
+
     if (!processingdevice) {
         outputStream->writeLine("ERR: There is no device of the correct type to process job");
         return;
@@ -154,6 +150,7 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
         outputStream->writeLine(printString);
     }
     jobToProcess->getDevice()->addFinishedJob(jobToProcess);
+
     std::string typestring;
     if(jobToProcess->getJobType() == "color") {
         typestring = "color-printing";
@@ -179,8 +176,10 @@ void PrintingSystem::processAllJobsAutomatically(OutputStream* outputStream) {
     REQUIRE(!devices.empty(), "There has to be at least 1 printer available to process jobs automatically");
     REQUIRE(!jobs.empty(), "There are no jobs that can be processed by a device");
 
-    while (!jobs.empty()) {
-        processJob(outputStream, jobs[0]->getJobNR());
+    std::vector<Job*> savedJobs = jobs;
+
+    for (auto job : savedJobs) {
+        processJob(outputStream, job->getJobNR());
     }
 
     ENSURE(jobs.empty(), "Not all jobs were processed after trying to process all the jobs, check if the devices have the right types");

@@ -117,6 +117,8 @@ void PrintingSystemGUI::submitJob() {
 
 void PrintingSystemGUI::selectXMLFile() {
     selectedFilePath = QFileDialog::getOpenFileName(this, tr("Open XML File"), "", tr("XML Files (*.xml)"));
+    if (selectedFilePath.isEmpty()) return;
+    printingSystem.clearSystemBecauseInvalid();
     PrintingSystemImporter::importPrintingSystem(selectedFilePath.toStdString().c_str(), fileOutputStream, printingSystem);
     submitButton->setEnabled(true);
     saveOutputButton->setEnabled(true);
@@ -124,6 +126,7 @@ void PrintingSystemGUI::selectXMLFile() {
     processAllJobsButton->setEnabled(true);
 
     updateJobs();
+    deviceComboBox->clear();
 
     jobTypeCombo->clear();
     jobTypeCombo->addItem("Black and White Printing");
@@ -135,6 +138,7 @@ void PrintingSystemGUI::selectXMLFile() {
 
 void PrintingSystemGUI::selectOutputFile() {
     outputFilePath = QFileDialog::getOpenFileName(this, tr("Open txt File"), "", tr("txt Files (*.txt)"));
+    if (outputFilePath.isEmpty()) return;
     fileOutputStream = new FileOutputStream(outputFilePath.toStdString());
     fileSelectButton->setEnabled(true);
 }

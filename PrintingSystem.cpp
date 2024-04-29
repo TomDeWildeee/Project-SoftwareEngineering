@@ -41,11 +41,15 @@ void PrintingSystem::clearSystemBecauseInvalid() {
 void PrintingSystem::addDevice(Device* device) {
     REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to add a device");
     devices.push_back(device);
+    auto find  = std::find(devices.begin(), devices.end(), device);
+    ENSURE(find != devices.end(), "Device wasn't added to the printing system");
 }
 
 void PrintingSystem::addJob(Job* job) {
     REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to add a job");
     jobs.push_back(job);
+    auto find = std::find(jobs.begin(),jobs.end(), job);
+    ENSURE(find != jobs.end(), "Job wasn't added to the printing system");
 }
 
 void PrintingSystem::saveOutput(OutputStream* outputStream) {

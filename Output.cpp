@@ -11,6 +11,7 @@ bool OutputStream::properlyInitialized() {
 
 
 void FileOutputStream::writeLine(const std::string &message) {
+    REQUIRE(this->properlyInitialized(), "FileOutputStream wasn't initialized when writing line");
     outputFile << message << std::endl;
 }
 
@@ -19,9 +20,11 @@ FileOutputStream::~FileOutputStream() {
 }
 
 void ConsoleOutputStream::writeLine(const std::string &message) {
+    REQUIRE(this->properlyInitialized(), "ConsoleOutputStream wasn't initialized when writing line");
     std::cout << message << std::endl;
 }
 
 void NoOutputStream::writeLine(const std::string &message) {
+    REQUIRE(this->properlyInitialized(), "NoOutputStream wasn't initialized when writing line");
 
 }

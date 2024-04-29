@@ -51,4 +51,6 @@ Device *Job::getDevice() {
 void Job::setDevice(Device* processingDevice) {
     REQUIRE(this->properlyInitialized(), "Job wasn't initialized when setting processing device");
     Job::device = processingDevice;
+    ENSURE(processingDevice == device, "Device wasn't allocated properly");
+
 }

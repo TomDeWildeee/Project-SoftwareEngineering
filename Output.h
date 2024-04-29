@@ -17,16 +17,25 @@ private:
     std::ofstream outputFile;
 public:
     explicit FileOutputStream(const std::string& filename = "output.txt") : outputFile(filename) {}
+/**
+ REQUIRE(this->properlyInitialized(), "FileOutputStream wasn't initialized when writing line");
+ */
     void writeLine(const std::string& message) override;
     ~FileOutputStream() override;
 };
 
 class ConsoleOutputStream : public OutputStream {
 public:
+/**
+ REQUIRE(this->properlyInitialized(), "ConsoleOutputStream wasn't initialized when writing line");
+ */
     void writeLine(const std::string& message) override;
 };
 
 class NoOutputStream : public OutputStream {
 public:
+/**
+ REQUIRE(this->properlyInitialized(), "NoOutputStream wasn't initialized when writing line");
+ */
     void writeLine(const std::string& message) override;
 };

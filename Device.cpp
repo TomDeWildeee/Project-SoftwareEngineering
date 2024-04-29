@@ -1,6 +1,7 @@
 #include "DesignByContract.h"
 #include "Device.h"
 #include "Job.h"
+#include <algorithm>
 // Device will never be constructed with invalid parameters, because we check for that in the importer
 Device::Device(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, DeviceType::DeviceTypeEnum deviceType, int deviceCost) {
     name = deviceName;
@@ -59,6 +60,7 @@ bool Device::exceedslimit() {
     }
 }
 int Device::calculatevalue(){
+    REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting queue");
     int value = 0;
     for(auto job : jobqueue){
         value += job->getPageCount();
@@ -68,6 +70,8 @@ int Device::calculatevalue(){
 void Device::enqueue(Job* job){
     REQUIRE(this->properlyInitialized(), "Device wasn't initialized when adding to queue");
     jobqueue.push_back(job);
+    auto find = std::find(jobqueue.begin(),jobqueue.end(), job);
+    ENSURE(find != jobqueue.end(), "job wasn't added to the queue");
 }
 
 std::vector<Job*> Device::getJobqueue(){
@@ -76,10 +80,14 @@ std::vector<Job*> Device::getJobqueue(){
 }
 
 std::vector<Job*> Device::getFinishedjobs(){
+    REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting finished jobs");
     return finishedjobs;
 }
 
 void Device::addFinishedJob(Job *finishedjob) {
+    REQUIRE(this->properlyInitialized(), "Device wasn't initialized when adding finished job");
     jobqueue.erase(jobqueue.begin());
     finishedjobs.push_back(finishedjob);
+    auto find = std::find(finishedjobs.begin(),finishedjobs.end(), finishedjob);
+    ENSURE(find != finishedjobs.end(), "job wasn't added to the queue");
 }

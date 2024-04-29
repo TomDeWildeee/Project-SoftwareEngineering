@@ -51,3 +51,29 @@ TEST_F(DeviceTest, JobQueueHappyDay) {
     }
     EXPECT_TRUE(counter == 5);
 }
+
+string QueueInvalidDirectory = "testXMLs/DeviceTests/JobQueueInvalid";
+TEST_F(DeviceTest, JobQueueInvalid) {
+    ASSERT_TRUE(DirectoryExists(QueueInvalidDirectory));
+    int counter = 1;
+    string filename = QueueInvalidDirectory + "/jobqueueinvalid" + to_string(counter) + ".xml";
+    string outputfilename;
+    while (FileExists(filename)) {
+        FileOutputStream errStream = FileOutputStream(QueueInvalidDirectory + "/jobqueueinvalid.txt");
+        PrintingSystemImporter::importPrintingSystem(filename.c_str(),&errStream,printsystem);
+        FileOutputStream fileOutputStream = FileOutputStream(QueueInvalidDirectory + "/jobqueueinvalid.txt");
+
+        for (auto& device : printsystem.getDevices()) {
+            fileOutputStream.writeLine(device->getName());
+            for (auto& job : device->getJobqueue()) {
+                fileOutputStream.writeLine(to_string(job->getJobNR()));
+            }
+        }
+        outputfilename = QueueInvalidDirectory + "/jobqueueinvalid" + ToString(counter) + ".txt";
+        EXPECT_FALSE(FileCompare(QueueInvalidDirectory + "/jobqueueinvalid.txt", outputfilename));
+        counter += 1;
+        filename = QueueInvalidDirectory + "/jobqueueinvalid" + ToString(counter) + ".xml";
+        printsystem.clearSystemBecauseInvalid();
+    }
+    EXPECT_TRUE(counter == 5);
+}

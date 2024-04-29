@@ -216,6 +216,7 @@ void PrintingSystem::queueJobs() {
     Device* currentdevice;
     for(auto job : jobs){
         currentdevice = nullptr;
+        if (job->getDevice()) continue;
         for(auto device : devices){
             if(device->getDeviceType() == job->getJobType() && currentdevice == nullptr && !device->exceedslimit()){
                 currentdevice = device;

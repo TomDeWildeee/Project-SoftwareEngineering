@@ -29,6 +29,7 @@ set(RELEASE_SOURCE_FILES
         PrintingSystemMain.cpp
         Utils.cpp
         Output.cpp
+        PrintingSystemGUI.cpp
 )
 
 # Set source files for DEBUG target
@@ -43,17 +44,26 @@ set(DEBUG_SOURCE_FILES
         tinyxml/tinyxml.cpp
         tinyxml/tinyxmlerror.cpp
         tinyxml/tinyxmlparser.cpp
-        Tests/InputTest.cpp
+        Output.cpp
         Utils.cpp
+        Tests/InputTest.cpp
         Tests/OutputTest.cpp
         Tests/JobTest.cpp
         Tests/DeviceTest.cpp
         Tests/ManuallyprocessTest.cpp
         Tests/AutomaticallyProcessTest.cpp
-        Output.cpp
         Tests/AdvancedOutputTest.cpp
         Tests/EmissionsTest.cpp
 )
+
+set(Qt6Core_DIR "/usr/lib/x86_64-linux-gnu/cmake/Qt6Core")
+set(Qt6Widgets_DIR "/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets")
+set(Qt6Gui_DIR "/usr/lib/x86_64-linux-gnu/cmake/Qt6Gui")
+
+find_package(Qt6Core REQUIRED)
+find_package(Qt6Widgets REQUIRED)
+find_package(Qt6Gui REQUIRED)
+
 
 # Create RELEASE target
 add_executable(release_target ${RELEASE_SOURCE_FILES})
@@ -63,3 +73,4 @@ add_executable(debug_target ${DEBUG_SOURCE_FILES})
 
 # Link library
 target_link_libraries(debug_target gtest)
+target_link_libraries(release_target Qt6::Core Qt6::Widgets Qt6::Gui)

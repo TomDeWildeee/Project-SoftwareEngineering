@@ -76,18 +76,36 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab70d6d270b62c48ddb2cc9cfe0d22cf2"><td class="memItemLeft" align="right" valign="top"><a id="ab70d6d270b62c48ddb2cc9cfe0d22cf2"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</b> ()</td></tr>
 <tr class="separator:ab70d6d270b62c48ddb2cc9cfe0d22cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc45556c46d1d75125b9905be57b2d47"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#adc45556c46d1d75125b9905be57b2d47">Device</a> (const std::string &amp;deviceName, int amountOfEmissions, int speedOfPrinter)</td></tr>
-<tr class="separator:adc45556c46d1d75125b9905be57b2d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca2100c896889a127f39217162a2b56c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#aca2100c896889a127f39217162a2b56c">Device</a> (const std::string &amp;deviceName, int amountOfEmissions, int speedOfPrinter, DeviceType::DeviceTypeEnum deviceType, int deviceCost)</td></tr>
+<tr class="separator:aca2100c896889a127f39217162a2b56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6248848f87e1ebddd2c6c91b1d9281f"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#ab6248848f87e1ebddd2c6c91b1d9281f">getName</a> ()</td></tr>
 <tr class="separator:ab6248848f87e1ebddd2c6c91b1d9281f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5d4f3c60c2d7a6bce84dce6ee584507"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#ae5d4f3c60c2d7a6bce84dce6ee584507">getEmissions</a> ()</td></tr>
 <tr class="separator:ae5d4f3c60c2d7a6bce84dce6ee584507"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa159c3bff92a9d826d025fda6f492ee9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#aa159c3bff92a9d826d025fda6f492ee9">getSpeed</a> ()</td></tr>
 <tr class="separator:aa159c3bff92a9d826d025fda6f492ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59c8a7efc8b09e5e4d423cf366d0a953"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a59c8a7efc8b09e5e4d423cf366d0a953">getCost</a> ()</td></tr>
+<tr class="separator:a59c8a7efc8b09e5e4d423cf366d0a953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6538eb1ee454e68b8acfd8de441e4de4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a6538eb1ee454e68b8acfd8de441e4de4">getDeviceType</a> ()</td></tr>
+<tr class="separator:a6538eb1ee454e68b8acfd8de441e4de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a40fb0ec2d557c14dff77b2a762ec7b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a2a40fb0ec2d557c14dff77b2a762ec7b">exceedslimit</a> ()</td></tr>
+<tr class="separator:a2a40fb0ec2d557c14dff77b2a762ec7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af716133ed8d557ab0415805bc50681ad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#af716133ed8d557ab0415805bc50681ad">calculatevalue</a> ()</td></tr>
+<tr class="separator:af716133ed8d557ab0415805bc50681ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba26d43daa70f2ed06b831473f588636"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#aba26d43daa70f2ed06b831473f588636">enqueue</a> (<a class="el" href="classJob.html">Job</a> *)</td></tr>
+<tr class="separator:aba26d43daa70f2ed06b831473f588636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2d04fe5b1cd6fef21062ed0e0417922"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classJob.html">Job</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#ad2d04fe5b1cd6fef21062ed0e0417922">getJobqueue</a> ()</td></tr>
+<tr class="separator:ad2d04fe5b1cd6fef21062ed0e0417922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5bccba1f80cf63bf2cc5babf0b222a1"><td class="memItemLeft" align="right" valign="top"><a id="af5bccba1f80cf63bf2cc5babf0b222a1"></a>
+std::vector&lt; <a class="el" href="classJob.html">Job</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getFinishedjobs</b> ()</td></tr>
+<tr class="separator:af5bccba1f80cf63bf2cc5babf0b222a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cb1eb97a8e04360c5c46107e868a474"><td class="memItemLeft" align="right" valign="top"><a id="a3cb1eb97a8e04360c5c46107e868a474"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addFinishedJob</b> (<a class="el" href="classJob.html">Job</a> *finishedjob)</td></tr>
+<tr class="separator:a3cb1eb97a8e04360c5c46107e868a474"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="adc45556c46d1d75125b9905be57b2d47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc45556c46d1d75125b9905be57b2d47">&#9670;&nbsp;</a></span>Device()</h2>
+<a id="aca2100c896889a127f39217162a2b56c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca2100c896889a127f39217162a2b56c">&#9670;&nbsp;</a></span>Device()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -108,7 +126,19 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>speedOfPrinter</em>&#160;</td>
+          <td class="paramname"><em>speedOfPrinter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DeviceType::DeviceTypeEnum&#160;</td>
+          <td class="paramname"><em>deviceType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>deviceCost</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -122,6 +152,97 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af716133ed8d557ab0415805bc50681ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af716133ed8d557ab0415805bc50681ad">&#9670;&nbsp;</a></span>calculatevalue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Device::calculatevalue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>REQUIRE(this-&gt;properlyInitialized(), "Device wasn't initialized when calculating value"); </p>
+
+</div>
+</div>
+<a id="aba26d43daa70f2ed06b831473f588636"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba26d43daa70f2ed06b831473f588636">&#9670;&nbsp;</a></span>enqueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Device::enqueue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classJob.html">Job</a> *&#160;</td>
+          <td class="paramname"><em>job</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>REQUIRE(this-&gt;properlyInitialized(), "Device wasn't initialized when adding to queue"); </p>
+
+</div>
+</div>
+<a id="a2a40fb0ec2d557c14dff77b2a762ec7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a40fb0ec2d557c14dff77b2a762ec7b">&#9670;&nbsp;</a></span>exceedslimit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Device::exceedslimit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>REQUIRE(this-&gt;properlyInitialized(), "Device wasn't initialized checking if it exceeds the CO2 limit"); </p>
+
+</div>
+</div>
+<a id="a59c8a7efc8b09e5e4d423cf366d0a953"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59c8a7efc8b09e5e4d423cf366d0a953">&#9670;&nbsp;</a></span>getCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Device::getCost </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>REQUIRE(this-&gt;properlyInitialized(), "Device wasn't initialized when gettting value"); </p>
+
+</div>
+</div>
+<a id="a6538eb1ee454e68b8acfd8de441e4de4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6538eb1ee454e68b8acfd8de441e4de4">&#9670;&nbsp;</a></span>getDeviceType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Device::getDeviceType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>REQUIRE(this-&gt;properlyInitialized(), "Device wasn't initialized when getting type"); </p>
+
+</div>
+</div>
 <a id="ae5d4f3c60c2d7a6bce84dce6ee584507"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5d4f3c60c2d7a6bce84dce6ee584507">&#9670;&nbsp;</a></span>getEmissions()</h2>
 
@@ -137,6 +258,24 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
       </table>
 </div><div class="memdoc">
 <p>REQUIRE(this-&gt;properlyInitialized(), "Device wasn't initialized when getting emissions"); </p>
+
+</div>
+</div>
+<a id="ad2d04fe5b1cd6fef21062ed0e0417922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2d04fe5b1cd6fef21062ed0e0417922">&#9670;&nbsp;</a></span>getJobqueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classJob.html">Job</a> * &gt; Device::getJobqueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>REQUIRE(this-&gt;properlyInitialized(), "Device wasn't initialized when getting queue"); </p>
 
 </div>
 </div>

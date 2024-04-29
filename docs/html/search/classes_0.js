@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['device_19',['Device',['../classDevice.html',1,'']]]
+  ['consoleoutputstream_35',['ConsoleOutputStream',['../classConsoleOutputStream.html',1,'']]]
 ];

@@ -2,61 +2,55 @@
 
 <SYSTEM>
     <DEVICE>
-        <name>Printer_287257</name>
-        <emissions>2</emissions>
+        <name>Office_Printer1</name>
+        <emissions>11</emissions>
         <speed>1</speed>
-        <cost>20</cost>
-        <type>color</type>
+        <cost>24</cost>
+        <type>scan</type>
     </DEVICE>
     <DEVICE>
-        <name>printer2821</name>
-        <emissions>2</emissions>
+        <name>Office_Printer2</name>
+        <emissions>6</emissions>
         <speed>2</speed>
         <cost>25</cost>
-        <type>color</type>
-    </DEVICE>
-    <DEVICE>
-        <name>Device_0283201</name>
-        <emissions>3</emissions>
-        <speed>4</speed>
-        <cost>15</cost>
         <type>bw</type>
     </DEVICE>
     <DEVICE>
-        <name>scanner-2974</name>
-        <emissions>3</emissions>
+        <name>Office_Printer3</name>
+        <emissions>2</emissions>
+        <speed>4</speed>
+        <cost>15</cost>
+        <type>color</type>
+    </DEVICE>
+    <DEVICE>
+        <name>Office_Printer4</name>
+        <emissions>2</emissions>
         <speed>1</speed>
         <cost>2</cost>
         <type>scan</type>
     </DEVICE>
     <JOB>
-        <jobNumber>9</jobNumber>
-        <pageCount>1</pageCount>
-        <userName>Mauro</userName>
+        <jobNumber>111</jobNumber>
+        <pageCount>12</pageCount>
+        <userName>John</userName>
         <type>color</type>
     </JOB>
     <JOB>
-        <jobNumber>202</jobNumber>
-        <pageCount>22</pageCount>
-        <userName>Lucas</userName>
-        <type>color</type>
-    </JOB>
-    <JOB>
-        <jobNumber>4</jobNumber>
-        <pageCount>2922</pageCount>
-        <userName>Lucas</userName>
+        <jobNumber>121</jobNumber>
+        <pageCount>41</pageCount>
+        <userName>Doe</userName>
         <type>bw</type>
     </JOB>
     <JOB>
-        <jobNumber>9929</jobNumber>
-        <pageCount>47</pageCount>
-        <userName>Tom</userName>
+        <jobNumber>999</jobNumber>
+        <pageCount>2</pageCount>
+        <userName>Jane</userName>
         <type>color</type>
     </JOB>
     <JOB>
-        <jobNumber>2222</jobNumber>
-        <pageCount>20</pageCount>
-        <userName>Mauro</userName>
-        <type>color</type>
+        <jobNumber>881</jobNumber>
+        <pageCount>61</pageCount>
+        <userName>Justin</userName>
+        <type>bw</type>
     </JOB>
 </SYSTEM>

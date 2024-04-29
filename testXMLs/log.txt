@@ -1,0 +1,285 @@
+Printing page 1
+Printing page 2
+Printing page 3
+Printing page 4
+Printing page 5
+Printing page 6
+Printing page 7
+Printing page 8
+Printing page 9
+Printing page 10
+Printing page 11
+Printing page 12
+Printer "Office_Printer3" finished color-printing job:
+	 Number: 111
+	 Submitted by "John"
+	 12 pages
+╔════════════════ [ System Report ] ════════════════╗
+
+──── Devices ────
+
+Office_Printer1:
+* Type: Scanner
+* Speed: 1 pages/minute
+* Cost: 24 cents/page
+* CO2: 11 g/page
+
+Office_Printer2:
+* Type: Black-and-white printer
+* Speed: 2 pages/minute
+* Cost: 25 cents/page
+* CO2: 6 g/page
+
+Office_Printer3:
+* Type: Color printer
+* Speed: 4 pages/minute
+* Cost: 15 cents/page
+* CO2: 2 g/page
+
+Office_Printer4:
+* Type: Scanner
+* Speed: 1 pages/minute
+* Cost: 2 cents/page
+* CO2: 2 g/page
+
+───── Jobs ─────
+
+[Job #121]
+* User: Doe
+* Total Pages: 41
+* Device: Office_Printer2
+* Total CO2: 246 g CO2
+* Total Cost: 1025 cents
+
+[Job #999]
+* User: Jane
+* Total Pages: 2
+* Device: Office_Printer3
+* Total CO2: 4 g CO2
+* Total Cost: 30 cents
+
+[Job #881]
+* User: Justin
+* Total Pages: 61
+* Device: Office_Printer2
+* Total CO2: 366 g CO2
+* Total Cost: 1525 cents
+
+[Job #0]
+* User: Tom
+* Total Pages: 25
+* Device: Office_Printer4
+* Total CO2: 50 g CO2
+* Total Cost: 50 cents
+
+[Job #1]
+* User: Jan
+* Total Pages: 21
+* Device: Office_Printer3
+* Total CO2: 42 g CO2
+* Total Cost: 315 cents
+
+╚════════════════ [ System Report ] ════════════════╝
+Printing page 1
+Printing page 2
+Printing page 3
+Printing page 4
+Printing page 5
+Printing page 6
+Printing page 7
+Printing page 8
+Printing page 9
+Printing page 10
+Printing page 11
+Printing page 12
+Printing page 13
+Printing page 14
+Printing page 15
+Printing page 16
+Printing page 17
+Printing page 18
+Printing page 19
+Printing page 20
+Printing page 21
+Printing page 22
+Printing page 23
+Printing page 24
+Printing page 25
+Printing page 26
+Printing page 27
+Printing page 28
+Printing page 29
+Printing page 30
+Printing page 31
+Printing page 32
+Printing page 33
+Printing page 34
+Printing page 35
+Printing page 36
+Printing page 37
+Printing page 38
+Printing page 39
+Printing page 40
+Printing page 41
+Printer "Office_Printer2" finished black-and-white-printing job:
+	 Number: 121
+	 Submitted by "Doe"
+	 41 pages
+Printing page 1
+Printing page 2
+Printer "Office_Printer3" finished color-printing job:
+	 Number: 999
+	 Submitted by "Jane"
+	 2 pages
+Printing page 1
+Printing page 2
+Printing page 3
+Printing page 4
+Printing page 5
+Printing page 6
+Printing page 7
+Printing page 8
+Printing page 9
+Printing page 10
+Printing page 11
+Printing page 12
+Printing page 13
+Printing page 14
+Printing page 15
+Printing page 16
+Printing page 17
+Printing page 18
+Printing page 19
+Printing page 20
+Printing page 21
+Printing page 22
+Printing page 23
+Printing page 24
+Printing page 25
+Printing page 26
+Printing page 27
+Printing page 28
+Printing page 29
+Printing page 30
+Printing page 31
+Printing page 32
+Printing page 33
+Printing page 34
+Printing page 35
+Printing page 36
+Printing page 37
+Printing page 38
+Printing page 39
+Printing page 40
+Printing page 41
+Printing page 42
+Printing page 43
+Printing page 44
+Printing page 45
+Printing page 46
+Printing page 47
+Printing page 48
+Printing page 49
+Printing page 50
+Printing page 51
+Printing page 52
+Printing page 53
+Printing page 54
+Printing page 55
+Printing page 56
+Printing page 57
+Printing page 58
+Printing page 59
+Printing page 60
+Printing page 61
+Printer "Office_Printer2" finished black-and-white-printing job:
+	 Number: 881
+	 Submitted by "Justin"
+	 61 pages
+Printing page 1
+Printing page 2
+Printing page 3
+Printing page 4
+Printing page 5
+Printing page 6
+Printing page 7
+Printing page 8
+Printing page 9
+Printing page 10
+Printing page 11
+Printing page 12
+Printing page 13
+Printing page 14
+Printing page 15
+Printing page 16
+Printing page 17
+Printing page 18
+Printing page 19
+Printing page 20
+Printing page 21
+Printing page 22
+Printing page 23
+Printing page 24
+Printing page 25
+Scanner "Office_Printer4" finished scanning job:
+	 Number: 0
+	 Submitted by "Tom"
+	 25 pages
+Printing page 1
+Printing page 2
+Printing page 3
+Printing page 4
+Printing page 5
+Printing page 6
+Printing page 7
+Printing page 8
+Printing page 9
+Printing page 10
+Printing page 11
+Printing page 12
+Printing page 13
+Printing page 14
+Printing page 15
+Printing page 16
+Printing page 17
+Printing page 18
+Printing page 19
+Printing page 20
+Printing page 21
+Printer "Office_Printer3" finished color-printing job:
+	 Number: 1
+	 Submitted by "Jan"
+	 21 pages
+╔════════════════ [ System Report ] ════════════════╗
+
+──── Devices ────
+
+Office_Printer1:
+* Type: Scanner
+* Speed: 1 pages/minute
+* Cost: 24 cents/page
+* CO2: 11 g/page
+
+Office_Printer2:
+* Type: Black-and-white printer
+* Speed: 2 pages/minute
+* Cost: 25 cents/page
+* CO2: 6 g/page
+
+Office_Printer3:
+* Type: Color printer
+* Speed: 4 pages/minute
+* Cost: 15 cents/page
+* CO2: 2 g/page
+
+Office_Printer4:
+* Type: Scanner
+* Speed: 1 pages/minute
+* Cost: 2 cents/page
+* CO2: 2 g/page
+
+───── Jobs ─────
+
+NO PENDING JOBS
+
+╚════════════════ [ System Report ] ════════════════╝

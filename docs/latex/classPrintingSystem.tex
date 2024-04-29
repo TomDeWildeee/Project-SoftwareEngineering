@@ -16,13 +16,23 @@ void \mbox{\hyperlink{classPrintingSystem_a45367ed13bf24f0ae5dfda02a1754acb}{add
 \item 
 void \mbox{\hyperlink{classPrintingSystem_a8b9ae0f39cdb12021086038085f2f9aa}{add\+Job}} (\mbox{\hyperlink{classJob}{Job}} $\ast$job)
 \item 
-void \mbox{\hyperlink{classPrintingSystem_a9a688b03a6ee2e38d064e0e08505b9e2}{save\+Output}} (const std\+::string \&filename)
+void \mbox{\hyperlink{classPrintingSystem_a18e2c9cb2a47b612d2ae5e9b2341732a}{save\+Output}} (\mbox{\hyperlink{classOutputStream}{Output\+Stream}} $\ast$output\+Stream)
 \item 
-void \mbox{\hyperlink{classPrintingSystem_aacb1aa6833572d9285628e242808fb87}{process\+Job}} (int job\+NR, std\+::ostream \&output\+Stream)
+void \mbox{\hyperlink{classPrintingSystem_ac0759a25c998dfec4c00dcfcabe12115}{advanced\+Output}} (\mbox{\hyperlink{classOutputStream}{Output\+Stream}} $\ast$output\+Stream)
 \item 
-void \mbox{\hyperlink{classPrintingSystem_a9849eea1affc9a9887064d35c2f4b746}{process\+All\+Jobs\+Automatically}} (std\+::ostream \&output\+Stream)
+void \mbox{\hyperlink{classPrintingSystem_a985029bca568aedf42458d5da7d7f20d}{process\+Job}} (\mbox{\hyperlink{classOutputStream}{Output\+Stream}} $\ast$output\+Stream, int job\+NR)
+\item 
+void \mbox{\hyperlink{classPrintingSystem_abcc52bf424ac414eebed4960fa0a5714}{process\+All\+Jobs\+Automatically}} (\mbox{\hyperlink{classOutputStream}{Output\+Stream}} $\ast$output\+Stream)
+\item 
+void \mbox{\hyperlink{classPrintingSystem_a48e82fdfa73a1b683d6b3bdc95caf595}{queue\+Jobs}} ()
 \item 
 std\+::vector$<$ \mbox{\hyperlink{classJob}{Job}} $\ast$ $>$ \mbox{\hyperlink{classPrintingSystem_a7d5ace72ca161f997355bc31a706bcaa}{get\+Jobs}} ()
+\item 
+\mbox{\Hypertarget{classPrintingSystem_a54767fd7c4fb065179dc1817ccc7db3b}\label{classPrintingSystem_a54767fd7c4fb065179dc1817ccc7db3b}} 
+int {\bfseries get\+Total\+Emissions} ()
+\item 
+\mbox{\Hypertarget{classPrintingSystem_a3f50caab85ed60626a710797ed0d6992}\label{classPrintingSystem_a3f50caab85ed60626a710797ed0d6992}} 
+std\+::vector$<$ \mbox{\hyperlink{classDevice}{Device}} $\ast$ $>$ {\bfseries get\+Devices} ()
 \end{DoxyCompactItemize}
 
 
@@ -48,7 +58,13 @@ REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Printing system was not p
 \doxysubsubsection{\texorpdfstring{addJob()}{addJob()}}
 {\footnotesize\ttfamily void Printing\+System\+::add\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classJob}{Job}} $\ast$}]{job }\end{DoxyParamCaption})}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Printing system was not properly initialized when trying to add a job\char`\"{}); \mbox{\Hypertarget{classPrintingSystem_a95261c71ffef77d62d90047882dbda8d}\label{classPrintingSystem_a95261c71ffef77d62d90047882dbda8d}} 
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Printing system was not properly initialized when trying to add a job\char`\"{}); \mbox{\Hypertarget{classPrintingSystem_ac0759a25c998dfec4c00dcfcabe12115}\label{classPrintingSystem_ac0759a25c998dfec4c00dcfcabe12115}} 
+\index{PrintingSystem@{PrintingSystem}!advancedOutput@{advancedOutput}}
+\index{advancedOutput@{advancedOutput}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{advancedOutput()}{advancedOutput()}}
+{\footnotesize\ttfamily void Printing\+System\+::advanced\+Output (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputStream}{Output\+Stream}} $\ast$}]{output\+Stream }\end{DoxyParamCaption})}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Printing system was not initialized while trying to save the output\char`\"{}); ENSURE(!output\+File.is\+\_\+open(), \char`\"{}\+File was not closed after writing out to it\char`\"{}); \mbox{\Hypertarget{classPrintingSystem_a95261c71ffef77d62d90047882dbda8d}\label{classPrintingSystem_a95261c71ffef77d62d90047882dbda8d}} 
 \index{PrintingSystem@{PrintingSystem}!clearSystemBecauseInvalid@{clearSystemBecauseInvalid}}
 \index{clearSystemBecauseInvalid@{clearSystemBecauseInvalid}!PrintingSystem@{PrintingSystem}}
 \doxysubsubsection{\texorpdfstring{clearSystemBecauseInvalid()}{clearSystemBecauseInvalid()}}
@@ -60,29 +76,35 @@ REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Printing system was not p
 \doxysubsubsection{\texorpdfstring{getJobs()}{getJobs()}}
 {\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classJob}{Job}} $\ast$ $>$ Printing\+System\+::get\+Jobs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+System was not properly initialized when trying to get jobs\char`\"{}); \mbox{\Hypertarget{classPrintingSystem_a519853d5826e44a5f612bdaac0e103e6}\label{classPrintingSystem_a519853d5826e44a5f612bdaac0e103e6}} 
+REQUIRE(this-\/$>$properly\+Intialized(), \char`\"{}\+System was not properly initialized when trying to get jobs\char`\"{}); \mbox{\Hypertarget{classPrintingSystem_a519853d5826e44a5f612bdaac0e103e6}\label{classPrintingSystem_a519853d5826e44a5f612bdaac0e103e6}} 
 \index{PrintingSystem@{PrintingSystem}!isUniqueJobNumber@{isUniqueJobNumber}}
 \index{isUniqueJobNumber@{isUniqueJobNumber}!PrintingSystem@{PrintingSystem}}
 \doxysubsubsection{\texorpdfstring{isUniqueJobNumber()}{isUniqueJobNumber()}}
 {\footnotesize\ttfamily bool Printing\+System\+::is\+Unique\+Job\+Number (\begin{DoxyParamCaption}\item[{int}]{job\+NR }\end{DoxyParamCaption})}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Printing system was not properly initialized when trying to check if a job number is unique\char`\"{}); \mbox{\Hypertarget{classPrintingSystem_a9849eea1affc9a9887064d35c2f4b746}\label{classPrintingSystem_a9849eea1affc9a9887064d35c2f4b746}} 
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Printing system was not properly initialized when trying to check if a job number is unique\char`\"{}); \mbox{\Hypertarget{classPrintingSystem_abcc52bf424ac414eebed4960fa0a5714}\label{classPrintingSystem_abcc52bf424ac414eebed4960fa0a5714}} 
 \index{PrintingSystem@{PrintingSystem}!processAllJobsAutomatically@{processAllJobsAutomatically}}
 \index{processAllJobsAutomatically@{processAllJobsAutomatically}!PrintingSystem@{PrintingSystem}}
 \doxysubsubsection{\texorpdfstring{processAllJobsAutomatically()}{processAllJobsAutomatically()}}
-{\footnotesize\ttfamily void Printing\+System\+::process\+All\+Jobs\+Automatically (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{output\+Stream }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Printing\+System\+::process\+All\+Jobs\+Automatically (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputStream}{Output\+Stream}} $\ast$}]{output\+Stream }\end{DoxyParamCaption})}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+System was not properly initialized when trying to automatically process jobs\char`\"{}); REQUIRE(!devices.empty(), \char`\"{}\+There has to be at least 1 printer available to process jobs automatically\char`\"{}); REQUIRE(!jobs.empty(), \char`\"{}\+There are no jobs that can be processed by a device\char`\"{}); ENSURE(jobs.\+empty(), \char`\"{}\+Not all jobs were processed after trying to process all the jobs\char`\"{}); \mbox{\Hypertarget{classPrintingSystem_aacb1aa6833572d9285628e242808fb87}\label{classPrintingSystem_aacb1aa6833572d9285628e242808fb87}} 
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+System was not properly initialized when trying to automatically process jobs\char`\"{}); REQUIRE(!devices.empty(), \char`\"{}\+There has to be at least 1 printer available to process jobs automatically\char`\"{}); REQUIRE(!jobs.empty(), \char`\"{}\+There are no jobs that can be processed by a device\char`\"{}); ENSURE(jobs.\+empty(), \char`\"{}\+Not all jobs were processed after trying to process all the jobs\char`\"{}); \mbox{\Hypertarget{classPrintingSystem_a985029bca568aedf42458d5da7d7f20d}\label{classPrintingSystem_a985029bca568aedf42458d5da7d7f20d}} 
 \index{PrintingSystem@{PrintingSystem}!processJob@{processJob}}
 \index{processJob@{processJob}!PrintingSystem@{PrintingSystem}}
 \doxysubsubsection{\texorpdfstring{processJob()}{processJob()}}
-{\footnotesize\ttfamily void Printing\+System\+::process\+Job (\begin{DoxyParamCaption}\item[{int}]{job\+NR,  }\item[{std\+::ostream \&}]{output\+Stream }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Printing\+System\+::process\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputStream}{Output\+Stream}} $\ast$}]{output\+Stream,  }\item[{int}]{job\+NR }\end{DoxyParamCaption})}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+System was not properly initialized when trying to process a job\char`\"{}); REQUIRE(!devices.empty(), \char`\"{}\+There has to be at least 1 printer available to process a job\char`\"{}); REQUIRE(!jobs.empty(), \char`\"{}\+There are no jobs that can be processed by a device\char`\"{}); ENSURE(std\+::find(jobs.\+begin(), jobs.\+end(), job\+To\+Process) == jobs.\+end(), \char`\"{}\+Processed job wasn\textquotesingle{}t deleted out of the system\char`\"{}); \mbox{\Hypertarget{classPrintingSystem_a9a688b03a6ee2e38d064e0e08505b9e2}\label{classPrintingSystem_a9a688b03a6ee2e38d064e0e08505b9e2}} 
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+System was not properly initialized when trying to process a job\char`\"{}); REQUIRE(!devices.empty(), \char`\"{}\+There has to be at least 1 printer available to process a job\char`\"{}); REQUIRE(!jobs.empty(), \char`\"{}\+There are no jobs that can be processed by a device\char`\"{}); ENSURE(std\+::find(jobs.\+begin(), jobs.\+end(), job\+To\+Process) == jobs.\+end(), \char`\"{}\+Processed job wasn\textquotesingle{}t deleted out of the system\char`\"{}); \mbox{\Hypertarget{classPrintingSystem_a48e82fdfa73a1b683d6b3bdc95caf595}\label{classPrintingSystem_a48e82fdfa73a1b683d6b3bdc95caf595}} 
+\index{PrintingSystem@{PrintingSystem}!queueJobs@{queueJobs}}
+\index{queueJobs@{queueJobs}!PrintingSystem@{PrintingSystem}}
+\doxysubsubsection{\texorpdfstring{queueJobs()}{queueJobs()}}
+{\footnotesize\ttfamily void Printing\+System\+::queue\+Jobs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+System was not properly initialized when trying to get jobs\char`\"{}); \mbox{\Hypertarget{classPrintingSystem_a18e2c9cb2a47b612d2ae5e9b2341732a}\label{classPrintingSystem_a18e2c9cb2a47b612d2ae5e9b2341732a}} 
 \index{PrintingSystem@{PrintingSystem}!saveOutput@{saveOutput}}
 \index{saveOutput@{saveOutput}!PrintingSystem@{PrintingSystem}}
 \doxysubsubsection{\texorpdfstring{saveOutput()}{saveOutput()}}
-{\footnotesize\ttfamily void Printing\+System\+::save\+Output (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename = {\ttfamily \char`\"{}output.txt\char`\"{}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Printing\+System\+::save\+Output (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputStream}{Output\+Stream}} $\ast$}]{output\+Stream }\end{DoxyParamCaption})}
 
 REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Printing system was not initialized while trying to save the output\char`\"{}); ENSURE(!output\+File.is\+\_\+open(), \char`\"{}\+File was not closed after writing out to it\char`\"{}); 
 

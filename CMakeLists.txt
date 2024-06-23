@@ -56,13 +56,8 @@ set(DEBUG_SOURCE_FILES
         Tests/EmissionsTest.cpp
 )
 
-set(Qt6Core_DIR "/usr/lib/x86_64-linux-gnu/cmake/Qt6Core")
-set(Qt6Widgets_DIR "/usr/lib/x86_64-linux-gnu/cmake/Qt6Widgets")
-set(Qt6Gui_DIR "/usr/lib/x86_64-linux-gnu/cmake/Qt6Gui")
-
-find_package(Qt6Core REQUIRED)
-find_package(Qt6Widgets REQUIRED)
-find_package(Qt6Gui REQUIRED)
+set(CMAKE_PREFIX_PATH "/home/tom/Qt/6.6.3/gcc_64/lib/cmake")
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets Gui)
 
 
 # Create RELEASE target

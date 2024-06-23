@@ -15,8 +15,12 @@ public:
  ENSURE(this->properlyInitialized(), "constructor must end in properlyInitialized state");
 */
 
-    Device(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, DeviceType::DeviceTypeEnum deviceType, int deviceCost);
+    Device(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost);
 
+/**
+ REQUIRE(this->properlyInitialized(), "Device wasn't initialized when destructing device");
+*/
+    virtual ~Device();
 /**
  REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting name");
 */
@@ -39,11 +43,11 @@ public:
 /**
  REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting type");
 */
-    std::string getDeviceType();
+    virtual std::string getDeviceType() = 0;
 /**
   REQUIRE(this->properlyInitialized(), "Device wasn't initialized checking if it exceeds the CO2 limit");
  */
-    bool exceedslimit();
+    virtual bool exceedslimit() = 0;
 
 /**
  REQUIRE(this->properlyInitialized(), "Device wasn't initialized when calculating value");
@@ -74,10 +78,34 @@ private:
     std::string name;
     int emissions;
     int speed;
-    DeviceType::DeviceTypeEnum type;
     float cost;
     std::vector<Job*> jobqueue;
     std::vector<Job*> finishedjobs;
+};
+
+/**
+ Same contracts as device
+*/
+
+class ColorDevice : public Device {
+public:
+    ColorDevice(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost);
+    std::string getDeviceType() override;
+    bool exceedslimit() override;
+};
+
+class BWDevice : public Device {
+public:
+    BWDevice(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost);
+    std::string getDeviceType() override;
+    bool exceedslimit() override;
+};
+
+class ScanDevice : public Device {
+public:
+    ScanDevice(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost);
+    std::string getDeviceType() override;
+    bool exceedslimit() override;
 };
 
 

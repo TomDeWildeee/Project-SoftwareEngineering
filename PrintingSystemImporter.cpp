@@ -230,7 +230,16 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
             bool validDeviceProperties = checkValidnessDeviceProps(deviceName, deviceEmissions, deviceSpeed, deviceCost, invalid, outputStream);
             if (!validDeviceProperties) continue;
 
-            auto* newDevice = new Device(deviceName, deviceEmissions, deviceSpeed, deviceType, deviceCost);
+            Device* newDevice;
+
+            if (deviceType == DeviceType::color) {
+                newDevice = new ColorDevice(deviceName, deviceEmissions, deviceSpeed, deviceCost);
+            } else if (deviceType == DeviceType::bw) {
+                newDevice = new BWDevice(deviceName, deviceEmissions, deviceSpeed, deviceCost);
+            } else {
+                newDevice = new ScanDevice(deviceName, deviceEmissions, deviceSpeed, deviceCost);
+            }
+
             printingSystem.addDevice(newDevice);
 
         } else if (elemName == "JOB") {
@@ -325,7 +334,15 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
             bool validJobProperties = checkValidnessJobProps(username, pageCount, jobNumber, invalid, outputStream, printingSystem);
             if (!validJobProperties) continue;
 
-            auto* newJob = new Job(jobNumber, pageCount, username, jobType);
+            Job* newJob;
+            if (jobType == JobType::color) {
+                newJob = new ColorJob(jobNumber, pageCount, username);
+            } else if (jobType == JobType::bw) {
+                newJob = new BWJob(jobNumber, pageCount, username);
+            } else {
+                newJob = new ScanJob(jobNumber, pageCount, username);
+            }
+
             printingSystem.addJob(newJob);
 
         } else {

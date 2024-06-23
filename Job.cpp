@@ -1,15 +1,19 @@
 #include "DesignByContract.h"
 #include "Job.h"
 #include "Device.h"
+
 //Job will never be constructed with invalid parameters, because we check for that in the importer
-Job::Job(int jobNr, int pageCt, const std::string &userN, JobType::JobTypeEnum jobType) {
+Job::Job(int jobNr, int pageCt, const std::string &userN) {
     jobNumber = jobNr;
     pageCount = pageCt;
     userName = userN;
-    type = jobType;
 
     _initCheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
+}
+
+Job::~Job() {
+    REQUIRE(this->properlyInitialized(), "Job wasn't initialized when destructing job");
 }
 
 bool Job::properlyInitialized() {
@@ -31,18 +35,6 @@ int Job::getPageCount() {
     return pageCount;
 }
 
-std::string Job::getJobType() {
-    REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting job type");
-    if (type == JobType::color) {
-        return "color";
-    } else if (type == JobType::bw) {
-        return "bw";
-    } else {
-        return "scan";
-    }
-}
-
-
 Device *Job::getDevice() {
     REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting processing device");
     return device;
@@ -52,5 +44,25 @@ void Job::setDevice(Device* processingDevice) {
     REQUIRE(this->properlyInitialized(), "Job wasn't initialized when setting processing device");
     Job::device = processingDevice;
     ENSURE(processingDevice == device, "Device wasn't allocated properly");
+}
 
+ColorJob::ColorJob(int jobNr, int pageCt, const std::string &userN) : Job(jobNr, pageCt, userN) {}
+
+std::string ColorJob::getJobType() {
+    REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting job type");
+    return "color";
+}
+
+BWJob::BWJob(int jobNr, int pageCt, const std::string &userN) : Job(jobNr, pageCt, userN) {}
+
+std::string BWJob::getJobType() {
+    REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting job type");
+    return "bw";
+}
+
+ScanJob::ScanJob(int jobNr, int pageCt, const std::string &userN) : Job(jobNr, pageCt, userN) {}
+
+std::string ScanJob::getJobType() {
+    REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting job type");
+    return "scan";
 }

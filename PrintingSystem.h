@@ -16,6 +16,11 @@ public:
     PrintingSystem();
 
 /**
+ REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to destruct it");
+*/
+    ~PrintingSystem();
+
+/**
  REQUIRE(this->properlyInitialized(), "Printing system was not properly initialized when trying to check if a job number is unique");
 */
     bool isUniqueJobNumber(int jobNR);

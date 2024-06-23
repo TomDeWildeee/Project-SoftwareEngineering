@@ -3,15 +3,19 @@
 #include "Job.h"
 #include <algorithm>
 // Device will never be constructed with invalid parameters, because we check for that in the importer
-Device::Device(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, DeviceType::DeviceTypeEnum deviceType, int deviceCost) {
+Device::Device(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost) {
     name = deviceName;
     emissions = amountOfEmissions;
     speed = speedOfPrinter;
-    type = deviceType;
-    cost = (float)deviceCost;
+    cost = (float) deviceCost;
 
     _initCheck = this;
     ENSURE(properlyInitialized(), "constructor must end in properlyInitialized state");
+}
+
+Device::~Device() {
+    REQUIRE(this->properlyInitialized(), "Device wasn't initialized when destructing device");
+    // Jobs already get deleted in printingsystem so no need to delete them from the queue here
 }
 
 bool Device::properlyInitialized() {
@@ -33,32 +37,11 @@ int Device::getSpeed() {
     return speed;
 }
 
-std::string Device::getDeviceType() {
-    REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting type");
-    if (type == DeviceType::color) {
-        return "color";
-    } else if (type == DeviceType::bw) {
-        return "bw";
-    } else {
-        return "scan";
-    }
-}
-
 float Device::getCost() {
     REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting value");
     return cost;
 }
 
-bool Device::exceedslimit() {
-    REQUIRE(this->properlyInitialized(), "Device wasn't initialized checking if it exceeds the CO2 limit");
-    if (type == DeviceType::color) {
-        return this->getEmissions() > 23;
-    } else if (type == DeviceType::bw) {
-        return this->getEmissions() > 8;
-    } else {
-        return this->getEmissions() > 12;
-    }
-}
 int Device::calculatevalue(){
     REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting queue");
     int value = 0;
@@ -67,6 +50,7 @@ int Device::calculatevalue(){
     }
     return value * emissions;
 }
+
 void Device::enqueue(Job* job){
     REQUIRE(this->properlyInitialized(), "Device wasn't initialized when adding to queue");
     jobqueue.push_back(job);
@@ -90,4 +74,43 @@ void Device::addFinishedJob(Job *finishedjob) {
     finishedjobs.push_back(finishedjob);
     auto find = std::find(finishedjobs.begin(),finishedjobs.end(), finishedjob);
     ENSURE(find != finishedjobs.end(), "job wasn't added to the queue");
+}
+
+ColorDevice::ColorDevice(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost)
+    : Device(deviceName, amountOfEmissions, speedOfPrinter, deviceCost) {}
+
+std::string ColorDevice::getDeviceType() {
+    REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting type");
+    return "color";
+}
+
+bool ColorDevice::exceedslimit() {
+    REQUIRE(this->properlyInitialized(), "Colored Device wasn't initialized checking if it exceeds the CO2 limit");
+    return this->getEmissions() > 23;
+}
+
+BWDevice::BWDevice(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost) : Device(
+        deviceName, amountOfEmissions, speedOfPrinter, deviceCost) {}
+
+std::string BWDevice::getDeviceType() {
+    REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting type");
+    return "bw";
+}
+
+bool BWDevice::exceedslimit() {
+    REQUIRE(this->properlyInitialized(), "B&W Device wasn't initialized checking if it exceeds the CO2 limit");
+    return this->getEmissions() > 8;
+}
+
+ScanDevice::ScanDevice(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost)
+        : Device(deviceName, amountOfEmissions, speedOfPrinter, deviceCost) {}
+
+std::string ScanDevice::getDeviceType() {
+    REQUIRE(this->properlyInitialized(), "wasn't initialized when getting type");
+    return "scan";
+}
+
+bool ScanDevice::exceedslimit() {
+    REQUIRE(this->properlyInitialized(), "Scanner wasn't initialized checking if it exceeds the CO2 limit");
+    return this->getEmissions() > 12;
 }

@@ -105,7 +105,16 @@ void PrintingSystemGUI::submitJob() {
         currentJobNumber++;
     }
 
-    Job* job = new Job(currentJobNumber, pageCount, username.toStdString(), jobTypeEnum);
+    Job* job;
+
+    if (jobTypeEnum == JobType::JobTypeEnum::color) {
+        job = new ColorJob(currentJobNumber, pageCount, username.toStdString());
+    } else if (jobTypeEnum == JobType::JobTypeEnum::bw) {
+        job = new BWJob(currentJobNumber, pageCount, username.toStdString());
+    } else {
+        job = new ScanJob(currentJobNumber, pageCount, username.toStdString());
+    }
+
     job->setDevice(selectedDevice);
     selectedDevice->enqueue(job);
     printingSystem.addJob(job);
@@ -149,6 +158,10 @@ void PrintingSystemGUI::processSpecificJob() {
     if (ok && !jobNRString.isEmpty()) {
         int jobNR = jobNRString.toInt();
 
+        if (printingSystem.isUniqueJobNumber(jobNR)) {
+            QMessageBox::warning(this, "Warning", "Didn't find job with nr. " + jobNRString);
+            return;
+        }
         printingSystem.processJob(fileOutputStream, jobNR);
         QMessageBox::information(this, "Success", "Job processed successfully!");
     }
@@ -178,6 +191,7 @@ void PrintingSystemGUI::updateJobs() {
         const std::vector<Job*>& queuedJobs = device->getJobqueue();
         for (const auto& job : queuedJobs) {
             jobDisplayBox->append("Job #" + QString::number(job->getJobNR()) + " - Status: Queued");
+            jobDisplayBox->append("Type: " + QString::fromStdString(job->getJobType()));
             jobDisplayBox->append("User: " + QString::fromStdString(job->getUserName()));
             jobDisplayBox->append("Page Count: " + QString::number(job->getPageCount()));
             jobDisplayBox->append("Device: " + QString::fromStdString(device->getName()));
@@ -187,6 +201,7 @@ void PrintingSystemGUI::updateJobs() {
         const std::vector<Job*>& finishedJobs = device->getFinishedjobs();
         for (const auto& job : finishedJobs) {
             jobDisplayBox->append("Job #" + QString::number(job->getJobNR()) + " - Status: Printed");
+            jobDisplayBox->append("Type: " + QString::fromStdString(job->getJobType()));
             jobDisplayBox->append("User: " + QString::fromStdString(job->getUserName()));
             jobDisplayBox->append("Page Count: " + QString::number(job->getPageCount()));
             jobDisplayBox->append("Device: " + QString::fromStdString(device->getName()));

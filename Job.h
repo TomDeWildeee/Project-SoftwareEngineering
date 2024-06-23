@@ -15,8 +15,12 @@ public:
  Job will never be constructed with invalid parameters, because we check for that in the importer
  ENSURE(this->properlyInitialized(), "constructor must end in properlyInitialized state");
 */
-    Job(int jobNr, int pageCt, const std::string &userN, JobType::JobTypeEnum jobType);
+    Job(int jobNr, int pageCt, const std::string &userN);
 
+/**
+ REQUIRE(this->properlyInitialized(), "Job wasn't initialized when destructing job");
+*/
+    virtual ~Job();
 /**
  REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting jobnumber");
 */
@@ -35,7 +39,7 @@ public:
 /**
  REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting job type");
 */
-    std::string getJobType();
+    virtual std::string getJobType() = 0;
 
 /**
  REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting processing device");
@@ -53,9 +57,29 @@ private:
     int jobNumber;
     int pageCount;
     std::string userName;
-    JobType::JobTypeEnum type;
     Device* device = nullptr;
 };
 
+/**
+ Same contracts as job
+*/
+
+class ColorJob : public Job {
+public:
+    ColorJob(int jobNr, int pageCt, const std::string &userN);
+    std::string getJobType() override;
+};
+
+class BWJob : public Job {
+public:
+    BWJob(int jobNr, int pageCt, const std::string &userN);
+    std::string getJobType() override;
+};
+
+class ScanJob : public Job {
+public:
+    ScanJob(int jobNr, int pageCt, const std::string &userN);
+    std::string getJobType() override;
+};
 
 #endif //PROJECT_SOFTWAREENGINEERING_JOB_H

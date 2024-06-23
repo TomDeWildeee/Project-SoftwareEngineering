@@ -238,3 +238,7 @@ void PrintingSystem::queueJobs() {
         }
     }
 }
+
+PrintingSystem::~PrintingSystem() {
+    clearSystemBecauseInvalid();
+}

@@ -55,8 +55,8 @@ void PrintingSystem::addJob(Job* job) {
 void PrintingSystem::saveOutput(OutputStream* outputStream) {
     REQUIRE(this->properlyInitialized(), "Printing system was not initialized while trying to save the output");
 
-    outputStream->writeLine("╔════════════════ [ System Report ] ════════════════╗\n");
-    outputStream->writeLine("──── Devices ────\n");
+    outputStream->writeSystemReportHeader();
+
     for (auto& device : devices) {
         std::string deviceName = device->getName() + ":";
         std::string deviceType = "* Type: ";
@@ -72,15 +72,11 @@ void PrintingSystem::saveOutput(OutputStream* outputStream) {
         std::string deviceCost = "* Cost: " + std::to_string(intCost) + " cents/page";
         std::string deviceEmission = "* CO2: " + std::to_string(device->getEmissions()) + " g/page\n";
 
-        outputStream->writeLine(deviceName);
-        outputStream->writeLine(deviceType);
-        outputStream->writeLine(deviceSpeed);
-        outputStream->writeLine(deviceCost);
-        outputStream->writeLine(deviceEmission);
+        outputStream->writeSystemReportDeviceInfo(deviceType, deviceName, deviceSpeed, deviceCost, deviceEmission);
     }
-    outputStream->writeLine("───── Jobs ─────\n");
+    outputStream->writeSystemReportJobsHeader();
     if (jobs.empty()) {
-        outputStream->writeLine("NO PENDING JOBS\n");
+        outputStream->writeSystemReportNoPendingJobs();
     } else {
         for (auto &job: jobs) {
             std::string jobName = "[Job #" + std::to_string(job->getJobNR()) + "]";
@@ -98,43 +94,31 @@ void PrintingSystem::saveOutput(OutputStream* outputStream) {
             }
             std::string jobEmission = "* Total CO2: " + (job->getDevice() ? std::to_string(job->getDevice()->getEmissions() * job->getPageCount()) + " g CO2": "Needs device to calculate");
 
-            outputStream->writeLine(jobName);
-            outputStream->writeLine(jobUser);
-            outputStream->writeLine(jobPageCount);
-            outputStream->writeLine(jobDevice);
-            outputStream->writeLine(jobEmission);
-            outputStream->writeLine(jobCost + "\n");
+            outputStream->writeSystemReportJobInfo(jobName, jobUser, jobPageCount, jobDevice, jobEmission, jobCost);
         }
     }
-    outputStream->writeLine("╚════════════════ [ System Report ] ════════════════╝");
+    outputStream->writeSystemReportFooter();
 }
 
 void PrintingSystem::advancedOutput(OutputStream *outputStream) {
-    REQUIRE(this->properlyInitialized(), "Printing system was not initialized while trying to save the output");
+    REQUIRE(this->properlyInitialized(), "Printing system was not initialized while trying to show the advanced output");
 
-    outputStream->writeLine("─────══════ [ System Diagnostic ] ══════─────\n");
+    outputStream->writeSystemDiagnosticTitle();
 
     for (auto& device : devices) {
-        std::string deviceType;
-        if (device->getDeviceType() == "bw") {
-            deviceType = " | Black-and-white printer";
-        } else if (device->getDeviceType() == "color") {
-            deviceType = " | Color printer";
-        } else {
-            deviceType = " | Scanner";
-        }
-        outputStream->writeLine("» " + device->getName() + deviceType);
 
         std::string jobqueue = "* Queued:";
         for (auto& job : device->getJobqueue()) {
             jobqueue += " [#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "p]";
         }
-        outputStream->writeLine(jobqueue);
+
         std::string jobfinished = "* Completed:";
         for (auto& job : device->getFinishedjobs()) {
             jobfinished += " [#" + std::to_string(job->getJobNR()) + " | " + std::to_string(job->getPageCount()) + "p]";
         }
-        outputStream->writeLine(jobfinished + "\n");
+
+        outputStream->writeAdvancedPerDeviceOutput(device->getDeviceType(), device->getName(),
+                                                   jobqueue, jobfinished);
     }
 }
 
@@ -152,37 +136,25 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
     }
 
     if (jobToProcess == nullptr) {
-       std::string errString = "ERR: JOB with job number: " + std::to_string(jobNR) + " can not be found";
-       outputStream->writeLine(errString);
+       outputStream->writeErrorJobNrNotFound(jobNR);
        return;
     }
     Device* processingdevice = jobToProcess->getDevice();
 
     if (!processingdevice) {
-        outputStream->writeLine("ERR: There is no device of the correct type to process job");
+        outputStream->writeErrorNoDeviceOfCorrectType();
         return;
     }
     for (int i = 0; i < jobToProcess->getPageCount(); ++i) {
-        std::string printString = + "Printing page " + std::to_string(i + 1);
-        outputStream->writeLine(printString);
+        outputStream->writePrintingPageNumber(i + 1);
     }
     processingdevice->addFinishedJob(jobToProcess);
-
-    std::string typestring;
-    if(jobToProcess->getJobType() == "color") {
-        typestring = "color-printing";
-    } else if(jobToProcess->getJobType() == "bw") {
-        typestring = "black-and-white-printing";
-    }
     totalEmissions += jobToProcess->getPageCount() * processingdevice->getEmissions();
-    if (jobToProcess->getJobType() == "scan") {
-        outputStream->writeLine("Scanner \"" + processingdevice->getName() + "\" finished scanning job:");
-    } else {
-        outputStream->writeLine("Printer \"" + processingdevice->getName() + "\" finished " + typestring + " job:");
-    }
-    outputStream->writeLine("\t Number: " + std::to_string(jobToProcess->getJobNR()));
-    outputStream->writeLine("\t Submitted by \"" + jobToProcess->getUserName() + "\"");
-    outputStream->writeLine("\t " + std::to_string(jobToProcess->getPageCount()) + " pages");
+
+    outputStream->writeDeviceFinishedJob(jobToProcess->getJobType(), jobToProcess->getJobNR(),
+                                         jobToProcess->getPageCount(),
+                                         jobToProcess->getUserName(),
+                                         processingdevice->getName());
 
     jobs.erase(std::remove(jobs.begin(), jobs.end(), jobToProcess), jobs.end());
     ENSURE(std::find(jobs.begin(), jobs.end(), jobToProcess) == jobs.end(), "Processed job wasn't deleted out of the system");

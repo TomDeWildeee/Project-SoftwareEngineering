@@ -14,25 +14,25 @@ std::string getTextFromNode(TiXmlNode* node) {
 
 bool checkValidnessDeviceProps(const std::string &deviceName, int deviceEmissions, int deviceSpeed, int deviceCost, bool &invalid, OutputStream* outputStream) {
     if (deviceName.empty()) {
-        outputStream->writeLine("XML NO INPUT: Expected a string in the <name> attribute but couldn't retrieve it");
+        outputStream->writeXMLNoInput("a string", "<name>");
         invalid = true;
         return false;
     }
 
     if (deviceSpeed < 0) {
-        outputStream->writeLine("NEGATIVE SPEED INTEGER: Expected a positive integer in the <speed> attribute but got a negative integer instead");
+        outputStream->writeXMLNegativeInteger("SPEED", "<speed>");
         invalid = true;
         return false;
     }
 
     if (deviceEmissions < 0) {
-        outputStream->writeLine("NEGATIVE EMISSIONS INTEGER: Expected a positive integer in the <emissions> attribute but got a negative integer instead");
+        outputStream->writeXMLNegativeInteger("EMISSIONS", "<emissions>");
         invalid = true;
         return false;
     }
 
     if (deviceCost < 0) {
-        outputStream->writeLine("NEGATIVE COST INTEGER: Expected a positive integer in the <cost> attribute but got a negative integer instead");
+        outputStream->writeXMLNegativeInteger("COST", "<cost>");
         invalid = true;
         return false;
     }
@@ -42,25 +42,25 @@ bool checkValidnessDeviceProps(const std::string &deviceName, int deviceEmission
 
 bool checkValidnessJobProps(const std::string &username, int pageCount, int jobNumber, bool &invalid, OutputStream* outputStream, PrintingSystem &printingSystem) {
     if (username.empty()) {
-       outputStream->writeLine("XML NO INPUT: Expected a string in the <userName> attribute but couldn't retrieve it");
+        outputStream->writeXMLNoInput("a string", "<userName>");
         invalid = true;
         return false;
     }
 
     if (pageCount < 0) {
-        outputStream->writeLine("NEGATIVE pageCount INTEGER: Expected a positive integer in the <pageCount> attribute but got a negative integer instead");
+        outputStream->writeXMLNegativeInteger("pageCount", "<pageCount>");
         invalid = true;
         return false;
     }
 
     if (jobNumber < 0) {
-        outputStream->writeLine("NEGATIVE jobNumber INTEGER: Expected a positive integer in the <jobNumber> attribute but got a negative integer instead");
+        outputStream->writeXMLNegativeInteger("jobNumber", "<jobNumber>");
         invalid = true;
         return false;
     }
 
     if (!printingSystem.isUniqueJobNumber(jobNumber)) {
-       outputStream->writeLine("NON-UNIQUE JOB NUMBER: Expected a unique jobNumber integer in the <jobNumber> attribute but got a non-unique");
+        outputStream->writeXMLNonUniqueNumber("JOB NUMBER", "jobNumber", "<jobNumber>");
         invalid = true;
         return false;
     }
@@ -74,20 +74,19 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
     TiXmlDocument doc;
 
     if (!doc.LoadFile(filename)) {
-        outputStream->writeLine("XML IMPORT ABORTED: " + std::string(doc.ErrorDesc()));
+        outputStream->writeXMLAborted(std::string(doc.ErrorDesc()));
         return ImportError;
     }
 
     TiXmlElement* root = doc.FirstChildElement();
     if (root == nullptr) {
-        outputStream->writeLine("Failed to load file: No root element.");
+        outputStream->writeXMLFailedToLoadFile();
         doc.Clear();
         return ImportError;
     }
     std::string rootName = root->Value();
     if (rootName != "SYSTEM") {
-        outputStream->writeLine("XML UNRECOGNIZED ELEMENT: Expected <SYSTEM> ... </SYSTEM> and got <"
-        + rootName +  "> ... </" + rootName + ">.");
+        outputStream->writeXMLUnrecognizedElement("SYSTEM", rootName);
         doc.Clear();
         return ImportError;
     }
@@ -110,7 +109,7 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
 
             // Check if deviceNameNode is present in the XML file
             if (deviceNameNode == nullptr) {
-                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <name> ... </name>");
+                outputStream->writeXMLUnrecognizedAttribute("name");
                 invalid = true;
                 continue;
 
@@ -120,20 +119,20 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
 
             // Check if deviceEmissionsNode is present in the XML file
             if (deviceEmissionsNode == nullptr) {
-                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <emissions> ... </emissions>");
+                outputStream->writeXMLUnrecognizedAttribute("emissions");
                 invalid = true;
                 continue;
 
             } else {
                 std::string deviceEmissionsString = getTextFromNode(deviceEmissionsNode);
                 if (deviceEmissionsString.empty()) {
-                    outputStream->writeLine("XML NO INPUT: Expected an integer in the <emissions> attribute but couldn't retrieve it");
+                    outputStream->writeXMLNoInput("an integer", "<emissions>");
                     invalid = true;
                     continue;
                 }
 
                 if (!isNumber(deviceEmissionsString)) {
-                    outputStream->writeLine("XML INVALID VALUE: Expected an integer in the <emissions> attribute but got a different type");
+                    outputStream->writeXMLInvalidValueType("an integer", "<emissions>");
                     invalid = true;
                     continue;
                 } else {
@@ -144,14 +143,14 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
 
             // Check if deviceTypeNode is present in the XML file
             if (deviceTypeNode == nullptr) {
-                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <type> ... </type>");
+                outputStream->writeXMLUnrecognizedAttribute("type");
                 invalid = true;
                 continue;
 
             } else {
                 std::string deviceTypeString = getTextFromNode(deviceTypeNode);
                 if (deviceTypeString.empty()) {
-                    outputStream->writeLine("XML NO INPUT: Expected either bw, color or scan in the <type> attribute but couldn't retrieve it");
+                    outputStream->writeXMLNoInput("either bw, color or scan", "<type>");
                     invalid = true;
                     continue;
                 }
@@ -163,40 +162,40 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
                 } else if (deviceTypeString == "scan") {
                     deviceType = DeviceType::scan;
                 } else {
-                    outputStream->writeLine("XML NO INPUT: Expected either bw, color or scan in the <type> attribute but couldn't retrieve it");
+                    outputStream->writeXMLNoInput("either bw, color or scan", "<type>");
                     invalid = true;
                     continue;
                 }
             }
             if(deviceType == DeviceType::color && deviceEmissions > 23){
-                outputStream->writeLine("XML INVALID VALUE: Emissions cap for color is 23g/page, but got " + std::to_string(deviceEmissions));
+                outputStream->writeXMLInvalidEmissions("color", "23g/page", std::to_string(deviceEmissions));
                 invalid = true;
                 continue;
             }else if(deviceType == DeviceType::bw && deviceEmissions > 8){
-                outputStream->writeLine("XML INVALID VALUE: Emissions cap for color is 8g/page, but got " + std::to_string(deviceEmissions));
+                outputStream->writeXMLInvalidEmissions("black & white", "8g/page", std::to_string(deviceEmissions));
                 invalid = true;
                 continue;
             }else if(deviceType == DeviceType::scan && deviceEmissions > 12){
-                outputStream->writeLine("XML INVALID VALUE: Emissions cap for color is 12g/page, but got " + std::to_string(deviceEmissions));
+                outputStream->writeXMLInvalidEmissions("scan", "12g/page", std::to_string(deviceEmissions));
                 invalid = true;
                 continue;
             }
             // Check if deviceSpeedNode is present in the XML file
             if (deviceSpeedNode == nullptr) {
-                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <speed> ... </speed>");
+                outputStream->writeXMLUnrecognizedAttribute("speed");
                 invalid = true;
                 continue;
 
             } else {
                 std::string deviceSpeedString = getTextFromNode(deviceSpeedNode);
                 if (deviceSpeedString.empty()) {
-                    outputStream->writeLine("XML NO INPUT: Expected an integer in the <speed> attribute but couldn't retrieve it");
+                    outputStream->writeXMLNoInput("an integer", "<speed>");
                     invalid = true;
                     continue;
                 }
 
                 if (!isNumber(deviceSpeedString)) {
-                    outputStream->writeLine("XML INVALID VALUE: Expected an integer in the <speed> attribute but got a different type");
+                    outputStream->writeXMLInvalidValueType("an integer", "<speed>");
                     invalid = true;
                     continue;
                 } else {
@@ -206,20 +205,20 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
 
             //Check if deviceCostNode is present in the XML file
             if (deviceCostNode == nullptr) {
-                outputStream ->writeLine("XML INVALID COST: Expected <cost> ... </cost>");
+                outputStream->writeXMLInvalidCost();
                 invalid = true;
                 continue;
 
             } else {
                 std::string deviceCostString = getTextFromNode(deviceCostNode);
                 if (deviceCostString.empty()) {
-                    outputStream->writeLine("XML NO INPUT: Expected a float in the <cost> attribute but couldn't retrieve it");
+                    outputStream->writeXMLNoInput("a float", "<cost>");
                     invalid = true;
                     continue;
                 }
 
                 if (!isFloat(deviceCostString)) {
-                    outputStream->writeLine("XML INVALID VALUE: Expected a float in the <cost> attribute but got a different type");
+                    outputStream->writeXMLInvalidValueType("a float", "<cost>");
                     invalid = true;
                     continue;
                 } else {
@@ -253,7 +252,7 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
             TiXmlNode* userNameNode = elem->FirstChild("userName");
 
             if (userNameNode == nullptr) {
-                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <userName> ... </userName>");
+                outputStream->writeXMLUnrecognizedAttribute("userName");
                 invalid = true;
                 continue;
             } else {
@@ -261,7 +260,7 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
             }
 
             if (jobNumberNode == nullptr) {
-                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <jobNumber> ... </jobNumber>");
+                outputStream->writeXMLUnrecognizedAttribute("jobNumber");
                 invalid = true;
                 continue;
 
@@ -269,13 +268,13 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
                 std::string jobNumberString = getTextFromNode(jobNumberNode);
 
                 if (jobNumberString.empty()) {
-                    outputStream->writeLine("XML NO INPUT: Expected an integer in the <jobNumber> attribute but couldn't retrieve it");
+                    outputStream->writeXMLNoInput("an integer", "<jobNumber>");
                     invalid = true;
                     continue;
                 }
 
                 if (!isNumber(jobNumberString)) {
-                    outputStream->writeLine("XML INVALID VALUE: Expected an integer in the <jobNumber> attribute but got a different type");
+                    outputStream->writeXMLInvalidValueType("an integer", "<jobNumber>");
                     invalid = true;
                     continue;
                 } else {
@@ -284,20 +283,20 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
             }
 
             if (pageCountNode == nullptr) {
-                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <pageCount> ... </pageCount>");
+                outputStream->writeXMLUnrecognizedAttribute("pageCount");
                 invalid = true;
                 continue;
             } else {
                 std::string pageCountString = getTextFromNode(pageCountNode);
 
                 if (pageCountString.empty()) {
-                    outputStream->writeLine("XML NO INPUT: Expected an integer in the <pageCount> attribute but couldn't retrieve it");
+                    outputStream->writeXMLNoInput("an integer", "<pageCount>");
                     invalid = true;
                     continue;
                 }
 
                 if (!isNumber(pageCountString)) {
-                    outputStream->writeLine("XML INVALID VALUE: Expected an integer in the <pageCount> attribute but got a different type");
+                    outputStream->writeXMLInvalidValueType("an integer", "<pageCount>");
                     invalid = true;
                     continue;
                 } else {
@@ -306,14 +305,14 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
             }
 
             if (jobTypeNode == nullptr) {
-                outputStream->writeLine("XML UNRECOGNIZED ATTRIBUTE: Expected <type> ... </type>");
+                outputStream->writeXMLUnrecognizedAttribute("type");
                 invalid = true;
                 continue;
 
             } else {
                 std::string jobTypeString = getTextFromNode(jobTypeNode);
                 if (jobTypeString.empty()) {
-                    outputStream->writeLine("XML NO INPUT: Expected either bw, color or scan in the <type> attribute but couldn't retrieve it");
+                    outputStream->writeXMLNoInput("either bw, color or scan", "<type>");
                     invalid = true;
                     continue;
                 }
@@ -325,7 +324,7 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
                 } else if (jobTypeString == "scan") {
                     jobType = JobType::scan;
                 } else {
-                    outputStream->writeLine("XML NO INPUT: Expected either bw, color or scan in the <type> attribute but couldn't retrieve it");
+                    outputStream->writeXMLNoInput("either bw, color or scan", "<type>");
                     invalid = true;
                     continue;
                 }
@@ -346,13 +345,13 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
             printingSystem.addJob(newJob);
 
         } else {
-            outputStream->writeLine("XML UNRECOGNIZED ELEMENT: Expected <DEVICE> ... </DEVICE> or <JOB> ... </JOB>.");
+            outputStream->writeXMLUnrecognizedElementExpectedDeviceOrJob();
             invalid = true;
         }
     }
 
     if (invalid) {
-        outputStream->writeLine("XML NOT CONSISTENT: XML file was not consistent and is invalid, system will be cleared");
+        outputStream->writeXMLNotConsistent();
         printingSystem.clearSystemBecauseInvalid();
         doc.Clear();
         return ImportError;

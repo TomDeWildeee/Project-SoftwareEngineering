@@ -32,6 +32,21 @@ public:
     void writeSystemReportJobsHeader();
     void writeSystemReportNoPendingJobs();
     void writeSystemReportFooter();
+
+    // XML errors
+    void writeXMLAborted(const std::string &errorDesc);
+    void writeXMLFailedToLoadFile();
+    void writeXMLUnrecognizedElement(const std::string &expected, const std::string &got);
+    void writeXMLUnrecognizedAttribute(const std::string &expected);
+    void writeXMLNoInput(const std::string &what, const std::string &attributeTag);
+    void writeXMLNegativeInteger(const std::string &type, const std::string &attributeTag);
+    void writeXMLNonUniqueNumber(const std::string &type, const std::string &lowerType, const std::string &attributeTag);
+    void writeXMLInvalidValueType(const std::string &type, const std::string &attributeTag);
+    void writeXMLInvalidEmissions(const std::string &typePrinter, const std::string &gramsPerPage,
+                                  const std::string &got);
+    void writeXMLInvalidCost();
+    void writeXMLUnrecognizedElementExpectedDeviceOrJob();
+    void writeXMLNotConsistent();
 };
 
 class FileOutputStream : public OutputStream {

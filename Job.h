@@ -64,21 +64,27 @@ private:
  Same contracts as job
 */
 
-class ColorJob : public Job {
+class ScanJob : public Job {
+public:
+    ScanJob(int jobNr, int pageCt, const std::string &userN);
+    std::string getJobType() override;
+};
+
+class PrinterJob : public Job {
+public:
+    PrinterJob(int jobNr, int pageCt, const std::string &userN);
+    virtual ~PrinterJob();
+};
+
+class ColorJob : public PrinterJob {
 public:
     ColorJob(int jobNr, int pageCt, const std::string &userN);
     std::string getJobType() override;
 };
 
-class BWJob : public Job {
+class BWJob : public PrinterJob {
 public:
     BWJob(int jobNr, int pageCt, const std::string &userN);
-    std::string getJobType() override;
-};
-
-class ScanJob : public Job {
-public:
-    ScanJob(int jobNr, int pageCt, const std::string &userN);
     std::string getJobType() override;
 };
 

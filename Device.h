@@ -3,9 +3,12 @@
 
 #include <string>
 #include <vector>
+
 namespace DeviceType {
     enum DeviceTypeEnum {color, bw, scan};
 }
+
+class OutputStream;
 class Job;
 class Device {
 public:
@@ -50,6 +53,11 @@ public:
     virtual bool exceedslimit() = 0;
 
 /**
+ REQUIRE(this->properlyInitialized(), "Device wasn't initialized when trying to process job");
+*/
+    void processJob(OutputStream* outputStream, Job* jobToProcess);
+
+/**
  REQUIRE(this->properlyInitialized(), "Device wasn't initialized when calculating value");
 */
     int calculatevalue();
@@ -87,23 +95,28 @@ private:
  Same contracts as device
 */
 
-class ColorDevice : public Device {
+class Scanner : public Device {
 public:
-    ColorDevice(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost);
+    Scanner(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost);
     std::string getDeviceType() override;
     bool exceedslimit() override;
 };
 
-class BWDevice : public Device {
+class Printer : public Device {
 public:
-    BWDevice(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost);
+    Printer(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost);
+};
+
+class ColorPrinter : public Printer {
+public:
+    ColorPrinter(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost);
     std::string getDeviceType() override;
     bool exceedslimit() override;
 };
 
-class ScanDevice : public Device {
+class BWPrinter : public Printer {
 public:
-    ScanDevice(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost);
+    BWPrinter(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost);
     std::string getDeviceType() override;
     bool exceedslimit() override;
 };

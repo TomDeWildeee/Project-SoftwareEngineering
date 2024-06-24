@@ -1,7 +1,10 @@
 #include "DesignByContract.h"
 #include "Device.h"
 #include "Job.h"
+#include "Output.h"
 #include <algorithm>
+
+
 // Device will never be constructed with invalid parameters, because we check for that in the importer
 Device::Device(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost) {
     name = deviceName;
@@ -76,41 +79,52 @@ void Device::addFinishedJob(Job *finishedjob) {
     ENSURE(find != finishedjobs.end(), "job wasn't added to the queue");
 }
 
-ColorDevice::ColorDevice(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost)
-    : Device(deviceName, amountOfEmissions, speedOfPrinter, deviceCost) {}
-
-std::string ColorDevice::getDeviceType() {
-    REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting type");
-    return "color";
+void Device::processJob(OutputStream *outputStream, Job *jobToProcess) {
+    REQUIRE(this->properlyInitialized(), "Device wasn't initialized when trying to process job");
+    for (int i = 0; i < jobToProcess->getPageCount(); ++i) {
+        outputStream->writePrintingPageNumber(i + 1);
+    }
+    addFinishedJob(jobToProcess);
 }
 
-bool ColorDevice::exceedslimit() {
-    REQUIRE(this->properlyInitialized(), "Colored Device wasn't initialized checking if it exceeds the CO2 limit");
-    return this->getEmissions() > 23;
-}
-
-BWDevice::BWDevice(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost) : Device(
+Printer::Printer(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost) : Device(
         deviceName, amountOfEmissions, speedOfPrinter, deviceCost) {}
 
-std::string BWDevice::getDeviceType() {
+Scanner::Scanner(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost) : Device(
+        deviceName, amountOfEmissions, speedOfPrinter, deviceCost) {}
+
+std::string Scanner::getDeviceType() {
     REQUIRE(this->properlyInitialized(), "Device wasn't initialized when getting type");
-    return "bw";
-}
-
-bool BWDevice::exceedslimit() {
-    REQUIRE(this->properlyInitialized(), "B&W Device wasn't initialized checking if it exceeds the CO2 limit");
-    return this->getEmissions() > 8;
-}
-
-ScanDevice::ScanDevice(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost)
-        : Device(deviceName, amountOfEmissions, speedOfPrinter, deviceCost) {}
-
-std::string ScanDevice::getDeviceType() {
-    REQUIRE(this->properlyInitialized(), "wasn't initialized when getting type");
     return "scan";
 }
 
-bool ScanDevice::exceedslimit() {
+bool Scanner::exceedslimit() {
     REQUIRE(this->properlyInitialized(), "Scanner wasn't initialized checking if it exceeds the CO2 limit");
     return this->getEmissions() > 12;
+}
+
+ColorPrinter::ColorPrinter(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost)
+        : Printer(deviceName, amountOfEmissions, speedOfPrinter, deviceCost) {}
+
+std::string ColorPrinter::getDeviceType() {
+    REQUIRE(this->properlyInitialized(), "Printer wasn't initialized when getting type");
+    return "color";
+}
+
+bool ColorPrinter::exceedslimit() {
+    REQUIRE(this->properlyInitialized(), "Color Printer wasn't initialized checking if it exceeds the CO2 limit");
+    return this->getEmissions() > 23;
+}
+
+BWPrinter::BWPrinter(const std::string &deviceName, int amountOfEmissions, int speedOfPrinter, int deviceCost) : Printer(
+        deviceName, amountOfEmissions, speedOfPrinter, deviceCost) {}
+
+std::string BWPrinter::getDeviceType() {
+    REQUIRE(this->properlyInitialized(), "Printer wasn't initialized when getting type");
+    return "bw";
+}
+
+bool BWPrinter::exceedslimit() {
+    REQUIRE(this->properlyInitialized(), "B&W Printer wasn't initialized checking if it exceeds the CO2 limit");
+    return this->getEmissions() > 8;
 }

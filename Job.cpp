@@ -46,18 +46,10 @@ void Job::setDevice(Device* processingDevice) {
     ENSURE(processingDevice == device, "Device wasn't allocated properly");
 }
 
-ColorJob::ColorJob(int jobNr, int pageCt, const std::string &userN) : Job(jobNr, pageCt, userN) {}
+PrinterJob::PrinterJob(int jobNr, int pageCt, const std::string &userN) : Job(jobNr, pageCt, userN) {}
 
-std::string ColorJob::getJobType() {
-    REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting job type");
-    return "color";
-}
-
-BWJob::BWJob(int jobNr, int pageCt, const std::string &userN) : Job(jobNr, pageCt, userN) {}
-
-std::string BWJob::getJobType() {
-    REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting job type");
-    return "bw";
+PrinterJob::~PrinterJob() {
+    REQUIRE(this->properlyInitialized(), "PrinterJob wasn't initialized when destructing Job");
 }
 
 ScanJob::ScanJob(int jobNr, int pageCt, const std::string &userN) : Job(jobNr, pageCt, userN) {}
@@ -66,3 +58,18 @@ std::string ScanJob::getJobType() {
     REQUIRE(this->properlyInitialized(), "Job wasn't initialized when getting job type");
     return "scan";
 }
+
+ColorJob::ColorJob(int jobNr, int pageCt, const std::string &userN) : PrinterJob(jobNr, pageCt, userN) {}
+
+std::string ColorJob::getJobType() {
+    REQUIRE(this->properlyInitialized(), "Printer Job wasn't initialized when getting job type");
+    return "color";
+}
+
+BWJob::BWJob(int jobNr, int pageCt, const std::string &userN) : PrinterJob(jobNr, pageCt, userN) {}
+
+std::string BWJob::getJobType() {
+    REQUIRE(this->properlyInitialized(), "Printer Job wasn't initialized when getting job type");
+    return "bw";
+}
+

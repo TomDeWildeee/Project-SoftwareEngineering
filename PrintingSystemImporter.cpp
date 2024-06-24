@@ -232,11 +232,11 @@ ImportEnum PrintingSystemImporter::importPrintingSystem(const char *filename, Ou
             Device* newDevice;
 
             if (deviceType == DeviceType::color) {
-                newDevice = new ColorDevice(deviceName, deviceEmissions, deviceSpeed, deviceCost);
+                newDevice = new ColorPrinter(deviceName, deviceEmissions, deviceSpeed, deviceCost);
             } else if (deviceType == DeviceType::bw) {
-                newDevice = new BWDevice(deviceName, deviceEmissions, deviceSpeed, deviceCost);
+                newDevice = new BWPrinter(deviceName, deviceEmissions, deviceSpeed, deviceCost);
             } else {
-                newDevice = new ScanDevice(deviceName, deviceEmissions, deviceSpeed, deviceCost);
+                newDevice = new Scanner(deviceName, deviceEmissions, deviceSpeed, deviceCost);
             }
 
             printingSystem.addDevice(newDevice);

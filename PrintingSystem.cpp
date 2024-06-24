@@ -145,10 +145,8 @@ void PrintingSystem::processJob(OutputStream* outputStream, int jobNR) {
         outputStream->writeErrorNoDeviceOfCorrectType();
         return;
     }
-    for (int i = 0; i < jobToProcess->getPageCount(); ++i) {
-        outputStream->writePrintingPageNumber(i + 1);
-    }
-    processingdevice->addFinishedJob(jobToProcess);
+    processingdevice->processJob(outputStream, jobToProcess);
+    
     totalEmissions += jobToProcess->getPageCount() * processingdevice->getEmissions();
 
     outputStream->writeDeviceFinishedJob(jobToProcess->getJobType(), jobToProcess->getJobNR(),

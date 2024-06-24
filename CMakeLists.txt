@@ -56,16 +56,17 @@ set(DEBUG_SOURCE_FILES
         Tests/EmissionsTest.cpp
 )
 
+# Voor alleen tests deze lijnen commenten
 set(CMAKE_PREFIX_PATH "/home/tom/Qt/6.6.3/gcc_64/lib/cmake")
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Gui)
 
 
-# Create RELEASE target
+# Voor alleen tests deze lijn commenten
 add_executable(release_target ${RELEASE_SOURCE_FILES})
 
-# Create DEBUG target
 add_executable(debug_target ${DEBUG_SOURCE_FILES})
 
 # Link library
 target_link_libraries(debug_target gtest)
+# Voor alleen tests deze lijn commenten
 target_link_libraries(release_target Qt6::Core Qt6::Widgets Qt6::Gui)

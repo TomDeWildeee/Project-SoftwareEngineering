@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
 project(Project-SoftwareEngineering)
 
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -60,6 +61,8 @@ set(DEBUG_SOURCE_FILES
 set(CMAKE_PREFIX_PATH "/home/tom/Qt/6.6.3/gcc_64/lib/cmake")
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Gui)
 
+set(CMAKE_INSTALL_PREFIX "./build")
+
 
 # Voor alleen tests deze lijn commenten
 add_executable(release_target ${RELEASE_SOURCE_FILES})
@@ -70,3 +73,6 @@ add_executable(debug_target ${DEBUG_SOURCE_FILES})
 target_link_libraries(debug_target gtest)
 # Voor alleen tests deze lijn commenten
 target_link_libraries(release_target Qt6::Core Qt6::Widgets Qt6::Gui)
+install(TARGETS release_target
+        DESTINATION ${CMAKE_INSTALL_PREFIX}
+)

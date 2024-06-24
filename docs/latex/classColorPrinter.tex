@@ -1,0 +1,61 @@
+\hypertarget{classColorPrinter}{}\doxysection{Color\+Printer Class Reference}
+\label{classColorPrinter}\index{ColorPrinter@{ColorPrinter}}
+
+
+Inheritance diagram for Color\+Printer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{classColorPrinter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Color\+Printer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{classColorPrinter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classColorPrinter_a6821183ddda9fb01b205313d38ff02b5}\label{classColorPrinter_a6821183ddda9fb01b205313d38ff02b5}} 
+{\bfseries Color\+Printer} (const std\+::string \&device\+Name, int amount\+Of\+Emissions, int speed\+Of\+Printer, int device\+Cost)
+\item 
+std\+::string \mbox{\hyperlink{classColorPrinter_a8bb6a2f026f862db623fbd7cc8e817a6}{get\+Device\+Type}} () override
+\item 
+bool \mbox{\hyperlink{classColorPrinter_aa2c7eead0976e884499059b862c638e3}{exceedslimit}} () override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classColorPrinter_aa2c7eead0976e884499059b862c638e3}\label{classColorPrinter_aa2c7eead0976e884499059b862c638e3}} 
+\index{ColorPrinter@{ColorPrinter}!exceedslimit@{exceedslimit}}
+\index{exceedslimit@{exceedslimit}!ColorPrinter@{ColorPrinter}}
+\doxysubsubsection{\texorpdfstring{exceedslimit()}{exceedslimit()}}
+{\footnotesize\ttfamily bool Color\+Printer\+::exceedslimit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized checking if it exceeds the CO2 limit\char`\"{}); 
+
+Implements \mbox{\hyperlink{classDevice_a4ab1d88582146516e2bd325e83b48acb}{Device}}.
+
+\mbox{\Hypertarget{classColorPrinter_a8bb6a2f026f862db623fbd7cc8e817a6}\label{classColorPrinter_a8bb6a2f026f862db623fbd7cc8e817a6}} 
+\index{ColorPrinter@{ColorPrinter}!getDeviceType@{getDeviceType}}
+\index{getDeviceType@{getDeviceType}!ColorPrinter@{ColorPrinter}}
+\doxysubsubsection{\texorpdfstring{getDeviceType()}{getDeviceType()}}
+{\footnotesize\ttfamily std\+::string Color\+Printer\+::get\+Device\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting type\char`\"{}); 
+
+Implements \mbox{\hyperlink{classDevice_a79e5c7249c26cea25e6fe4a212d83fa1}{Device}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Device.\+h\item 
+Device.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,68 @@
+\hypertarget{classScanner}{}\doxysection{Scanner Class Reference}
+\label{classScanner}\index{Scanner@{Scanner}}
+
+
+{\ttfamily \#include $<$Device.\+h$>$}
+
+
+
+Inheritance diagram for Scanner\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=136pt]{classScanner__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Scanner\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=136pt]{classScanner__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScanner_ab4839da181d85885f489aebb0f69d689}\label{classScanner_ab4839da181d85885f489aebb0f69d689}} 
+{\bfseries Scanner} (const std\+::string \&device\+Name, int amount\+Of\+Emissions, int speed\+Of\+Printer, int device\+Cost)
+\item 
+std\+::string \mbox{\hyperlink{classScanner_a5c89c4f1c632f6ba8288524ccd389b60}{get\+Device\+Type}} () override
+\item 
+bool \mbox{\hyperlink{classScanner_aaeee8e2b3b7feae9f1ff8df70f0f14c5}{exceedslimit}} () override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Same contracts as device 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classScanner_aaeee8e2b3b7feae9f1ff8df70f0f14c5}\label{classScanner_aaeee8e2b3b7feae9f1ff8df70f0f14c5}} 
+\index{Scanner@{Scanner}!exceedslimit@{exceedslimit}}
+\index{exceedslimit@{exceedslimit}!Scanner@{Scanner}}
+\doxysubsubsection{\texorpdfstring{exceedslimit()}{exceedslimit()}}
+{\footnotesize\ttfamily bool Scanner\+::exceedslimit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized checking if it exceeds the CO2 limit\char`\"{}); 
+
+Implements \mbox{\hyperlink{classDevice_a4ab1d88582146516e2bd325e83b48acb}{Device}}.
+
+\mbox{\Hypertarget{classScanner_a5c89c4f1c632f6ba8288524ccd389b60}\label{classScanner_a5c89c4f1c632f6ba8288524ccd389b60}} 
+\index{Scanner@{Scanner}!getDeviceType@{getDeviceType}}
+\index{getDeviceType@{getDeviceType}!Scanner@{Scanner}}
+\doxysubsubsection{\texorpdfstring{getDeviceType()}{getDeviceType()}}
+{\footnotesize\ttfamily std\+::string Scanner\+::get\+Device\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting type\char`\"{}); 
+
+Implements \mbox{\hyperlink{classDevice_a79e5c7249c26cea25e6fe4a212d83fa1}{Device}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Device.\+h\item 
+Device.\+cpp\end{DoxyCompactItemize}

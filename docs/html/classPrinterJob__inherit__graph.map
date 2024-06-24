@@ -1,0 +1,6 @@
+<map id="PrinterJob" name="PrinterJob">
+<area shape="rect" id="node1" title=" " alt="" coords="41,80,127,107"/>
+<area shape="rect" id="node3" href="$classBWJob.html" title=" " alt="" coords="5,155,69,181"/>
+<area shape="rect" id="node4" href="$classColorJob.html" title=" " alt="" coords="94,155,170,181"/>
+<area shape="rect" id="node2" href="$classJob.html" title=" " alt="" coords="63,5,105,32"/>
+</map>

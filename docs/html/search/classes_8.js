@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['scandevice_63',['ScanDevice',['../classScanDevice.html',1,'']]],
-  ['scanjob_64',['ScanJob',['../classScanJob.html',1,'']]]
+  ['scanjob_67',['ScanJob',['../classScanJob.html',1,'']]],
+  ['scanner_68',['Scanner',['../classScanner.html',1,'']]]
 ];

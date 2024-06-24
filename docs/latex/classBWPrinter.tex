@@ -1,0 +1,61 @@
+\hypertarget{classBWPrinter}{}\doxysection{BWPrinter Class Reference}
+\label{classBWPrinter}\index{BWPrinter@{BWPrinter}}
+
+
+Inheritance diagram for BWPrinter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=145pt]{classBWPrinter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for BWPrinter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=145pt]{classBWPrinter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBWPrinter_ac046f17be62d1cbb026b8619b6a775c7}\label{classBWPrinter_ac046f17be62d1cbb026b8619b6a775c7}} 
+{\bfseries BWPrinter} (const std\+::string \&device\+Name, int amount\+Of\+Emissions, int speed\+Of\+Printer, int device\+Cost)
+\item 
+std\+::string \mbox{\hyperlink{classBWPrinter_ad0db9e007c55d98bb1a5ac89f3536f3b}{get\+Device\+Type}} () override
+\item 
+bool \mbox{\hyperlink{classBWPrinter_af544a30b0f22f3ce810272962e55c20d}{exceedslimit}} () override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBWPrinter_af544a30b0f22f3ce810272962e55c20d}\label{classBWPrinter_af544a30b0f22f3ce810272962e55c20d}} 
+\index{BWPrinter@{BWPrinter}!exceedslimit@{exceedslimit}}
+\index{exceedslimit@{exceedslimit}!BWPrinter@{BWPrinter}}
+\doxysubsubsection{\texorpdfstring{exceedslimit()}{exceedslimit()}}
+{\footnotesize\ttfamily bool BWPrinter\+::exceedslimit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized checking if it exceeds the CO2 limit\char`\"{}); 
+
+Implements \mbox{\hyperlink{classDevice_a4ab1d88582146516e2bd325e83b48acb}{Device}}.
+
+\mbox{\Hypertarget{classBWPrinter_ad0db9e007c55d98bb1a5ac89f3536f3b}\label{classBWPrinter_ad0db9e007c55d98bb1a5ac89f3536f3b}} 
+\index{BWPrinter@{BWPrinter}!getDeviceType@{getDeviceType}}
+\index{getDeviceType@{getDeviceType}!BWPrinter@{BWPrinter}}
+\doxysubsubsection{\texorpdfstring{getDeviceType()}{getDeviceType()}}
+{\footnotesize\ttfamily std\+::string BWPrinter\+::get\+Device\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting type\char`\"{}); 
+
+Implements \mbox{\hyperlink{classDevice_a79e5c7249c26cea25e6fe4a212d83fa1}{Device}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Device.\+h\item 
+Device.\+cpp\end{DoxyCompactItemize}

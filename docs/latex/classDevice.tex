@@ -2,11 +2,12 @@
 \label{classDevice}\index{Device@{Device}}
 
 
-Inheritance diagram for Device\+:\nopagebreak
+Inheritance diagram for Device\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=334pt]{classDevice__inherit__graph}
+\includegraphics[width=256pt]{classDevice__inherit__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -30,6 +31,8 @@ float \mbox{\hyperlink{classDevice_a59c8a7efc8b09e5e4d423cf366d0a953}{get\+Cost}
 virtual std\+::string \mbox{\hyperlink{classDevice_a79e5c7249c26cea25e6fe4a212d83fa1}{get\+Device\+Type}} ()=0
 \item 
 virtual bool \mbox{\hyperlink{classDevice_a4ab1d88582146516e2bd325e83b48acb}{exceedslimit}} ()=0
+\item 
+void \mbox{\hyperlink{classDevice_ae1d9364d0e29a00d89d8ffd0602f0214}{process\+Job}} (\mbox{\hyperlink{classOutputStream}{Output\+Stream}} $\ast$output\+Stream, \mbox{\hyperlink{classJob}{Job}} $\ast$job\+To\+Process)
 \item 
 int \mbox{\hyperlink{classDevice_af716133ed8d557ab0415805bc50681ad}{calculatevalue}} ()
 \item 
@@ -85,7 +88,7 @@ REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesing
 
 REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized checking if it exceeds the CO2 limit\char`\"{}); 
 
-Implemented in \mbox{\hyperlink{classScanDevice_a2beecce10e137fd438ccf47226a54cd6}{Scan\+Device}}, \mbox{\hyperlink{classBWDevice_a49816becd76de1333395ecd2cae17293}{BWDevice}}, and \mbox{\hyperlink{classColorDevice_ac77f571436747a367631607e34a32d30}{Color\+Device}}.
+Implemented in \mbox{\hyperlink{classBWPrinter_af544a30b0f22f3ce810272962e55c20d}{BWPrinter}}, \mbox{\hyperlink{classColorPrinter_aa2c7eead0976e884499059b862c638e3}{Color\+Printer}}, and \mbox{\hyperlink{classScanner_aaeee8e2b3b7feae9f1ff8df70f0f14c5}{Scanner}}.
 
 \mbox{\Hypertarget{classDevice_a59c8a7efc8b09e5e4d423cf366d0a953}\label{classDevice_a59c8a7efc8b09e5e4d423cf366d0a953}} 
 \index{Device@{Device}!getCost@{getCost}}
@@ -101,7 +104,7 @@ REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesing
 
 REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting type\char`\"{}); 
 
-Implemented in \mbox{\hyperlink{classScanDevice_a9453b501ec9ec1c54bf9e7c5303ad5a4}{Scan\+Device}}, \mbox{\hyperlink{classBWDevice_a71f6c373f5a381adf088cc0da2edaca7}{BWDevice}}, and \mbox{\hyperlink{classColorDevice_ae65980bf7998759ec9210c70fd1b0bff}{Color\+Device}}.
+Implemented in \mbox{\hyperlink{classBWPrinter_ad0db9e007c55d98bb1a5ac89f3536f3b}{BWPrinter}}, \mbox{\hyperlink{classColorPrinter_a8bb6a2f026f862db623fbd7cc8e817a6}{Color\+Printer}}, and \mbox{\hyperlink{classScanner_a5c89c4f1c632f6ba8288524ccd389b60}{Scanner}}.
 
 \mbox{\Hypertarget{classDevice_ae5d4f3c60c2d7a6bce84dce6ee584507}\label{classDevice_ae5d4f3c60c2d7a6bce84dce6ee584507}} 
 \index{Device@{Device}!getEmissions@{getEmissions}}
@@ -133,7 +136,13 @@ REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesing
 \doxysubsubsection{\texorpdfstring{getSpeed()}{getSpeed()}}
 {\footnotesize\ttfamily int Device\+::get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting speed\char`\"{}); 
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting speed\char`\"{}); \mbox{\Hypertarget{classDevice_ae1d9364d0e29a00d89d8ffd0602f0214}\label{classDevice_ae1d9364d0e29a00d89d8ffd0602f0214}} 
+\index{Device@{Device}!processJob@{processJob}}
+\index{processJob@{processJob}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{processJob()}{processJob()}}
+{\footnotesize\ttfamily void Device\+::process\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classOutputStream}{Output\+Stream}} $\ast$}]{output\+Stream,  }\item[{\mbox{\hyperlink{classJob}{Job}} $\ast$}]{job\+To\+Process }\end{DoxyParamCaption})}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when trying to process job\char`\"{}); 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['bwdevice_50',['BWDevice',['../classBWDevice.html',1,'']]],
-  ['bwjob_51',['BWJob',['../classBWJob.html',1,'']]]
+  ['bwjob_52',['BWJob',['../classBWJob.html',1,'']]],
+  ['bwprinter_53',['BWPrinter',['../classBWPrinter.html',1,'']]]
 ];

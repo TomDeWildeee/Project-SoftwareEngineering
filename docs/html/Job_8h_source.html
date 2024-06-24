@@ -103,30 +103,36 @@ $(function() {
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classDevice.html">Device</a>* device = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classColorJob.html">   67</a></span>&#160;<span class="keyword">class </span><a class="code" href="classColorJob.html">ColorJob</a> : <span class="keyword">public</span> <a class="code" href="classJob.html">Job</a> {</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classScanJob.html">   67</a></span>&#160;<span class="keyword">class </span><a class="code" href="classScanJob.html">ScanJob</a> : <span class="keyword">public</span> <a class="code" href="classJob.html">Job</a> {</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classColorJob.html">ColorJob</a>(<span class="keywordtype">int</span> jobNr, <span class="keywordtype">int</span> pageCt, <span class="keyword">const</span> std::string &amp;userN);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    std::string <a class="code" href="classColorJob.html#a1940daa160e595d0035663431fba92e4">getJobType</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classScanJob.html">ScanJob</a>(<span class="keywordtype">int</span> jobNr, <span class="keywordtype">int</span> pageCt, <span class="keyword">const</span> std::string &amp;userN);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    std::string <a class="code" href="classScanJob.html#a10c8b7084f1c294f667759c706980b35">getJobType</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classBWJob.html">   73</a></span>&#160;<span class="keyword">class </span><a class="code" href="classBWJob.html">BWJob</a> : <span class="keyword">public</span> <a class="code" href="classJob.html">Job</a> {</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classPrinterJob.html">   73</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPrinterJob.html">PrinterJob</a> : <span class="keyword">public</span> <a class="code" href="classJob.html">Job</a> {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classBWJob.html">BWJob</a>(<span class="keywordtype">int</span> jobNr, <span class="keywordtype">int</span> pageCt, <span class="keyword">const</span> std::string &amp;userN);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    std::string <a class="code" href="classBWJob.html#a3dd2eefcf267fbf6e2257bd102f70b33">getJobType</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classPrinterJob.html">PrinterJob</a>(<span class="keywordtype">int</span> jobNr, <span class="keywordtype">int</span> pageCt, <span class="keyword">const</span> std::string &amp;userN);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classPrinterJob.html">PrinterJob</a>();</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classScanJob.html">   79</a></span>&#160;<span class="keyword">class </span><a class="code" href="classScanJob.html">ScanJob</a> : <span class="keyword">public</span> <a class="code" href="classJob.html">Job</a> {</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classColorJob.html">   79</a></span>&#160;<span class="keyword">class </span><a class="code" href="classColorJob.html">ColorJob</a> : <span class="keyword">public</span> <a class="code" href="classPrinterJob.html">PrinterJob</a> {</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="classScanJob.html">ScanJob</a>(<span class="keywordtype">int</span> jobNr, <span class="keywordtype">int</span> pageCt, <span class="keyword">const</span> std::string &amp;userN);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    std::string <a class="code" href="classScanJob.html#a10c8b7084f1c294f667759c706980b35">getJobType</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="classColorJob.html">ColorJob</a>(<span class="keywordtype">int</span> jobNr, <span class="keywordtype">int</span> pageCt, <span class="keyword">const</span> std::string &amp;userN);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    std::string <a class="code" href="classColorJob.html#a1940daa160e595d0035663431fba92e4">getJobType</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJECT_SOFTWAREENGINEERING_JOB_H</span></div>
-<div class="ttc" id="aclassBWJob_html"><div class="ttname"><a href="classBWJob.html">BWJob</a></div><div class="ttdef"><b>Definition:</b> Job.h:73</div></div>
-<div class="ttc" id="aclassBWJob_html_a3dd2eefcf267fbf6e2257bd102f70b33"><div class="ttname"><a href="classBWJob.html#a3dd2eefcf267fbf6e2257bd102f70b33">BWJob::getJobType</a></div><div class="ttdeci">std::string getJobType() override</div><div class="ttdef"><b>Definition:</b> Job.cpp:58</div></div>
-<div class="ttc" id="aclassColorJob_html"><div class="ttname"><a href="classColorJob.html">ColorJob</a></div><div class="ttdef"><b>Definition:</b> Job.h:67</div></div>
-<div class="ttc" id="aclassColorJob_html_a1940daa160e595d0035663431fba92e4"><div class="ttname"><a href="classColorJob.html#a1940daa160e595d0035663431fba92e4">ColorJob::getJobType</a></div><div class="ttdeci">std::string getJobType() override</div><div class="ttdef"><b>Definition:</b> Job.cpp:51</div></div>
-<div class="ttc" id="aclassDevice_html"><div class="ttname"><a href="classDevice.html">Device</a></div><div class="ttdef"><b>Definition:</b> Device.h:10</div></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classBWJob.html">   85</a></span>&#160;<span class="keyword">class </span><a class="code" href="classBWJob.html">BWJob</a> : <span class="keyword">public</span> <a class="code" href="classPrinterJob.html">PrinterJob</a> {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="classBWJob.html">BWJob</a>(<span class="keywordtype">int</span> jobNr, <span class="keywordtype">int</span> pageCt, <span class="keyword">const</span> std::string &amp;userN);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    std::string <a class="code" href="classBWJob.html#a3dd2eefcf267fbf6e2257bd102f70b33">getJobType</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJECT_SOFTWAREENGINEERING_JOB_H</span></div>
+<div class="ttc" id="aclassBWJob_html"><div class="ttname"><a href="classBWJob.html">BWJob</a></div><div class="ttdef"><b>Definition:</b> Job.h:85</div></div>
+<div class="ttc" id="aclassBWJob_html_a3dd2eefcf267fbf6e2257bd102f70b33"><div class="ttname"><a href="classBWJob.html#a3dd2eefcf267fbf6e2257bd102f70b33">BWJob::getJobType</a></div><div class="ttdeci">std::string getJobType() override</div><div class="ttdef"><b>Definition:</b> Job.cpp:71</div></div>
+<div class="ttc" id="aclassColorJob_html"><div class="ttname"><a href="classColorJob.html">ColorJob</a></div><div class="ttdef"><b>Definition:</b> Job.h:79</div></div>
+<div class="ttc" id="aclassColorJob_html_a1940daa160e595d0035663431fba92e4"><div class="ttname"><a href="classColorJob.html#a1940daa160e595d0035663431fba92e4">ColorJob::getJobType</a></div><div class="ttdeci">std::string getJobType() override</div><div class="ttdef"><b>Definition:</b> Job.cpp:64</div></div>
+<div class="ttc" id="aclassDevice_html"><div class="ttname"><a href="classDevice.html">Device</a></div><div class="ttdef"><b>Definition:</b> Device.h:13</div></div>
 <div class="ttc" id="aclassJob_html"><div class="ttname"><a href="classJob.html">Job</a></div><div class="ttdef"><b>Definition:</b> Job.h:11</div></div>
 <div class="ttc" id="aclassJob_html_a19af5ef4c2bf0128d8e13642920eee01"><div class="ttname"><a href="classJob.html#a19af5ef4c2bf0128d8e13642920eee01">Job::Job</a></div><div class="ttdeci">Job(int jobNr, int pageCt, const std::string &amp;userN)</div><div class="ttdef"><b>Definition:</b> Job.cpp:6</div></div>
 <div class="ttc" id="aclassJob_html_a234622c2e1fdae9d01450502ab53ed26"><div class="ttname"><a href="classJob.html#a234622c2e1fdae9d01450502ab53ed26">Job::~Job</a></div><div class="ttdeci">virtual ~Job()</div><div class="ttdef"><b>Definition:</b> Job.cpp:15</div></div>
@@ -136,8 +142,9 @@ $(function() {
 <div class="ttc" id="aclassJob_html_a6281448e15e1062fe194e9dc1af39ffe"><div class="ttname"><a href="classJob.html#a6281448e15e1062fe194e9dc1af39ffe">Job::getPageCount</a></div><div class="ttdeci">int getPageCount()</div><div class="ttdef"><b>Definition:</b> Job.cpp:33</div></div>
 <div class="ttc" id="aclassJob_html_aad8c69df6ddaa9a3933abb1c60c8b220"><div class="ttname"><a href="classJob.html#aad8c69df6ddaa9a3933abb1c60c8b220">Job::getJobType</a></div><div class="ttdeci">virtual std::string getJobType()=0</div></div>
 <div class="ttc" id="aclassJob_html_ae4282dfa2ea81f386d8675b0566e7bc8"><div class="ttname"><a href="classJob.html#ae4282dfa2ea81f386d8675b0566e7bc8">Job::getUserName</a></div><div class="ttdeci">const std::string &amp; getUserName()</div><div class="ttdef"><b>Definition:</b> Job.cpp:28</div></div>
-<div class="ttc" id="aclassScanJob_html"><div class="ttname"><a href="classScanJob.html">ScanJob</a></div><div class="ttdef"><b>Definition:</b> Job.h:79</div></div>
-<div class="ttc" id="aclassScanJob_html_a10c8b7084f1c294f667759c706980b35"><div class="ttname"><a href="classScanJob.html#a10c8b7084f1c294f667759c706980b35">ScanJob::getJobType</a></div><div class="ttdeci">std::string getJobType() override</div><div class="ttdef"><b>Definition:</b> Job.cpp:65</div></div>
+<div class="ttc" id="aclassPrinterJob_html"><div class="ttname"><a href="classPrinterJob.html">PrinterJob</a></div><div class="ttdef"><b>Definition:</b> Job.h:73</div></div>
+<div class="ttc" id="aclassScanJob_html"><div class="ttname"><a href="classScanJob.html">ScanJob</a></div><div class="ttdef"><b>Definition:</b> Job.h:67</div></div>
+<div class="ttc" id="aclassScanJob_html_a10c8b7084f1c294f667759c706980b35"><div class="ttname"><a href="classScanJob.html#a10c8b7084f1c294f667759c706980b35">ScanJob::getJobType</a></div><div class="ttdeci">std::string getJobType() override</div><div class="ttdef"><b>Definition:</b> Job.cpp:57</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

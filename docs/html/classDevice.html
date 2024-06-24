@@ -75,10 +75,11 @@ Inheritance diagram for Device:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDevice__inherit__graph.png" border="0" usemap="#aDevice_inherit__map" alt="Inheritance graph"/></div>
 <map name="aDevice_inherit__map" id="aDevice_inherit__map">
-<area shape="rect" title=" " alt="" coords="137,5,203,32"/>
-<area shape="rect" href="classBWDevice.html" title=" " alt="" coords="5,80,95,107"/>
-<area shape="rect" href="classColorDevice.html" title=" " alt="" coords="119,80,221,107"/>
-<area shape="rect" href="classScanDevice.html" title=" " alt="" coords="245,80,343,107"/>
+<area shape="rect" title=" " alt="" coords="121,5,187,32"/>
+<area shape="rect" href="classPrinter.html" title=" " alt="" coords="75,80,140,107"/>
+<area shape="rect" href="classScanner.html" title=" " alt="" coords="165,80,239,107"/>
+<area shape="rect" href="classBWPrinter.html" title=" " alt="" coords="5,155,92,181"/>
+<area shape="rect" href="classColorPrinter.html" title=" " alt="" coords="117,155,215,181"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -103,6 +104,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
 <tr class="separator:a79e5c7249c26cea25e6fe4a212d83fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ab1d88582146516e2bd325e83b48acb"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a4ab1d88582146516e2bd325e83b48acb">exceedslimit</a> ()=0</td></tr>
 <tr class="separator:a4ab1d88582146516e2bd325e83b48acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1d9364d0e29a00d89d8ffd0602f0214"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#ae1d9364d0e29a00d89d8ffd0602f0214">processJob</a> (<a class="el" href="classOutputStream.html">OutputStream</a> *outputStream, <a class="el" href="classJob.html">Job</a> *jobToProcess)</td></tr>
+<tr class="separator:ae1d9364d0e29a00d89d8ffd0602f0214"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af716133ed8d557ab0415805bc50681ad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#af716133ed8d557ab0415805bc50681ad">calculatevalue</a> ()</td></tr>
 <tr class="separator:af716133ed8d557ab0415805bc50681ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba26d43daa70f2ed06b831473f588636"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#aba26d43daa70f2ed06b831473f588636">enqueue</a> (<a class="el" href="classJob.html">Job</a> *)</td></tr>
@@ -263,7 +266,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
 </div><div class="memdoc">
 <p>REQUIRE(this-&gt;properlyInitialized(), "Device wasn't initialized checking if it exceeds the CO2 limit"); </p>
 
-<p>Implemented in <a class="el" href="classScanDevice.html#a2beecce10e137fd438ccf47226a54cd6">ScanDevice</a>, <a class="el" href="classBWDevice.html#a49816becd76de1333395ecd2cae17293">BWDevice</a>, and <a class="el" href="classColorDevice.html#ac77f571436747a367631607e34a32d30">ColorDevice</a>.</p>
+<p>Implemented in <a class="el" href="classBWPrinter.html#af544a30b0f22f3ce810272962e55c20d">BWPrinter</a>, <a class="el" href="classColorPrinter.html#aa2c7eead0976e884499059b862c638e3">ColorPrinter</a>, and <a class="el" href="classScanner.html#aaeee8e2b3b7feae9f1ff8df70f0f14c5">Scanner</a>.</p>
 
 </div>
 </div>
@@ -309,7 +312,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
 </div><div class="memdoc">
 <p>REQUIRE(this-&gt;properlyInitialized(), "Device wasn't initialized when getting type"); </p>
 
-<p>Implemented in <a class="el" href="classScanDevice.html#a9453b501ec9ec1c54bf9e7c5303ad5a4">ScanDevice</a>, <a class="el" href="classBWDevice.html#a71f6c373f5a381adf088cc0da2edaca7">BWDevice</a>, and <a class="el" href="classColorDevice.html#ae65980bf7998759ec9210c70fd1b0bff">ColorDevice</a>.</p>
+<p>Implemented in <a class="el" href="classBWPrinter.html#ad0db9e007c55d98bb1a5ac89f3536f3b">BWPrinter</a>, <a class="el" href="classColorPrinter.html#a8bb6a2f026f862db623fbd7cc8e817a6">ColorPrinter</a>, and <a class="el" href="classScanner.html#a5c89c4f1c632f6ba8288524ccd389b60">Scanner</a>.</p>
 
 </div>
 </div>
@@ -400,6 +403,35 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
       </table>
 </div><div class="memdoc">
 <p>REQUIRE(this-&gt;properlyInitialized(), "Device wasn't initialized when getting speed"); </p>
+
+</div>
+</div>
+<a id="ae1d9364d0e29a00d89d8ffd0602f0214"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1d9364d0e29a00d89d8ffd0602f0214">&#9670;&nbsp;</a></span>processJob()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Device::processJob </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classOutputStream.html">OutputStream</a> *&#160;</td>
+          <td class="paramname"><em>outputStream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classJob.html">Job</a> *&#160;</td>
+          <td class="paramname"><em>jobToProcess</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>REQUIRE(this-&gt;properlyInitialized(), "Device wasn't initialized when trying to process job"); </p>
 
 </div>
 </div>

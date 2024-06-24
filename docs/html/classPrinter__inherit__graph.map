@@ -1,0 +1,6 @@
+<map id="Printer" name="Printer">
+<area shape="rect" id="node1" title=" " alt="" coords="75,80,140,107"/>
+<area shape="rect" id="node3" href="$classBWPrinter.html" title=" " alt="" coords="5,155,92,181"/>
+<area shape="rect" id="node4" href="$classColorPrinter.html" title=" " alt="" coords="117,155,215,181"/>
+<area shape="rect" id="node2" href="$classDevice.html" title=" " alt="" coords="74,5,141,32"/>
+</map>

@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['device_6',['Device',['../classDevice.html',1,'Device'],['../classDevice.html#aca2100c896889a127f39217162a2b56c',1,'Device::Device()']]]
+  ['calculatevalue_6',['calculatevalue',['../classDevice.html#af716133ed8d557ab0415805bc50681ad',1,'Device']]],
+  ['clearsystembecauseinvalid_7',['clearSystemBecauseInvalid',['../classPrintingSystem.html#a95261c71ffef77d62d90047882dbda8d',1,'PrintingSystem']]],
+  ['colordevice_8',['ColorDevice',['../classColorDevice.html',1,'']]],
+  ['colorjob_9',['ColorJob',['../classColorJob.html',1,'']]],
+  ['consoleoutputstream_10',['ConsoleOutputStream',['../classConsoleOutputStream.html',1,'']]]
 ];

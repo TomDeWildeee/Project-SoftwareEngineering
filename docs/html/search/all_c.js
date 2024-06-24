@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['saveoutput_33',['saveOutput',['../classPrintingSystem.html#a18e2c9cb2a47b612d2ae5e9b2341732a',1,'PrintingSystem']]],
-  ['setdevice_34',['setDevice',['../classJob.html#a4cbf9deace12788b9067783a1a606dda',1,'Job']]]
+  ['queuejobs_40',['queueJobs',['../classPrintingSystem.html#a48e82fdfa73a1b683d6b3bdc95caf595',1,'PrintingSystem']]]
 ];

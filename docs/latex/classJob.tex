@@ -1,12 +1,23 @@
 \hypertarget{classJob}{}\doxysection{Job Class Reference}
 \label{classJob}\index{Job@{Job}}
+
+
+Inheritance diagram for Job\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{classJob__inherit__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classJob_a50af6e4931ed0262da76ffa903e66682}\label{classJob_a50af6e4931ed0262da76ffa903e66682}} 
 bool {\bfseries properly\+Initialized} ()
 \item 
-\mbox{\hyperlink{classJob_a35fd98d773dd62a2d98f4136b7ac85c6}{Job}} (int job\+Nr, int page\+Ct, const std\+::string \&userN, Job\+Type\+::\+Job\+Type\+Enum job\+Type)
+\mbox{\hyperlink{classJob_a19af5ef4c2bf0128d8e13642920eee01}{Job}} (int job\+Nr, int page\+Ct, const std\+::string \&userN)
+\item 
+virtual \mbox{\hyperlink{classJob_a234622c2e1fdae9d01450502ab53ed26}{$\sim$\+Job}} ()
 \item 
 int \mbox{\hyperlink{classJob_a37e7421ad571ecee85a3bcdfbb3af5ae}{get\+Job\+NR}} ()
 \item 
@@ -14,7 +25,7 @@ const std\+::string \& \mbox{\hyperlink{classJob_ae4282dfa2ea81f386d8675b0566e7b
 \item 
 int \mbox{\hyperlink{classJob_a6281448e15e1062fe194e9dc1af39ffe}{get\+Page\+Count}} ()
 \item 
-std\+::string \mbox{\hyperlink{classJob_a221e9b8660acd364def53475078a666d}{get\+Job\+Type}} ()
+virtual std\+::string \mbox{\hyperlink{classJob_aad8c69df6ddaa9a3933abb1c60c8b220}{get\+Job\+Type}} ()=0
 \item 
 \mbox{\hyperlink{classDevice}{Device}} $\ast$ \mbox{\hyperlink{classJob_a4b53e5ad5a61f038a3e599e59ba80b41}{get\+Device}} ()
 \item 
@@ -23,13 +34,19 @@ void \mbox{\hyperlink{classJob_a4cbf9deace12788b9067783a1a606dda}{set\+Device}} 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classJob_a35fd98d773dd62a2d98f4136b7ac85c6}\label{classJob_a35fd98d773dd62a2d98f4136b7ac85c6}} 
+\mbox{\Hypertarget{classJob_a19af5ef4c2bf0128d8e13642920eee01}\label{classJob_a19af5ef4c2bf0128d8e13642920eee01}} 
 \index{Job@{Job}!Job@{Job}}
 \index{Job@{Job}!Job@{Job}}
 \doxysubsubsection{\texorpdfstring{Job()}{Job()}}
-{\footnotesize\ttfamily Job\+::\+Job (\begin{DoxyParamCaption}\item[{int}]{job\+Nr,  }\item[{int}]{page\+Ct,  }\item[{const std\+::string \&}]{userN,  }\item[{Job\+Type\+::\+Job\+Type\+Enum}]{job\+Type }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Job\+::\+Job (\begin{DoxyParamCaption}\item[{int}]{job\+Nr,  }\item[{int}]{page\+Ct,  }\item[{const std\+::string \&}]{userN }\end{DoxyParamCaption})}
 
-\mbox{\hyperlink{classJob}{Job}} will never be constructed with invalid parameters, because we check for that in the importer ENSURE(this-\/$>$properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{}); 
+\mbox{\hyperlink{classJob}{Job}} will never be constructed with invalid parameters, because we check for that in the importer ENSURE(this-\/$>$properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{}); \mbox{\Hypertarget{classJob_a234622c2e1fdae9d01450502ab53ed26}\label{classJob_a234622c2e1fdae9d01450502ab53ed26}} 
+\index{Job@{Job}!````~Job@{$\sim$Job}}
+\index{````~Job@{$\sim$Job}!Job@{Job}}
+\doxysubsubsection{\texorpdfstring{$\sim$Job()}{~Job()}}
+{\footnotesize\ttfamily Job\+::$\sim$\+Job (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Job wasn\textquotesingle{}t initialized when destructing job\char`\"{}); 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classJob_a4b53e5ad5a61f038a3e599e59ba80b41}\label{classJob_a4b53e5ad5a61f038a3e599e59ba80b41}} 
@@ -44,13 +61,17 @@ REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Job wasn\textquotesingle{
 \doxysubsubsection{\texorpdfstring{getJobNR()}{getJobNR()}}
 {\footnotesize\ttfamily int Job\+::get\+Job\+NR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Job wasn\textquotesingle{}t initialized when getting jobnumber\char`\"{}); \mbox{\Hypertarget{classJob_a221e9b8660acd364def53475078a666d}\label{classJob_a221e9b8660acd364def53475078a666d}} 
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Job wasn\textquotesingle{}t initialized when getting jobnumber\char`\"{}); \mbox{\Hypertarget{classJob_aad8c69df6ddaa9a3933abb1c60c8b220}\label{classJob_aad8c69df6ddaa9a3933abb1c60c8b220}} 
 \index{Job@{Job}!getJobType@{getJobType}}
 \index{getJobType@{getJobType}!Job@{Job}}
 \doxysubsubsection{\texorpdfstring{getJobType()}{getJobType()}}
-{\footnotesize\ttfamily std\+::string Job\+::get\+Job\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual std\+::string Job\+::get\+Job\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Job wasn\textquotesingle{}t initialized when getting job type\char`\"{}); \mbox{\Hypertarget{classJob_a6281448e15e1062fe194e9dc1af39ffe}\label{classJob_a6281448e15e1062fe194e9dc1af39ffe}} 
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Job wasn\textquotesingle{}t initialized when getting job type\char`\"{}); 
+
+Implemented in \mbox{\hyperlink{classScanJob_a10c8b7084f1c294f667759c706980b35}{Scan\+Job}}, \mbox{\hyperlink{classBWJob_a3dd2eefcf267fbf6e2257bd102f70b33}{BWJob}}, and \mbox{\hyperlink{classColorJob_a1940daa160e595d0035663431fba92e4}{Color\+Job}}.
+
+\mbox{\Hypertarget{classJob_a6281448e15e1062fe194e9dc1af39ffe}\label{classJob_a6281448e15e1062fe194e9dc1af39ffe}} 
 \index{Job@{Job}!getPageCount@{getPageCount}}
 \index{getPageCount@{getPageCount}!Job@{Job}}
 \doxysubsubsection{\texorpdfstring{getPageCount()}{getPageCount()}}
@@ -68,7 +89,7 @@ REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Job wasn\textquotesingle{
 \doxysubsubsection{\texorpdfstring{setDevice()}{setDevice()}}
 {\footnotesize\ttfamily void Job\+::set\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDevice}{Device}} $\ast$}]{processing\+Device }\end{DoxyParamCaption})}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Job wasn\textquotesingle{}t initialized when setting processing device\char`\"{}); 
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Job wasn\textquotesingle{}t initialized when setting processing device\char`\"{}); ENSURE(processingdevice == device, \char`\"{}\+Device wasn\textquotesingle{}t allocated properly\char`\"{}); 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

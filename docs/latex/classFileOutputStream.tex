@@ -2,8 +2,7 @@
 \label{classFileOutputStream}\index{FileOutputStream@{FileOutputStream}}
 
 
-Inheritance diagram for File\+Output\+Stream\+:
-\nopagebreak
+Inheritance diagram for File\+Output\+Stream\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +11,7 @@ Inheritance diagram for File\+Output\+Stream\+:
 \end{figure}
 
 
-Collaboration diagram for File\+Output\+Stream\+:
-\nopagebreak
+Collaboration diagram for File\+Output\+Stream\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,9 +24,21 @@ Collaboration diagram for File\+Output\+Stream\+:
 \mbox{\Hypertarget{classFileOutputStream_a7b464afc898030be3649152ff1e25aae}\label{classFileOutputStream_a7b464afc898030be3649152ff1e25aae}} 
 {\bfseries File\+Output\+Stream} (const std\+::string \&filename=\char`\"{}output.\+txt\char`\"{})
 \item 
-\mbox{\Hypertarget{classFileOutputStream_a93ed18a858afdadcc806d08e43e34df8}\label{classFileOutputStream_a93ed18a858afdadcc806d08e43e34df8}} 
-void {\bfseries write\+Line} (const std\+::string \&message) override
+void \mbox{\hyperlink{classFileOutputStream_a93ed18a858afdadcc806d08e43e34df8}{write\+Line}} (const std\+::string \&message) override
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFileOutputStream_a93ed18a858afdadcc806d08e43e34df8}\label{classFileOutputStream_a93ed18a858afdadcc806d08e43e34df8}} 
+\index{FileOutputStream@{FileOutputStream}!writeLine@{writeLine}}
+\index{writeLine@{writeLine}!FileOutputStream@{FileOutputStream}}
+\doxysubsubsection{\texorpdfstring{writeLine()}{writeLine()}}
+{\footnotesize\ttfamily void File\+Output\+Stream\+::write\+Line (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+File\+Output\+Stream wasn\textquotesingle{}t initialized when writing line\char`\"{}); 
+
+Implements \mbox{\hyperlink{classOutputStream}{Output\+Stream}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

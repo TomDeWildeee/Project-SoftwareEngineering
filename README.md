@@ -2,7 +2,7 @@
 
 GUI voor dit project is geleverd met Qt, verander `CMAKE_PREFIX_PATH` in `CMakeLists.txt` zo dat deze verwijst naar je eigen Qt locatie.
 
-Alternatief: GUI is aanwezig in Build folder. Run gewoon de .sh file en de GUI werkt zonder enige library op voorhand te installeren.
+Alternatief: GUI is aanwezig in Build folder. Gebruik `dpkg -x PrintingSystemGUI.deb` en run in de hoofdfolder de .sh file en de GUI werkt zonder enige library op voorhand te installeren.
 
 Voor enkel tests kan je gewoon de lijnen commenten in `CMakeLists.txt` die aangegeven staan. Dan compile je enkel voor debug_tests
 

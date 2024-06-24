@@ -11,6 +11,12 @@ public:
     virtual void writeLine(const std::string& message) = 0;
     virtual ~OutputStream() = default;
 
+
+// For all functions below the same contract applies
+/**
+ REQUIRE(this->properlyInitialized(), "OutputStream wasn't initialized when writing this string");
+ */
+
     void writeErrorJobNrNotFound(int jobNR);
     void writeErrorNoDeviceOfCorrectType();
     void writePrintingPageNumber(int pageNR);

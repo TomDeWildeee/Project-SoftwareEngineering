@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['enqueue_7',['enqueue',['../classDevice.html#aba26d43daa70f2ed06b831473f588636',1,'Device']]],
-  ['exceedslimit_8',['exceedslimit',['../classDevice.html#a2a40fb0ec2d557c14dff77b2a762ec7b',1,'Device']]]
+  ['device_11',['Device',['../classDevice.html',1,'Device'],['../classDevice.html#aa5f6b230c4ed393ceb73da1d617187ec',1,'Device::Device()']]]
 ];

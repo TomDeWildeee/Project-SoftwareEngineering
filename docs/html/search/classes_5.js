@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['outputstream_40',['OutputStream',['../classOutputStream.html',1,'']]]
+  ['nooutputstream_58',['NoOutputStream',['../classNoOutputStream.html',1,'']]]
 ];

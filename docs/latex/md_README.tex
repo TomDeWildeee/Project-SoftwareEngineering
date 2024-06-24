@@ -1,4 +1,10 @@
-Makefile is aanwezig maar kan zelf gebuild worden als nodig door\+:
+GUI voor dit project is geleverd met Qt, verander {\ttfamily CMAKE\+\_\+\+PREFIX\+\_\+\+PATH} in {\ttfamily CMake\+Lists.\+txt} zo dat deze verwijst naar je eigen Qt locatie.
+
+Alternatief\+: GUI is aanwezig in Build folder. Gebruik {\ttfamily dpkg -\/x Printing\+System\+GUI.\+deb} en run in de hoofdfolder de .sh file en de GUI werkt zonder enige library op voorhand te installeren.
+
+Voor enkel tests kan je gewoon de lijnen commenten in {\ttfamily CMake\+Lists.\+txt} die aangegeven staan. Dan compile je enkel voor debug\+\_\+tests
+
+Makefile kan zelf gebuild worden als nodig door\+:
 
 
 \begin{DoxyCode}{0}

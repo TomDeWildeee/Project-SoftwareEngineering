@@ -67,33 +67,46 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classJob-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Job Class Reference</div>  </div>
+<div class="title">Job Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for Job:</div>
+<div class="dyncontent">
+<div class="center"><img src="classJob__inherit__graph.png" border="0" usemap="#aJob_inherit__map" alt="Inheritance graph"/></div>
+<map name="aJob_inherit__map" id="aJob_inherit__map">
+<area shape="rect" title=" " alt="" coords="111,5,153,32"/>
+<area shape="rect" href="classBWJob.html" title=" " alt="" coords="5,80,69,107"/>
+<area shape="rect" href="classColorJob.html" title=" " alt="" coords="94,80,170,107"/>
+<area shape="rect" href="classScanJob.html" title=" " alt="" coords="194,80,267,107"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a50af6e4931ed0262da76ffa903e66682"><td class="memItemLeft" align="right" valign="top"><a id="a50af6e4931ed0262da76ffa903e66682"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</b> ()</td></tr>
 <tr class="separator:a50af6e4931ed0262da76ffa903e66682"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35fd98d773dd62a2d98f4136b7ac85c6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJob.html#a35fd98d773dd62a2d98f4136b7ac85c6">Job</a> (int jobNr, int pageCt, const std::string &amp;userN, JobType::JobTypeEnum jobType)</td></tr>
-<tr class="separator:a35fd98d773dd62a2d98f4136b7ac85c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19af5ef4c2bf0128d8e13642920eee01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJob.html#a19af5ef4c2bf0128d8e13642920eee01">Job</a> (int jobNr, int pageCt, const std::string &amp;userN)</td></tr>
+<tr class="separator:a19af5ef4c2bf0128d8e13642920eee01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a234622c2e1fdae9d01450502ab53ed26"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJob.html#a234622c2e1fdae9d01450502ab53ed26">~Job</a> ()</td></tr>
+<tr class="separator:a234622c2e1fdae9d01450502ab53ed26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37e7421ad571ecee85a3bcdfbb3af5ae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJob.html#a37e7421ad571ecee85a3bcdfbb3af5ae">getJobNR</a> ()</td></tr>
 <tr class="separator:a37e7421ad571ecee85a3bcdfbb3af5ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4282dfa2ea81f386d8675b0566e7bc8"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJob.html#ae4282dfa2ea81f386d8675b0566e7bc8">getUserName</a> ()</td></tr>
 <tr class="separator:ae4282dfa2ea81f386d8675b0566e7bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6281448e15e1062fe194e9dc1af39ffe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJob.html#a6281448e15e1062fe194e9dc1af39ffe">getPageCount</a> ()</td></tr>
 <tr class="separator:a6281448e15e1062fe194e9dc1af39ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a221e9b8660acd364def53475078a666d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJob.html#a221e9b8660acd364def53475078a666d">getJobType</a> ()</td></tr>
-<tr class="separator:a221e9b8660acd364def53475078a666d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad8c69df6ddaa9a3933abb1c60c8b220"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJob.html#aad8c69df6ddaa9a3933abb1c60c8b220">getJobType</a> ()=0</td></tr>
+<tr class="separator:aad8c69df6ddaa9a3933abb1c60c8b220"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b53e5ad5a61f038a3e599e59ba80b41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDevice.html">Device</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJob.html#a4b53e5ad5a61f038a3e599e59ba80b41">getDevice</a> ()</td></tr>
 <tr class="separator:a4b53e5ad5a61f038a3e599e59ba80b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cbf9deace12788b9067783a1a606dda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJob.html#a4cbf9deace12788b9067783a1a606dda">setDevice</a> (<a class="el" href="classDevice.html">Device</a> *processingDevice)</td></tr>
 <tr class="separator:a4cbf9deace12788b9067783a1a606dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a35fd98d773dd62a2d98f4136b7ac85c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35fd98d773dd62a2d98f4136b7ac85c6">&#9670;&nbsp;</a></span>Job()</h2>
+<a id="a19af5ef4c2bf0128d8e13642920eee01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19af5ef4c2bf0128d8e13642920eee01">&#9670;&nbsp;</a></span>Job()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -114,13 +127,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>userN</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">JobType::JobTypeEnum&#160;</td>
-          <td class="paramname"><em>jobType</em>&#160;</td>
+          <td class="paramname"><em>userN</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -130,6 +137,32 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
       </table>
 </div><div class="memdoc">
 <p><a class="el" href="classJob.html">Job</a> will never be constructed with invalid parameters, because we check for that in the importer ENSURE(this-&gt;properlyInitialized(), "constructor must end in properlyInitialized state"); </p>
+
+</div>
+</div>
+<a id="a234622c2e1fdae9d01450502ab53ed26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a234622c2e1fdae9d01450502ab53ed26">&#9670;&nbsp;</a></span>~Job()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Job::~Job </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>REQUIRE(this-&gt;properlyInitialized(), "Job wasn't initialized when destructing job"); </p>
 
 </div>
 </div>
@@ -170,21 +203,31 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
 
 </div>
 </div>
-<a id="a221e9b8660acd364def53475078a666d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a221e9b8660acd364def53475078a666d">&#9670;&nbsp;</a></span>getJobType()</h2>
+<a id="aad8c69df6ddaa9a3933abb1c60c8b220"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad8c69df6ddaa9a3933abb1c60c8b220">&#9670;&nbsp;</a></span>getJobType()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Job::getJobType </td>
+          <td class="memname">virtual std::string Job::getJobType </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>REQUIRE(this-&gt;properlyInitialized(), "Job wasn't initialized when getting job type"); </p>
+
+<p>Implemented in <a class="el" href="classScanJob.html#a10c8b7084f1c294f667759c706980b35">ScanJob</a>, <a class="el" href="classBWJob.html#a3dd2eefcf267fbf6e2257bd102f70b33">BWJob</a>, and <a class="el" href="classColorJob.html#a1940daa160e595d0035663431fba92e4">ColorJob</a>.</p>
 
 </div>
 </div>
@@ -239,7 +282,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(this-&gt;properlyInitialized(), "Job wasn't initialized when setting processing device"); </p>
+<p>REQUIRE(this-&gt;properlyInitialized(), "Job wasn't initialized when setting processing device"); ENSURE(processingdevice == device, "Device wasn't allocated properly"); </p>
 
 </div>
 </div>

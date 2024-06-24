@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['consoleoutputstream_35',['ConsoleOutputStream',['../classConsoleOutputStream.html',1,'']]]
+  ['bwdevice_50',['BWDevice',['../classBWDevice.html',1,'']]],
+  ['bwjob_51',['BWJob',['../classBWJob.html',1,'']]]
 ];

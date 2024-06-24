@@ -79,30 +79,73 @@ $(function() {
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">bool</span> properlyInitialized();</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> writeLine(<span class="keyword">const</span> std::string&amp; message) = 0;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classOutputStream.html">OutputStream</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classFileOutputStream.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classFileOutputStream.html">FileOutputStream</a> : <span class="keyword">public</span> <a class="code" href="classOutputStream.html">OutputStream</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    std::ofstream outputFile;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classFileOutputStream.html">FileOutputStream</a>(<span class="keyword">const</span> std::string&amp; filename = <span class="stringliteral">&quot;output.txt&quot;</span>) : outputFile(filename) {}</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> writeLine(<span class="keyword">const</span> std::string&amp; message) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    ~<a class="code" href="classFileOutputStream.html">FileOutputStream</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classConsoleOutputStream.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classConsoleOutputStream.html">ConsoleOutputStream</a> : <span class="keyword">public</span> <a class="code" href="classOutputStream.html">OutputStream</a> {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> writeLine(<span class="keyword">const</span> std::string&amp; message) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classNoOutputStream.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNoOutputStream.html">NoOutputStream</a> : <span class="keyword">public</span> <a class="code" href="classOutputStream.html">OutputStream</a> {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> writeLine(<span class="keyword">const</span> std::string&amp; message) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
-<div class="ttc" id="aclassConsoleOutputStream_html"><div class="ttname"><a href="classConsoleOutputStream.html">ConsoleOutputStream</a></div><div class="ttdef"><b>Definition:</b> Output.h:24</div></div>
-<div class="ttc" id="aclassFileOutputStream_html"><div class="ttname"><a href="classFileOutputStream.html">FileOutputStream</a></div><div class="ttdef"><b>Definition:</b> Output.h:15</div></div>
-<div class="ttc" id="aclassNoOutputStream_html"><div class="ttname"><a href="classNoOutputStream.html">NoOutputStream</a></div><div class="ttdef"><b>Definition:</b> Output.h:29</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// For all functions below the same contract applies</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="classOutputStream.html#ab7146c2ddacd1e113c91be58be9e5474">writeErrorJobNrNotFound</a>(<span class="keywordtype">int</span> jobNR);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> writeErrorNoDeviceOfCorrectType();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> writePrintingPageNumber(<span class="keywordtype">int</span> pageNR);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> writeDeviceFinishedJob(<span class="keyword">const</span> std::string &amp;jobType, <span class="keywordtype">int</span> jobNR, <span class="keywordtype">int</span> jobPageCount,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                <span class="keyword">const</span> std::string &amp;jobUsername, <span class="keyword">const</span> std::string &amp;processingDeviceName);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> writeSystemDiagnosticTitle();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> writeAdvancedPerDeviceOutput(<span class="keyword">const</span> std::string &amp;deviceType, <span class="keyword">const</span> std::string &amp;deviceName,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                             <span class="keyword">const</span> std::string &amp;jobQueueString, <span class="keyword">const</span> std::string &amp;finishedJobsString);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> writeSystemReportHeader();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> writeSystemReportDeviceInfo(<span class="keyword">const</span> std::string &amp;deviceType, <span class="keyword">const</span> std::string &amp;deviceName,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                     <span class="keyword">const</span> std::string &amp;deviceSpeed, <span class="keyword">const</span> std::string &amp;deviceCost,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                     <span class="keyword">const</span> std::string &amp;deviceEmission);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> writeSystemReportJobInfo(<span class="keyword">const</span> std::string &amp;jobName, <span class="keyword">const</span> std::string &amp;jobUser, <span class="keyword">const</span> std::string &amp;jobPageCount,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                                  <span class="keyword">const</span> std::string &amp;jobDevice, <span class="keyword">const</span> std::string &amp;jobEmission, <span class="keyword">const</span> std::string &amp;jobCost);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> writeSystemReportJobsHeader();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> writeSystemReportNoPendingJobs();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> writeSystemReportFooter();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// XML errors</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> writeXMLAborted(<span class="keyword">const</span> std::string &amp;errorDesc);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> writeXMLFailedToLoadFile();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> writeXMLUnrecognizedElement(<span class="keyword">const</span> std::string &amp;expected, <span class="keyword">const</span> std::string &amp;got);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> writeXMLUnrecognizedAttribute(<span class="keyword">const</span> std::string &amp;expected);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> writeXMLNoInput(<span class="keyword">const</span> std::string &amp;what, <span class="keyword">const</span> std::string &amp;attributeTag);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> writeXMLNegativeInteger(<span class="keyword">const</span> std::string &amp;type, <span class="keyword">const</span> std::string &amp;attributeTag);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> writeXMLNonUniqueNumber(<span class="keyword">const</span> std::string &amp;type, <span class="keyword">const</span> std::string &amp;lowerType, <span class="keyword">const</span> std::string &amp;attributeTag);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> writeXMLInvalidValueType(<span class="keyword">const</span> std::string &amp;type, <span class="keyword">const</span> std::string &amp;attributeTag);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> writeXMLInvalidEmissions(<span class="keyword">const</span> std::string &amp;typePrinter, <span class="keyword">const</span> std::string &amp;gramsPerPage,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                                  <span class="keyword">const</span> std::string &amp;got);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> writeXMLInvalidCost();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> writeXMLUnrecognizedElementExpectedDeviceOrJob();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> writeXMLNotConsistent();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classFileOutputStream.html">   58</a></span>&#160;<span class="keyword">class </span><a class="code" href="classFileOutputStream.html">FileOutputStream</a> : <span class="keyword">public</span> <a class="code" href="classOutputStream.html">OutputStream</a> {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::ofstream outputFile;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classFileOutputStream.html">FileOutputStream</a>(<span class="keyword">const</span> std::string&amp; filename = <span class="stringliteral">&quot;output.txt&quot;</span>) : outputFile(filename) {}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classFileOutputStream.html#a93ed18a858afdadcc806d08e43e34df8">writeLine</a>(<span class="keyword">const</span> std::string&amp; message) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    ~<a class="code" href="classFileOutputStream.html">FileOutputStream</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classConsoleOutputStream.html">   70</a></span>&#160;<span class="keyword">class </span><a class="code" href="classConsoleOutputStream.html">ConsoleOutputStream</a> : <span class="keyword">public</span> <a class="code" href="classOutputStream.html">OutputStream</a> {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleOutputStream.html#aaadfab03e99997b0838435ee8af06c1d">writeLine</a>(<span class="keyword">const</span> std::string&amp; message) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classNoOutputStream.html">   78</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNoOutputStream.html">NoOutputStream</a> : <span class="keyword">public</span> <a class="code" href="classOutputStream.html">OutputStream</a> {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNoOutputStream.html#a8fbdd9694e12513c3c457148fe02fb40">writeLine</a>(<span class="keyword">const</span> std::string&amp; message) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div>
+<div class="ttc" id="aclassConsoleOutputStream_html"><div class="ttname"><a href="classConsoleOutputStream.html">ConsoleOutputStream</a></div><div class="ttdef"><b>Definition:</b> Output.h:70</div></div>
+<div class="ttc" id="aclassConsoleOutputStream_html_aaadfab03e99997b0838435ee8af06c1d"><div class="ttname"><a href="classConsoleOutputStream.html#aaadfab03e99997b0838435ee8af06c1d">ConsoleOutputStream::writeLine</a></div><div class="ttdeci">void writeLine(const std::string &amp;message) override</div><div class="ttdef"><b>Definition:</b> Output.cpp:21</div></div>
+<div class="ttc" id="aclassFileOutputStream_html"><div class="ttname"><a href="classFileOutputStream.html">FileOutputStream</a></div><div class="ttdef"><b>Definition:</b> Output.h:58</div></div>
+<div class="ttc" id="aclassFileOutputStream_html_a93ed18a858afdadcc806d08e43e34df8"><div class="ttname"><a href="classFileOutputStream.html#a93ed18a858afdadcc806d08e43e34df8">FileOutputStream::writeLine</a></div><div class="ttdeci">void writeLine(const std::string &amp;message) override</div><div class="ttdef"><b>Definition:</b> Output.cpp:12</div></div>
+<div class="ttc" id="aclassNoOutputStream_html"><div class="ttname"><a href="classNoOutputStream.html">NoOutputStream</a></div><div class="ttdef"><b>Definition:</b> Output.h:78</div></div>
+<div class="ttc" id="aclassNoOutputStream_html_a8fbdd9694e12513c3c457148fe02fb40"><div class="ttname"><a href="classNoOutputStream.html#a8fbdd9694e12513c3c457148fe02fb40">NoOutputStream::writeLine</a></div><div class="ttdeci">void writeLine(const std::string &amp;message) override</div><div class="ttdef"><b>Definition:</b> Output.cpp:26</div></div>
 <div class="ttc" id="aclassOutputStream_html"><div class="ttname"><a href="classOutputStream.html">OutputStream</a></div><div class="ttdef"><b>Definition:</b> Output.h:6</div></div>
+<div class="ttc" id="aclassOutputStream_html_ab7146c2ddacd1e113c91be58be9e5474"><div class="ttname"><a href="classOutputStream.html#ab7146c2ddacd1e113c91be58be9e5474">OutputStream::writeErrorJobNrNotFound</a></div><div class="ttdeci">void writeErrorJobNrNotFound(int jobNR)</div><div class="ttdef"><b>Definition:</b> Output.cpp:33</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

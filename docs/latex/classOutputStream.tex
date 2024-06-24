@@ -2,8 +2,7 @@
 \label{classOutputStream}\index{OutputStream@{OutputStream}}
 
 
-Inheritance diagram for Output\+Stream\+:
-\nopagebreak
+Inheritance diagram for Output\+Stream\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -18,8 +17,88 @@ bool {\bfseries properly\+Initialized} ()
 \item 
 \mbox{\Hypertarget{classOutputStream_a368b15005bc4f0c45f3479947c53589e}\label{classOutputStream_a368b15005bc4f0c45f3479947c53589e}} 
 virtual void {\bfseries write\+Line} (const std\+::string \&message)=0
+\item 
+void \mbox{\hyperlink{classOutputStream_ab7146c2ddacd1e113c91be58be9e5474}{write\+Error\+Job\+Nr\+Not\+Found}} (int job\+NR)
+\item 
+\mbox{\Hypertarget{classOutputStream_a68f03d8cdf2b9d919a21c4204ea58cc6}\label{classOutputStream_a68f03d8cdf2b9d919a21c4204ea58cc6}} 
+void {\bfseries write\+Error\+No\+Device\+Of\+Correct\+Type} ()
+\item 
+\mbox{\Hypertarget{classOutputStream_a0ab9d55cfd1a38899a75666943f16251}\label{classOutputStream_a0ab9d55cfd1a38899a75666943f16251}} 
+void {\bfseries write\+Printing\+Page\+Number} (int page\+NR)
+\item 
+\mbox{\Hypertarget{classOutputStream_a5ff630eefea57c651000e41712e6a809}\label{classOutputStream_a5ff630eefea57c651000e41712e6a809}} 
+void {\bfseries write\+Device\+Finished\+Job} (const std\+::string \&job\+Type, int job\+NR, int job\+Page\+Count, const std\+::string \&job\+Username, const std\+::string \&processing\+Device\+Name)
+\item 
+\mbox{\Hypertarget{classOutputStream_ac071facce2fbad0ddb7ef81aa9908aca}\label{classOutputStream_ac071facce2fbad0ddb7ef81aa9908aca}} 
+void {\bfseries write\+System\+Diagnostic\+Title} ()
+\item 
+\mbox{\Hypertarget{classOutputStream_a0804c6d363c21759b5cec358a7217096}\label{classOutputStream_a0804c6d363c21759b5cec358a7217096}} 
+void {\bfseries write\+Advanced\+Per\+Device\+Output} (const std\+::string \&device\+Type, const std\+::string \&device\+Name, const std\+::string \&job\+Queue\+String, const std\+::string \&finished\+Jobs\+String)
+\item 
+\mbox{\Hypertarget{classOutputStream_a79aedf8f44bf1b8ae2a7e83fa4ee15b6}\label{classOutputStream_a79aedf8f44bf1b8ae2a7e83fa4ee15b6}} 
+void {\bfseries write\+System\+Report\+Header} ()
+\item 
+\mbox{\Hypertarget{classOutputStream_af48bd18d0ff15e3f791ca9c0e65bcdb5}\label{classOutputStream_af48bd18d0ff15e3f791ca9c0e65bcdb5}} 
+void {\bfseries write\+System\+Report\+Device\+Info} (const std\+::string \&device\+Type, const std\+::string \&device\+Name, const std\+::string \&device\+Speed, const std\+::string \&device\+Cost, const std\+::string \&device\+Emission)
+\item 
+\mbox{\Hypertarget{classOutputStream_a2fd296ed333e8b021a63a2c49cd638c1}\label{classOutputStream_a2fd296ed333e8b021a63a2c49cd638c1}} 
+void {\bfseries write\+System\+Report\+Job\+Info} (const std\+::string \&job\+Name, const std\+::string \&job\+User, const std\+::string \&job\+Page\+Count, const std\+::string \&job\+Device, const std\+::string \&job\+Emission, const std\+::string \&job\+Cost)
+\item 
+\mbox{\Hypertarget{classOutputStream_a5d61f828481f7c3e6ffc519731bf01ec}\label{classOutputStream_a5d61f828481f7c3e6ffc519731bf01ec}} 
+void {\bfseries write\+System\+Report\+Jobs\+Header} ()
+\item 
+\mbox{\Hypertarget{classOutputStream_a18bf2099e96829f2444cb79a7bc084ae}\label{classOutputStream_a18bf2099e96829f2444cb79a7bc084ae}} 
+void {\bfseries write\+System\+Report\+No\+Pending\+Jobs} ()
+\item 
+\mbox{\Hypertarget{classOutputStream_a0a12dc1737ee458a5bcd639f4bf8f2ac}\label{classOutputStream_a0a12dc1737ee458a5bcd639f4bf8f2ac}} 
+void {\bfseries write\+System\+Report\+Footer} ()
+\item 
+\mbox{\Hypertarget{classOutputStream_a81e2ffce3abed63b2da4ce077f2ea719}\label{classOutputStream_a81e2ffce3abed63b2da4ce077f2ea719}} 
+void {\bfseries write\+XMLAborted} (const std\+::string \&error\+Desc)
+\item 
+\mbox{\Hypertarget{classOutputStream_a83a404bdc686d2146481e5ee22edb3b8}\label{classOutputStream_a83a404bdc686d2146481e5ee22edb3b8}} 
+void {\bfseries write\+XMLFailed\+To\+Load\+File} ()
+\item 
+\mbox{\Hypertarget{classOutputStream_a6df540b90443db90c331d6725f25c66b}\label{classOutputStream_a6df540b90443db90c331d6725f25c66b}} 
+void {\bfseries write\+XMLUnrecognized\+Element} (const std\+::string \&expected, const std\+::string \&got)
+\item 
+\mbox{\Hypertarget{classOutputStream_a678e0d42d7a57e713451fef7b5f46256}\label{classOutputStream_a678e0d42d7a57e713451fef7b5f46256}} 
+void {\bfseries write\+XMLUnrecognized\+Attribute} (const std\+::string \&expected)
+\item 
+\mbox{\Hypertarget{classOutputStream_a9a964baff8b338a035e143fdb40155c7}\label{classOutputStream_a9a964baff8b338a035e143fdb40155c7}} 
+void {\bfseries write\+XMLNo\+Input} (const std\+::string \&what, const std\+::string \&attribute\+Tag)
+\item 
+\mbox{\Hypertarget{classOutputStream_a5e62f1b9aecbeb540c37c3b51aef6eef}\label{classOutputStream_a5e62f1b9aecbeb540c37c3b51aef6eef}} 
+void {\bfseries write\+XMLNegative\+Integer} (const std\+::string \&type, const std\+::string \&attribute\+Tag)
+\item 
+\mbox{\Hypertarget{classOutputStream_ac8f1b59424d3d33da577aeb5ad71d0e2}\label{classOutputStream_ac8f1b59424d3d33da577aeb5ad71d0e2}} 
+void {\bfseries write\+XMLNon\+Unique\+Number} (const std\+::string \&type, const std\+::string \&lower\+Type, const std\+::string \&attribute\+Tag)
+\item 
+\mbox{\Hypertarget{classOutputStream_ac72ad0cae87473dc5e014dc3df204198}\label{classOutputStream_ac72ad0cae87473dc5e014dc3df204198}} 
+void {\bfseries write\+XMLInvalid\+Value\+Type} (const std\+::string \&type, const std\+::string \&attribute\+Tag)
+\item 
+\mbox{\Hypertarget{classOutputStream_a603c83a6fd49ebcd28cdbcf55a7aae35}\label{classOutputStream_a603c83a6fd49ebcd28cdbcf55a7aae35}} 
+void {\bfseries write\+XMLInvalid\+Emissions} (const std\+::string \&type\+Printer, const std\+::string \&grams\+Per\+Page, const std\+::string \&got)
+\item 
+\mbox{\Hypertarget{classOutputStream_aeb41a351e0e03ab24f4e5ea364131849}\label{classOutputStream_aeb41a351e0e03ab24f4e5ea364131849}} 
+void {\bfseries write\+XMLInvalid\+Cost} ()
+\item 
+\mbox{\Hypertarget{classOutputStream_ab8d6efb7edf95c56202ab4ad6c76b5d9}\label{classOutputStream_ab8d6efb7edf95c56202ab4ad6c76b5d9}} 
+void {\bfseries write\+XMLUnrecognized\+Element\+Expected\+Device\+Or\+Job} ()
+\item 
+\mbox{\Hypertarget{classOutputStream_ad83f64271852784d28808d9bbb1b166d}\label{classOutputStream_ad83f64271852784d28808d9bbb1b166d}} 
+void {\bfseries write\+XMLNot\+Consistent} ()
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOutputStream_ab7146c2ddacd1e113c91be58be9e5474}\label{classOutputStream_ab7146c2ddacd1e113c91be58be9e5474}} 
+\index{OutputStream@{OutputStream}!writeErrorJobNrNotFound@{writeErrorJobNrNotFound}}
+\index{writeErrorJobNrNotFound@{writeErrorJobNrNotFound}!OutputStream@{OutputStream}}
+\doxysubsubsection{\texorpdfstring{writeErrorJobNrNotFound()}{writeErrorJobNrNotFound()}}
+{\footnotesize\ttfamily void Output\+Stream\+::write\+Error\+Job\+Nr\+Not\+Found (\begin{DoxyParamCaption}\item[{int}]{job\+NR }\end{DoxyParamCaption})}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Output\+Stream wasn\textquotesingle{}t initialized when writing this string\char`\"{}); 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

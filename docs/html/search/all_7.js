@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['job_23',['Job',['../classJob.html',1,'Job'],['../classJob.html#a35fd98d773dd62a2d98f4136b7ac85c6',1,'Job::Job()']]]
+  ['isuniquejobnumber_30',['isUniqueJobNumber',['../classPrintingSystem.html#a519853d5826e44a5f612bdaac0e103e6',1,'PrintingSystem']]]
 ];

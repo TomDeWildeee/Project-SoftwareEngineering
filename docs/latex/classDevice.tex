@@ -1,12 +1,23 @@
 \hypertarget{classDevice}{}\doxysection{Device Class Reference}
 \label{classDevice}\index{Device@{Device}}
+
+
+Inheritance diagram for Device\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{classDevice__inherit__graph}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classDevice_ab70d6d270b62c48ddb2cc9cfe0d22cf2}\label{classDevice_ab70d6d270b62c48ddb2cc9cfe0d22cf2}} 
 bool {\bfseries properly\+Initialized} ()
 \item 
-\mbox{\hyperlink{classDevice_aca2100c896889a127f39217162a2b56c}{Device}} (const std\+::string \&device\+Name, int amount\+Of\+Emissions, int speed\+Of\+Printer, Device\+Type\+::\+Device\+Type\+Enum device\+Type, int device\+Cost)
+\mbox{\hyperlink{classDevice_aa5f6b230c4ed393ceb73da1d617187ec}{Device}} (const std\+::string \&device\+Name, int amount\+Of\+Emissions, int speed\+Of\+Printer, int device\+Cost)
+\item 
+virtual \mbox{\hyperlink{classDevice_a9dabc419c8d8df3a686c33ce042bc99a}{$\sim$\+Device}} ()
 \item 
 const std\+::string \& \mbox{\hyperlink{classDevice_ab6248848f87e1ebddd2c6c91b1d9281f}{get\+Name}} ()
 \item 
@@ -16,9 +27,9 @@ int \mbox{\hyperlink{classDevice_aa159c3bff92a9d826d025fda6f492ee9}{get\+Speed}}
 \item 
 float \mbox{\hyperlink{classDevice_a59c8a7efc8b09e5e4d423cf366d0a953}{get\+Cost}} ()
 \item 
-std\+::string \mbox{\hyperlink{classDevice_a6538eb1ee454e68b8acfd8de441e4de4}{get\+Device\+Type}} ()
+virtual std\+::string \mbox{\hyperlink{classDevice_a79e5c7249c26cea25e6fe4a212d83fa1}{get\+Device\+Type}} ()=0
 \item 
-bool \mbox{\hyperlink{classDevice_a2a40fb0ec2d557c14dff77b2a762ec7b}{exceedslimit}} ()
+virtual bool \mbox{\hyperlink{classDevice_a4ab1d88582146516e2bd325e83b48acb}{exceedslimit}} ()=0
 \item 
 int \mbox{\hyperlink{classDevice_af716133ed8d557ab0415805bc50681ad}{calculatevalue}} ()
 \item 
@@ -26,25 +37,35 @@ void \mbox{\hyperlink{classDevice_aba26d43daa70f2ed06b831473f588636}{enqueue}} (
 \item 
 std\+::vector$<$ \mbox{\hyperlink{classJob}{Job}} $\ast$ $>$ \mbox{\hyperlink{classDevice_ad2d04fe5b1cd6fef21062ed0e0417922}{get\+Jobqueue}} ()
 \item 
-\mbox{\Hypertarget{classDevice_af5bccba1f80cf63bf2cc5babf0b222a1}\label{classDevice_af5bccba1f80cf63bf2cc5babf0b222a1}} 
-std\+::vector$<$ \mbox{\hyperlink{classJob}{Job}} $\ast$ $>$ {\bfseries get\+Finishedjobs} ()
+std\+::vector$<$ \mbox{\hyperlink{classJob}{Job}} $\ast$ $>$ \mbox{\hyperlink{classDevice_af5bccba1f80cf63bf2cc5babf0b222a1}{get\+Finishedjobs}} ()
 \item 
-\mbox{\Hypertarget{classDevice_a3cb1eb97a8e04360c5c46107e868a474}\label{classDevice_a3cb1eb97a8e04360c5c46107e868a474}} 
-void {\bfseries add\+Finished\+Job} (\mbox{\hyperlink{classJob}{Job}} $\ast$finishedjob)
+void \mbox{\hyperlink{classDevice_a3cb1eb97a8e04360c5c46107e868a474}{add\+Finished\+Job}} (\mbox{\hyperlink{classJob}{Job}} $\ast$finishedjob)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classDevice_aca2100c896889a127f39217162a2b56c}\label{classDevice_aca2100c896889a127f39217162a2b56c}} 
+\mbox{\Hypertarget{classDevice_aa5f6b230c4ed393ceb73da1d617187ec}\label{classDevice_aa5f6b230c4ed393ceb73da1d617187ec}} 
 \index{Device@{Device}!Device@{Device}}
 \index{Device@{Device}!Device@{Device}}
 \doxysubsubsection{\texorpdfstring{Device()}{Device()}}
-{\footnotesize\ttfamily Device\+::\+Device (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{device\+Name,  }\item[{int}]{amount\+Of\+Emissions,  }\item[{int}]{speed\+Of\+Printer,  }\item[{Device\+Type\+::\+Device\+Type\+Enum}]{device\+Type,  }\item[{int}]{device\+Cost }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Device\+::\+Device (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{device\+Name,  }\item[{int}]{amount\+Of\+Emissions,  }\item[{int}]{speed\+Of\+Printer,  }\item[{int}]{device\+Cost }\end{DoxyParamCaption})}
 
-\mbox{\hyperlink{classDevice}{Device}} will never be constructed with invalid parameters, because we check for that in the importer ENSURE(this-\/$>$properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{}); 
+\mbox{\hyperlink{classDevice}{Device}} will never be constructed with invalid parameters, because we check for that in the importer ENSURE(this-\/$>$properly\+Initialized(), \char`\"{}constructor must end in properly\+Initialized state\char`\"{}); \mbox{\Hypertarget{classDevice_a9dabc419c8d8df3a686c33ce042bc99a}\label{classDevice_a9dabc419c8d8df3a686c33ce042bc99a}} 
+\index{Device@{Device}!````~Device@{$\sim$Device}}
+\index{````~Device@{$\sim$Device}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{$\sim$Device()}{~Device()}}
+{\footnotesize\ttfamily Device\+::$\sim$\+Device (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when destructing device\char`\"{}); 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classDevice_af716133ed8d557ab0415805bc50681ad}\label{classDevice_af716133ed8d557ab0415805bc50681ad}} 
+\mbox{\Hypertarget{classDevice_a3cb1eb97a8e04360c5c46107e868a474}\label{classDevice_a3cb1eb97a8e04360c5c46107e868a474}} 
+\index{Device@{Device}!addFinishedJob@{addFinishedJob}}
+\index{addFinishedJob@{addFinishedJob}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{addFinishedJob()}{addFinishedJob()}}
+{\footnotesize\ttfamily void Device\+::add\+Finished\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classJob}{Job}} $\ast$}]{finishedjob }\end{DoxyParamCaption})}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when adding finished job\char`\"{}); ENSURE(find != finishedjobs.\+end(), \char`\"{}job wasn\textquotesingle{}t added to the queue\char`\"{}); \mbox{\Hypertarget{classDevice_af716133ed8d557ab0415805bc50681ad}\label{classDevice_af716133ed8d557ab0415805bc50681ad}} 
 \index{Device@{Device}!calculatevalue@{calculatevalue}}
 \index{calculatevalue@{calculatevalue}!Device@{Device}}
 \doxysubsubsection{\texorpdfstring{calculatevalue()}{calculatevalue()}}
@@ -56,31 +77,45 @@ REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesing
 \doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
 {\footnotesize\ttfamily void Device\+::enqueue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classJob}{Job}} $\ast$}]{job }\end{DoxyParamCaption})}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when adding to queue\char`\"{}); \mbox{\Hypertarget{classDevice_a2a40fb0ec2d557c14dff77b2a762ec7b}\label{classDevice_a2a40fb0ec2d557c14dff77b2a762ec7b}} 
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when adding to queue\char`\"{}); ENSURE(find != jobqueue.\+end(), \char`\"{}job wasn\textquotesingle{}t added to the queue\char`\"{}); \mbox{\Hypertarget{classDevice_a4ab1d88582146516e2bd325e83b48acb}\label{classDevice_a4ab1d88582146516e2bd325e83b48acb}} 
 \index{Device@{Device}!exceedslimit@{exceedslimit}}
 \index{exceedslimit@{exceedslimit}!Device@{Device}}
 \doxysubsubsection{\texorpdfstring{exceedslimit()}{exceedslimit()}}
-{\footnotesize\ttfamily bool Device\+::exceedslimit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual bool Device\+::exceedslimit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized checking if it exceeds the CO2 limit\char`\"{}); \mbox{\Hypertarget{classDevice_a59c8a7efc8b09e5e4d423cf366d0a953}\label{classDevice_a59c8a7efc8b09e5e4d423cf366d0a953}} 
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized checking if it exceeds the CO2 limit\char`\"{}); 
+
+Implemented in \mbox{\hyperlink{classScanDevice_a2beecce10e137fd438ccf47226a54cd6}{Scan\+Device}}, \mbox{\hyperlink{classBWDevice_a49816becd76de1333395ecd2cae17293}{BWDevice}}, and \mbox{\hyperlink{classColorDevice_ac77f571436747a367631607e34a32d30}{Color\+Device}}.
+
+\mbox{\Hypertarget{classDevice_a59c8a7efc8b09e5e4d423cf366d0a953}\label{classDevice_a59c8a7efc8b09e5e4d423cf366d0a953}} 
 \index{Device@{Device}!getCost@{getCost}}
 \index{getCost@{getCost}!Device@{Device}}
 \doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
 {\footnotesize\ttfamily float Device\+::get\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when gettting value\char`\"{}); \mbox{\Hypertarget{classDevice_a6538eb1ee454e68b8acfd8de441e4de4}\label{classDevice_a6538eb1ee454e68b8acfd8de441e4de4}} 
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when gettting value\char`\"{}); \mbox{\Hypertarget{classDevice_a79e5c7249c26cea25e6fe4a212d83fa1}\label{classDevice_a79e5c7249c26cea25e6fe4a212d83fa1}} 
 \index{Device@{Device}!getDeviceType@{getDeviceType}}
 \index{getDeviceType@{getDeviceType}!Device@{Device}}
 \doxysubsubsection{\texorpdfstring{getDeviceType()}{getDeviceType()}}
-{\footnotesize\ttfamily std\+::string Device\+::get\+Device\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual std\+::string Device\+::get\+Device\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting type\char`\"{}); \mbox{\Hypertarget{classDevice_ae5d4f3c60c2d7a6bce84dce6ee584507}\label{classDevice_ae5d4f3c60c2d7a6bce84dce6ee584507}} 
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting type\char`\"{}); 
+
+Implemented in \mbox{\hyperlink{classScanDevice_a9453b501ec9ec1c54bf9e7c5303ad5a4}{Scan\+Device}}, \mbox{\hyperlink{classBWDevice_a71f6c373f5a381adf088cc0da2edaca7}{BWDevice}}, and \mbox{\hyperlink{classColorDevice_ae65980bf7998759ec9210c70fd1b0bff}{Color\+Device}}.
+
+\mbox{\Hypertarget{classDevice_ae5d4f3c60c2d7a6bce84dce6ee584507}\label{classDevice_ae5d4f3c60c2d7a6bce84dce6ee584507}} 
 \index{Device@{Device}!getEmissions@{getEmissions}}
 \index{getEmissions@{getEmissions}!Device@{Device}}
 \doxysubsubsection{\texorpdfstring{getEmissions()}{getEmissions()}}
 {\footnotesize\ttfamily int Device\+::get\+Emissions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting emissions\char`\"{}); \mbox{\Hypertarget{classDevice_ad2d04fe5b1cd6fef21062ed0e0417922}\label{classDevice_ad2d04fe5b1cd6fef21062ed0e0417922}} 
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting emissions\char`\"{}); \mbox{\Hypertarget{classDevice_af5bccba1f80cf63bf2cc5babf0b222a1}\label{classDevice_af5bccba1f80cf63bf2cc5babf0b222a1}} 
+\index{Device@{Device}!getFinishedjobs@{getFinishedjobs}}
+\index{getFinishedjobs@{getFinishedjobs}!Device@{Device}}
+\doxysubsubsection{\texorpdfstring{getFinishedjobs()}{getFinishedjobs()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classJob}{Job}} $\ast$ $>$ Device\+::get\+Finishedjobs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+REQUIRE(this-\/$>$properly\+Initialized(), \char`\"{}\+Device wasn\textquotesingle{}t initialized when getting finished jobs\char`\"{}); \mbox{\Hypertarget{classDevice_ad2d04fe5b1cd6fef21062ed0e0417922}\label{classDevice_ad2d04fe5b1cd6fef21062ed0e0417922}} 
 \index{Device@{Device}!getJobqueue@{getJobqueue}}
 \index{getJobqueue@{getJobqueue}!Device@{Device}}
 \doxysubsubsection{\texorpdfstring{getJobqueue()}{getJobqueue()}}

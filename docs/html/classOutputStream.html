@@ -90,7 +90,98 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
 <tr class="memitem:a368b15005bc4f0c45f3479947c53589e"><td class="memItemLeft" align="right" valign="top"><a id="a368b15005bc4f0c45f3479947c53589e"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>writeLine</b> (const std::string &amp;message)=0</td></tr>
 <tr class="separator:a368b15005bc4f0c45f3479947c53589e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7146c2ddacd1e113c91be58be9e5474"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOutputStream.html#ab7146c2ddacd1e113c91be58be9e5474">writeErrorJobNrNotFound</a> (int jobNR)</td></tr>
+<tr class="separator:ab7146c2ddacd1e113c91be58be9e5474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68f03d8cdf2b9d919a21c4204ea58cc6"><td class="memItemLeft" align="right" valign="top"><a id="a68f03d8cdf2b9d919a21c4204ea58cc6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeErrorNoDeviceOfCorrectType</b> ()</td></tr>
+<tr class="separator:a68f03d8cdf2b9d919a21c4204ea58cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ab9d55cfd1a38899a75666943f16251"><td class="memItemLeft" align="right" valign="top"><a id="a0ab9d55cfd1a38899a75666943f16251"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writePrintingPageNumber</b> (int pageNR)</td></tr>
+<tr class="separator:a0ab9d55cfd1a38899a75666943f16251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ff630eefea57c651000e41712e6a809"><td class="memItemLeft" align="right" valign="top"><a id="a5ff630eefea57c651000e41712e6a809"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeDeviceFinishedJob</b> (const std::string &amp;jobType, int jobNR, int jobPageCount, const std::string &amp;jobUsername, const std::string &amp;processingDeviceName)</td></tr>
+<tr class="separator:a5ff630eefea57c651000e41712e6a809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac071facce2fbad0ddb7ef81aa9908aca"><td class="memItemLeft" align="right" valign="top"><a id="ac071facce2fbad0ddb7ef81aa9908aca"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeSystemDiagnosticTitle</b> ()</td></tr>
+<tr class="separator:ac071facce2fbad0ddb7ef81aa9908aca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0804c6d363c21759b5cec358a7217096"><td class="memItemLeft" align="right" valign="top"><a id="a0804c6d363c21759b5cec358a7217096"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeAdvancedPerDeviceOutput</b> (const std::string &amp;deviceType, const std::string &amp;deviceName, const std::string &amp;jobQueueString, const std::string &amp;finishedJobsString)</td></tr>
+<tr class="separator:a0804c6d363c21759b5cec358a7217096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79aedf8f44bf1b8ae2a7e83fa4ee15b6"><td class="memItemLeft" align="right" valign="top"><a id="a79aedf8f44bf1b8ae2a7e83fa4ee15b6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeSystemReportHeader</b> ()</td></tr>
+<tr class="separator:a79aedf8f44bf1b8ae2a7e83fa4ee15b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af48bd18d0ff15e3f791ca9c0e65bcdb5"><td class="memItemLeft" align="right" valign="top"><a id="af48bd18d0ff15e3f791ca9c0e65bcdb5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeSystemReportDeviceInfo</b> (const std::string &amp;deviceType, const std::string &amp;deviceName, const std::string &amp;deviceSpeed, const std::string &amp;deviceCost, const std::string &amp;deviceEmission)</td></tr>
+<tr class="separator:af48bd18d0ff15e3f791ca9c0e65bcdb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fd296ed333e8b021a63a2c49cd638c1"><td class="memItemLeft" align="right" valign="top"><a id="a2fd296ed333e8b021a63a2c49cd638c1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeSystemReportJobInfo</b> (const std::string &amp;jobName, const std::string &amp;jobUser, const std::string &amp;jobPageCount, const std::string &amp;jobDevice, const std::string &amp;jobEmission, const std::string &amp;jobCost)</td></tr>
+<tr class="separator:a2fd296ed333e8b021a63a2c49cd638c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d61f828481f7c3e6ffc519731bf01ec"><td class="memItemLeft" align="right" valign="top"><a id="a5d61f828481f7c3e6ffc519731bf01ec"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeSystemReportJobsHeader</b> ()</td></tr>
+<tr class="separator:a5d61f828481f7c3e6ffc519731bf01ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18bf2099e96829f2444cb79a7bc084ae"><td class="memItemLeft" align="right" valign="top"><a id="a18bf2099e96829f2444cb79a7bc084ae"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeSystemReportNoPendingJobs</b> ()</td></tr>
+<tr class="separator:a18bf2099e96829f2444cb79a7bc084ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a12dc1737ee458a5bcd639f4bf8f2ac"><td class="memItemLeft" align="right" valign="top"><a id="a0a12dc1737ee458a5bcd639f4bf8f2ac"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeSystemReportFooter</b> ()</td></tr>
+<tr class="separator:a0a12dc1737ee458a5bcd639f4bf8f2ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81e2ffce3abed63b2da4ce077f2ea719"><td class="memItemLeft" align="right" valign="top"><a id="a81e2ffce3abed63b2da4ce077f2ea719"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeXMLAborted</b> (const std::string &amp;errorDesc)</td></tr>
+<tr class="separator:a81e2ffce3abed63b2da4ce077f2ea719"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83a404bdc686d2146481e5ee22edb3b8"><td class="memItemLeft" align="right" valign="top"><a id="a83a404bdc686d2146481e5ee22edb3b8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeXMLFailedToLoadFile</b> ()</td></tr>
+<tr class="separator:a83a404bdc686d2146481e5ee22edb3b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6df540b90443db90c331d6725f25c66b"><td class="memItemLeft" align="right" valign="top"><a id="a6df540b90443db90c331d6725f25c66b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeXMLUnrecognizedElement</b> (const std::string &amp;expected, const std::string &amp;got)</td></tr>
+<tr class="separator:a6df540b90443db90c331d6725f25c66b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a678e0d42d7a57e713451fef7b5f46256"><td class="memItemLeft" align="right" valign="top"><a id="a678e0d42d7a57e713451fef7b5f46256"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeXMLUnrecognizedAttribute</b> (const std::string &amp;expected)</td></tr>
+<tr class="separator:a678e0d42d7a57e713451fef7b5f46256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a964baff8b338a035e143fdb40155c7"><td class="memItemLeft" align="right" valign="top"><a id="a9a964baff8b338a035e143fdb40155c7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeXMLNoInput</b> (const std::string &amp;what, const std::string &amp;attributeTag)</td></tr>
+<tr class="separator:a9a964baff8b338a035e143fdb40155c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e62f1b9aecbeb540c37c3b51aef6eef"><td class="memItemLeft" align="right" valign="top"><a id="a5e62f1b9aecbeb540c37c3b51aef6eef"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeXMLNegativeInteger</b> (const std::string &amp;type, const std::string &amp;attributeTag)</td></tr>
+<tr class="separator:a5e62f1b9aecbeb540c37c3b51aef6eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8f1b59424d3d33da577aeb5ad71d0e2"><td class="memItemLeft" align="right" valign="top"><a id="ac8f1b59424d3d33da577aeb5ad71d0e2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeXMLNonUniqueNumber</b> (const std::string &amp;type, const std::string &amp;lowerType, const std::string &amp;attributeTag)</td></tr>
+<tr class="separator:ac8f1b59424d3d33da577aeb5ad71d0e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac72ad0cae87473dc5e014dc3df204198"><td class="memItemLeft" align="right" valign="top"><a id="ac72ad0cae87473dc5e014dc3df204198"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeXMLInvalidValueType</b> (const std::string &amp;type, const std::string &amp;attributeTag)</td></tr>
+<tr class="separator:ac72ad0cae87473dc5e014dc3df204198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a603c83a6fd49ebcd28cdbcf55a7aae35"><td class="memItemLeft" align="right" valign="top"><a id="a603c83a6fd49ebcd28cdbcf55a7aae35"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeXMLInvalidEmissions</b> (const std::string &amp;typePrinter, const std::string &amp;gramsPerPage, const std::string &amp;got)</td></tr>
+<tr class="separator:a603c83a6fd49ebcd28cdbcf55a7aae35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb41a351e0e03ab24f4e5ea364131849"><td class="memItemLeft" align="right" valign="top"><a id="aeb41a351e0e03ab24f4e5ea364131849"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeXMLInvalidCost</b> ()</td></tr>
+<tr class="separator:aeb41a351e0e03ab24f4e5ea364131849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8d6efb7edf95c56202ab4ad6c76b5d9"><td class="memItemLeft" align="right" valign="top"><a id="ab8d6efb7edf95c56202ab4ad6c76b5d9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeXMLUnrecognizedElementExpectedDeviceOrJob</b> ()</td></tr>
+<tr class="separator:ab8d6efb7edf95c56202ab4ad6c76b5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad83f64271852784d28808d9bbb1b166d"><td class="memItemLeft" align="right" valign="top"><a id="ad83f64271852784d28808d9bbb1b166d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeXMLNotConsistent</b> ()</td></tr>
+<tr class="separator:ad83f64271852784d28808d9bbb1b166d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab7146c2ddacd1e113c91be58be9e5474"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7146c2ddacd1e113c91be58be9e5474">&#9670;&nbsp;</a></span>writeErrorJobNrNotFound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OutputStream::writeErrorJobNrNotFound </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>jobNR</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>REQUIRE(this-&gt;properlyInitialized(), "OutputStream wasn't initialized when writing this string"); </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Output_8h_source.html">Output.h</a></li>
 <li>Output.cpp</li>

@@ -78,6 +78,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
 <tr class="separator:a086e37e0bb372e0a8c5c8ba3cc4072fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a593f9e98ee9ffa44950035264b9e8a2c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPrintingSystem.html#a593f9e98ee9ffa44950035264b9e8a2c">PrintingSystem</a> ()</td></tr>
 <tr class="separator:a593f9e98ee9ffa44950035264b9e8a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cb9fc1ff659f8cf47db85e209ca65dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPrintingSystem.html#a6cb9fc1ff659f8cf47db85e209ca65dc">~PrintingSystem</a> ()</td></tr>
+<tr class="separator:a6cb9fc1ff659f8cf47db85e209ca65dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a519853d5826e44a5f612bdaac0e103e6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPrintingSystem.html#a519853d5826e44a5f612bdaac0e103e6">isUniqueJobNumber</a> (int jobNR)</td></tr>
 <tr class="separator:a519853d5826e44a5f612bdaac0e103e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95261c71ffef77d62d90047882dbda8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPrintingSystem.html#a95261c71ffef77d62d90047882dbda8d">clearSystemBecauseInvalid</a> ()</td></tr>
@@ -98,11 +100,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>properlyInitialized</
 <tr class="separator:a48e82fdfa73a1b683d6b3bdc95caf595"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d5ace72ca161f997355bc31a706bcaa"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classJob.html">Job</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPrintingSystem.html#a7d5ace72ca161f997355bc31a706bcaa">getJobs</a> ()</td></tr>
 <tr class="separator:a7d5ace72ca161f997355bc31a706bcaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54767fd7c4fb065179dc1817ccc7db3b"><td class="memItemLeft" align="right" valign="top"><a id="a54767fd7c4fb065179dc1817ccc7db3b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getTotalEmissions</b> ()</td></tr>
+<tr class="memitem:a54767fd7c4fb065179dc1817ccc7db3b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPrintingSystem.html#a54767fd7c4fb065179dc1817ccc7db3b">getTotalEmissions</a> ()</td></tr>
 <tr class="separator:a54767fd7c4fb065179dc1817ccc7db3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f50caab85ed60626a710797ed0d6992"><td class="memItemLeft" align="right" valign="top"><a id="a3f50caab85ed60626a710797ed0d6992"></a>
-std::vector&lt; <a class="el" href="classDevice.html">Device</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getDevices</b> ()</td></tr>
+<tr class="memitem:a3f50caab85ed60626a710797ed0d6992"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classDevice.html">Device</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPrintingSystem.html#a3f50caab85ed60626a710797ed0d6992">getDevices</a> ()</td></tr>
 <tr class="separator:a3f50caab85ed60626a710797ed0d6992"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -124,6 +124,24 @@ std::vector&lt; <a class="el" href="classDevice.html">Device</a> * &gt;&#160;</t
 
 </div>
 </div>
+<a id="a6cb9fc1ff659f8cf47db85e209ca65dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cb9fc1ff659f8cf47db85e209ca65dc">&#9670;&nbsp;</a></span>~PrintingSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PrintingSystem::~PrintingSystem </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>REQUIRE(this-&gt;properlyInitialized(), "Printing system was not properly initialized when trying to destruct it"); </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a45367ed13bf24f0ae5dfda02a1754acb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a45367ed13bf24f0ae5dfda02a1754acb">&#9670;&nbsp;</a></span>addDevice()</h2>
@@ -140,7 +158,7 @@ std::vector&lt; <a class="el" href="classDevice.html">Device</a> * &gt;&#160;</t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(this-&gt;properlyInitialized(), "Printing system was not properly initialized when trying to add a device"); </p>
+<p>REQUIRE(this-&gt;properlyInitialized(), "Printing system was not properly initialized when trying to add a device"); ENSURE(find != devices.end(), "Device wasn't added to the printing system"); </p>
 
 </div>
 </div>
@@ -159,7 +177,7 @@ std::vector&lt; <a class="el" href="classDevice.html">Device</a> * &gt;&#160;</t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(this-&gt;properlyInitialized(), "Printing system was not properly initialized when trying to add a job"); </p>
+<p>REQUIRE(this-&gt;properlyInitialized(), "Printing system was not properly initialized when trying to add a job"); ENSURE(find != jobs.end(),"Job wasn't added to the printing system"); </p>
 
 </div>
 </div>
@@ -200,6 +218,24 @@ std::vector&lt; <a class="el" href="classDevice.html">Device</a> * &gt;&#160;</t
 
 </div>
 </div>
+<a id="a3f50caab85ed60626a710797ed0d6992"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f50caab85ed60626a710797ed0d6992">&#9670;&nbsp;</a></span>getDevices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classDevice.html">Device</a> * &gt; PrintingSystem::getDevices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>REQUIRE(this-&gt;properlyIntialized(), "System was not properly initialized when trying to get devices"); </p>
+
+</div>
+</div>
 <a id="a7d5ace72ca161f997355bc31a706bcaa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d5ace72ca161f997355bc31a706bcaa">&#9670;&nbsp;</a></span>getJobs()</h2>
 
@@ -215,6 +251,24 @@ std::vector&lt; <a class="el" href="classDevice.html">Device</a> * &gt;&#160;</t
       </table>
 </div><div class="memdoc">
 <p>REQUIRE(this-&gt;properlyIntialized(), "System was not properly initialized when trying to get jobs"); </p>
+
+</div>
+</div>
+<a id="a54767fd7c4fb065179dc1817ccc7db3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54767fd7c4fb065179dc1817ccc7db3b">&#9670;&nbsp;</a></span>getTotalEmissions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PrintingSystem::getTotalEmissions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>REQUIRE(this-&gt;properlyIntialized(), "System was not properly initialized when trying to get total emissions"); </p>
 
 </div>
 </div>
@@ -299,7 +353,7 @@ std::vector&lt; <a class="el" href="classDevice.html">Device</a> * &gt;&#160;</t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>REQUIRE(this-&gt;properlyInitialized(), "System was not properly initialized when trying to get jobs"); </p>
+<p>REQUIRE(this-&gt;properlyInitialized(), "System was not properly initialized when trying to queue jobs"); </p>
 
 </div>
 </div>
